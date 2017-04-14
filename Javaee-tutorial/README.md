@@ -17,7 +17,7 @@
 3. 使用Intellij Idea导入项目,之后配置项目启动方式,使用刚才下载好的Tomcat
 4. 运行
 
-![image](https://pic4.zhimg.com/v2-87231f2eb533cdab3d3e04c7a89457af_b.png)
+![image](http://img.my.csdn.net/uploads/201704/14/1492181839_6548.png)
 
 ## 使用简介
 权限介绍,运行网站初始时会存在四个权限角色:
@@ -25,6 +25,7 @@
 2. 学生,账号为student
 3. 教师,账号为teache
 4. 供应商,账号为supplier
+
 *密码均为123456*
 
 ## 功能介绍
@@ -36,14 +37,14 @@
 4. 课程信息
 5. 学生管理
 
-![image](https://pic1.zhimg.com/v2-44688d7a989ae25d9db6767a50a208f8_b.png.
+![image](http://img.my.csdn.net/uploads/201704/14/1492181356_1380.png)
 
 ### 2. 图书管理功能
 1. 教师上传图书
 2. 秘书审批图书
 3. 查看已审核图书
 
-![image](https://pic3.zhimg.com/v2-3ff2f0da17e8609f85da3b61671cf0de_b.png)
+![image](http://img.my.csdn.net/uploads/201704/14/1492181328_8251.png)
 
 ## 数据库表结构:
 ![image](http://7xi78h.com1.z0.glb.clouddn.com/db.png)

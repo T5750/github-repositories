@@ -24,8 +24,13 @@ public class LoginController {
 	@RequestMapping("login")
 	public String login(HttpServletRequest req, Model model,
 			HttpSession session) {
-		String exceptionClassName = (String) req
-				.getAttribute("shiroLoginFailure");
+		// String exceptionClassName = (String)
+		// req.getAttribute("shiroLoginFailure");
+		String exceptionClassName = null;
+		if (null != req.getAttribute("shiroLoginFailure")) {
+			exceptionClassName = req.getAttribute("shiroLoginFailure")
+					.toString();
+		}
 		String error = null;
 		if (UnknownAccountException.class.getName()
 				.equals(exceptionClassName)) {
