@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Javaee-tutorial</module>
+        <module>SpringMVC-Mybatis-Shiro-redis-0.2</module>
     </modules>
-
 
 </project>
