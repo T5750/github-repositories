@@ -42,7 +42,9 @@ public class TermContainer {
 		int beginYear = beginTime.getYear();
 		int todayYear = today.getYear();
 		int count = todayYear - beginYear;
-//		if (map.get(String.valueOf(today.getMonthValue())).equals(nextTermStr)) {
+		// if
+		// (map.get(String.valueOf(today.getMonthValue())).equals(nextTermStr))
+		// {
 		if (map.get(String.valueOf(today.getMonth())).equals(nextTermStr)) {
 			Term term = new Term();
 			term.setVal(todayYear + "2");

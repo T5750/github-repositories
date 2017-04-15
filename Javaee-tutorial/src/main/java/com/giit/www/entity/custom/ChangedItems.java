@@ -6,150 +6,146 @@ import java.util.List;
  * Created by c0de8ug on 16-2-15.
  */
 public class ChangedItems {
-    int secId;
+	int secId;
 
-    public int getSecID() {
-        return secId;
-    }
+	public int getSecID() {
+		return secId;
+	}
 
-    public void setSecID(int secId) {
-        this.secId = secId;
-    }
+	public void setSecID(int secId) {
+		this.secId = secId;
+	}
 
-    public List<AlterItem> getAlterItemList() {
-        return alterItemList;
-    }
+	public List<AlterItem> getAlterItemList() {
+		return alterItemList;
+	}
 
-    public void setAlterItemList(List<AlterItem> alterItemList) {
-        this.alterItemList = alterItemList;
-    }
+	public void setAlterItemList(List<AlterItem> alterItemList) {
+		this.alterItemList = alterItemList;
+	}
 
-    public List<DeleteItem> getDeleteItemList() {
-        return deleteItemList;
-    }
+	public List<DeleteItem> getDeleteItemList() {
+		return deleteItemList;
+	}
 
-    public void setDeleteItemList(List<DeleteItem> deleteItemList) {
-        this.deleteItemList = deleteItemList;
-    }
+	public void setDeleteItemList(List<DeleteItem> deleteItemList) {
+		this.deleteItemList = deleteItemList;
+	}
 
-    List<AlterItem> alterItemList;
+	List<AlterItem> alterItemList;
+	List<DeleteItem> deleteItemList;
 
+	public static class AlterItem {
+		public String getBookTitle() {
+			return bookTitle;
+		}
 
-    List<DeleteItem> deleteItemList;
+		public void setBookTitle(String bookTitle) {
+			this.bookTitle = bookTitle;
+		}
 
-    public static class AlterItem {
-        public String getBookTitle() {
-            return bookTitle;
-        }
+		public String getIsbn() {
+			return isbn;
+		}
 
-        public void setBookTitle(String bookTitle) {
-            this.bookTitle = bookTitle;
-        }
+		public void setIsbn(String isbn) {
+			this.isbn = isbn;
+		}
 
-        public String getIsbn() {
-            return isbn;
-        }
+		public String getNewBookTitle() {
+			return newBookTitle;
+		}
 
-        public void setIsbn(String isbn) {
-            this.isbn = isbn;
-        }
+		public void setNewBookTitle(String newBookTitle) {
+			this.newBookTitle = newBookTitle;
+		}
 
-        public String getNewBookTitle() {
-            return newBookTitle;
-        }
+		public String getNewIsbn() {
+			return newIsbn;
+		}
 
-        public void setNewBookTitle(String newBookTitle) {
-            this.newBookTitle = newBookTitle;
-        }
+		public void setNewIsbn(String newIsbn) {
+			this.newIsbn = newIsbn;
+		}
 
-        public String getNewIsbn() {
-            return newIsbn;
-        }
+		public String getNewDateOfPrinting() {
+			return newDateOfPrinting;
+		}
 
-        public void setNewIsbn(String newIsbn) {
-            this.newIsbn = newIsbn;
-        }
+		public void setNewDateOfPrinting(String newDateOfPrinting) {
+			this.newDateOfPrinting = newDateOfPrinting;
+		}
 
-        public String getNewDateOfPrinting() {
-            return newDateOfPrinting;
-        }
+		public String getNewAuthor() {
+			return newAuthor;
+		}
 
-        public void setNewDateOfPrinting(String newDateOfPrinting) {
-            this.newDateOfPrinting = newDateOfPrinting;
-        }
+		public void setNewAuthor(String newAuthor) {
+			this.newAuthor = newAuthor;
+		}
 
-        public String getNewAuthor() {
-            return newAuthor;
-        }
+		public String getNewPress() {
+			return newPress;
+		}
 
-        public void setNewAuthor(String newAuthor) {
-            this.newAuthor = newAuthor;
-        }
+		public void setNewPress(String newPress) {
+			this.newPress = newPress;
+		}
 
-        public String getNewPress() {
-            return newPress;
-        }
+		public String getNewCategory() {
+			return newCategory;
+		}
 
-        public void setNewPress(String newPress) {
-            this.newPress = newPress;
-        }
+		public void setNewCategory(String newCategory) {
+			this.newCategory = newCategory;
+		}
 
-        public String getNewCategory() {
-            return newCategory;
-        }
+		public String getNewUnitPrice() {
+			return newUnitPrice;
+		}
 
-        public void setNewCategory(String newCategory) {
-            this.newCategory = newCategory;
-        }
+		public void setNewUnitPrice(String newUnitPrice) {
+			this.newUnitPrice = newUnitPrice;
+		}
 
-        public String getNewUnitPrice() {
-            return newUnitPrice;
-        }
+		public String getNewRemark() {
+			return newRemark;
+		}
 
-        public void setNewUnitPrice(String newUnitPrice) {
-            this.newUnitPrice = newUnitPrice;
-        }
+		public void setNewRemark(String newRemark) {
+			this.newRemark = newRemark;
+		}
 
-        public String getNewRemark() {
-            return newRemark;
-        }
+		String bookTitle;
+		String isbn;
+		String newBookTitle;
+		String newIsbn;
+		String newDateOfPrinting;
+		String newAuthor;
+		String newPress;
+		String newCategory;
+		String newUnitPrice;
+		String newRemark;
+	}
 
-        public void setNewRemark(String newRemark) {
-            this.newRemark = newRemark;
-        }
+	public static class DeleteItem {
+		public String getBookTitle() {
+			return bookTitle;
+		}
 
-        String bookTitle;
-        String isbn;
-        String newBookTitle;
-        String newIsbn;
-        String newDateOfPrinting;
-        String newAuthor;
-        String newPress;
-        String newCategory;
-        String newUnitPrice;
-        String newRemark;
-    }
+		public void setBookTitle(String bookTitle) {
+			this.bookTitle = bookTitle;
+		}
 
-    public static class DeleteItem {
-        public String getBookTitle() {
-            return bookTitle;
-        }
+		public String getIsbn() {
+			return isbn;
+		}
 
-        public void setBookTitle(String bookTitle) {
-            this.bookTitle = bookTitle;
-        }
+		public void setIsbn(String isbn) {
+			this.isbn = isbn;
+		}
 
-        public String getIsbn() {
-            return isbn;
-        }
-
-        public void setIsbn(String isbn) {
-            this.isbn = isbn;
-        }
-
-        String bookTitle;
-        String isbn;
-    }
-
-
+		String bookTitle;
+		String isbn;
+	}
 }

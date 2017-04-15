@@ -1,26 +1,28 @@
 package com.giit.www.college.dao;
 
-import com.giit.www.entity.Spec;
-import com.giit.www.entity.custom.DeptAndSpec;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.giit.www.entity.Spec;
+import com.giit.www.entity.custom.DeptAndSpec;
 
 /**
  * Created by c0de8ug on 16-2-11.
  */
 public interface SpecDao {
-    public List<Spec> findAll();
+	public List<Spec> findAll();
 
-    public void update(@Param("specName") String specName, @Param("newSpecName") String newSpecName);
+	public void update(@Param("specName") String specName,
+			@Param("newSpecName") String newSpecName);
 
-    public void add(Spec spec);
+	public void add(Spec spec);
 
-    public void delete(String specName);
+	public void delete(String specName);
 
-    public List<DeptAndSpec> findDeptAndSpec();
+	public List<DeptAndSpec> findDeptAndSpec();
 
-    public String findIdByName(String specName);
+	public String findIdByName(String specName);
 
-    public List<String> findAllSpecName();
+	public List<String> findAllSpecName();
 }
