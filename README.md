@@ -7,7 +7,7 @@
 学习参考，感谢开源！
 
 ### Javaee-tutorial
-[Javaee-tutorial](https://github.com/T5750/github-repositories/tree/master/Javaee-tutorial)是个简单的教务系统网站,并且结合了图书订购功能
+[Javaee-tutorial](https://github.com/T5750/github-repositories/tree/master/Javaee-tutorial)是个简单的教务系统网站，并且结合了图书订购功能
 - IoC容器: Spring 4.2.4.RELEASE
 - web框架: Spring MVC 4.2.4.RELEASE
 - orm框架: MyBatis 3.3.1
@@ -17,7 +17,8 @@
 - Json: Gson 2.5
 - 前端框架: Bootstrap v3.3.6
 
-### SpringMVC-Mybatis-Shiro-redis-0.2(https://github.com/T5750/github-repositories/tree/master/SpringMVC-Mybatis-Shiro-redis-0.2)
+### SpringMVC-Mybatis-Shiro-redis-0.2
+[SpringMVC-Mybatis-Shiro-redis-0.2](https://github.com/T5750/github-repositories/tree/master/SpringMVC-Mybatis-Shiro-redis-0.2)运用SSM + Shiro，包括个人中心、用户中心和权限管理
 - IoC容器: Spring 4.2.5.RELEASE
 - web框架: Spring MVC 4.2.5.RELEASE
 - orm框架: MyBatis 3.1.0

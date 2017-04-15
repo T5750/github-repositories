@@ -94,7 +94,6 @@ public class SpecCaptcha extends Captcha {
 			try {
 				out.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
