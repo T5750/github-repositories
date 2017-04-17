@@ -3,15 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.evangel</groupId>
-    <artifactId>github-repositories</artifactId>
+    <parent>
+        <artifactId>smart</artifactId>
+        <groupId>com.smart</groupId>
+        <version>0.0.1</version>
+    </parent>
+    <artifactId>smart-mvc</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+
     <modules>
-        <module>Javaee-tutorial</module>
-        <module>SpringMVC-Mybatis-Shiro-redis-0.2</module>
-        <module>smart</module>
+        <module>smart-mvc-core</module>
+        <module>smart-mvc-hibernate</module>
+        <module>smart-mvc-mybatis</module>
     </modules>
 
 </project>

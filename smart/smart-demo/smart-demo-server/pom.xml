@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>smart-demo</artifactId>
+        <groupId>com.smart</groupId>
+        <version>0.0.1</version>
+    </parent>
+    <artifactId>smart-demo-server</artifactId>
+    <packaging>war</packaging>
+    <name>${project.artifactId}</name>
+
+    <properties>
+        <server.port>8081</server.port>
+    </properties>
+
+    <dependencies>
+        <!-- demo-api支持 -->
+        <dependency>
+            <groupId>com.smart</groupId>
+            <artifactId>smart-demo-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
