@@ -16,19 +16,17 @@ import freemarker.template.Template;
 public class FreemarkerUtils {
 	/** 编码 */
 	public static final String UNICODE_UTF8 = "UTF-8";
-
 	/** 模板存放路径 */
 	public static final String TEMPLATE_URL = "/WEB-INF/common/template";
-
 	/** 创建freemarker配置实例 */
-	private static Configuration config = new Configuration(Configuration.VERSION_2_3_23);
-
+	private static Configuration config = new Configuration(
+			Configuration.VERSION_2_3_23);
 	static {
 		try {
-			config.setDirectoryForTemplateLoading(new File(System.getProperty("user.dir")
+			config.setDirectoryForTemplateLoading(new File(System.getProperty(
+					"user.dir") + "\\smart\\smart-tool\\smart-tool-mybatis"
 					+ "\\src\\main\\java\\com\\smart\\tool\\template\\"));
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -37,9 +35,9 @@ public class FreemarkerUtils {
 		String htmlText = "";
 		try {
 			Template temp = config.getTemplate(templateName, UNICODE_UTF8);
-			htmlText = FreeMarkerTemplateUtils.processTemplateIntoString(temp, dataMap);
-		}
-		catch (Exception e) {
+			htmlText = FreeMarkerTemplateUtils.processTemplateIntoString(temp,
+					dataMap);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return htmlText;

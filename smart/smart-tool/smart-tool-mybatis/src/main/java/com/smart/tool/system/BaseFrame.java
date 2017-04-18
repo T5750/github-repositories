@@ -41,7 +41,7 @@ public abstract class BaseFrame extends JFrame {
 
 	private JFileChooser fileChooser = null;
 	private JLabel tablesLabel = null;
-	private JComboBox<?> tablesBox = null;
+	private JComboBox tablesBox = null;
 
 	private JLabel outFileLabel = null;
 	protected JTextField outFileText = null;
@@ -57,7 +57,7 @@ public abstract class BaseFrame extends JFrame {
 	private JLabel modelLabel = null;
 	protected JTextField modelText = null;
 	private JLabel extendsLabel = null;
-	protected JComboBox<?> extendsBox = null;
+	protected JComboBox extendsBox = null;
 
 	private JLabel serviceLabel = null;
 	protected JTextField serviceText = null;
@@ -142,13 +142,13 @@ public abstract class BaseFrame extends JFrame {
 		this.tablesLabel.setToolTipText("表名");
 		this.tablesLabel.setBounds(new Rectangle(10, 10, 100, 20));
 
-		this.tablesBox = new JComboBox<Object>(DbManager.getTableNameList(connection).toArray());
+		this.tablesBox = new JComboBox(DbManager.getTableNameList(connection).toArray());
 		this.tablesBox.setSelectedItem(null);
 		this.tablesBox.setBounds(new Rectangle(80, 10, 545, 20));
 		this.tablesBox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				analyzer = new Analyzer(statement, ((JComboBox<?>) e.getSource()).getSelectedItem().toString(),
+				analyzer = new Analyzer(statement, ((JComboBox) e.getSource()).getSelectedItem().toString(),
 						config.getUrl());
 				changeTextValue();
 			}
@@ -215,7 +215,7 @@ public abstract class BaseFrame extends JFrame {
 		this.extendsLabel.setToolTipText("Extends");
 		this.extendsLabel.setBounds(new Rectangle(420, 80, 50, 20));
 
-		this.extendsBox = new JComboBox<Object>(persistentMap.keySet().toArray());
+		this.extendsBox = new JComboBox(persistentMap.keySet().toArray());
 		this.extendsBox.setBounds(new Rectangle(470, 80, 150, 20));
 
 		this.controllerLabel = new JLabel();

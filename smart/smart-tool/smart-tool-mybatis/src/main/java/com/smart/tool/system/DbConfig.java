@@ -13,12 +13,10 @@ import java.util.Properties;
 public class DbConfig {
 	public static String GENERATE_TYPE_SQL = "sql";
 	public static String GENERATE_TYPE_DB = "db";
-
 	private String outPath;
 	private String companyName;
 	private String projectName;
 	private String moduleName;
-
 	private String driverClassName;
 	private String url;
 	private String username;
@@ -27,20 +25,20 @@ public class DbConfig {
 	public DbConfig() {
 		Properties props = new Properties();
 		try {
-			InputStream in = new FileInputStream(new File("config.properties"));
+			String path = DbConfig.class.getClassLoader().getResource("")
+					.toURI().getPath();
+			InputStream in = new FileInputStream(
+					new File(path + "config.properties"));
 			props.load(in);
-
 			outPath = props.getProperty("default.outPath");
 			companyName = props.getProperty("default.companyName");
 			projectName = props.getProperty("default.projectName");
 			moduleName = props.getProperty("default.moduleName");
-
 			driverClassName = props.getProperty("db.driverClassName");
 			url = props.getProperty("db.url");
 			username = props.getProperty("db.username");
 			password = props.getProperty("db.password");
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
