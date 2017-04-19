@@ -20,17 +20,18 @@ import com.smart.sso.server.common.TokenManager;
 @Controller
 @RequestMapping("/logout")
 public class LogoutController {
-	
 	@Resource
 	private TokenManager tokenManager;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String logout(@ValidateParam(name = "返回链接") String backUrl, HttpServletRequest request) {
+	public String logout(@ValidateParam(name = "返回链接") String backUrl,
+			HttpServletRequest request) {
 		String token = CookieUtils.getCookie(request, "token");
 		if (StringUtils.isNotBlank(token)) {
 			tokenManager.remove(token);
 		}
 		request.getSession().invalidate();
-		return "redirect:" + (StringUtils.isBlank(backUrl) ? "/admin/admin" : backUrl);
+		return "redirect:"
+				+ (StringUtils.isBlank(backUrl) ? "/admin/admin" : backUrl);
 	}
 }

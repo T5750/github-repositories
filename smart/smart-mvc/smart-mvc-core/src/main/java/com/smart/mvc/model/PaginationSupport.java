@@ -8,13 +8,11 @@ import java.io.Serializable;
  * @author Joe
  */
 public class PaginationSupport implements Serializable {
-
 	private static final long serialVersionUID = 2234283310680151858L;
 	/** 默认显示页码数 */
 	public static final int DEFAULT_OFFSET_SIZE = 3;
 	/** 默认每页行数 */
 	public static final int DEFAULT_PAGE_SIZE = 20;
-
 	/** 显示页码数 */
 	private int offsetSize = DEFAULT_OFFSET_SIZE;
 	/** 每页行数 */

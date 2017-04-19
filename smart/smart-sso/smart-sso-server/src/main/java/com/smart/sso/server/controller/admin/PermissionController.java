@@ -27,7 +27,6 @@ import com.smart.sso.server.service.PermissionService;
 @Controller
 @RequestMapping("/admin/permission")
 public class PermissionController extends BaseController {
-
 	@Resource
 	private PermissionService permissionService;
 	@Resource
@@ -44,7 +43,8 @@ public class PermissionController extends BaseController {
 			@ValidateParam(name = "应用ID ") Integer appId,
 			@ValidateParam(name = "名称") String name,
 			@ValidateParam(name = "是否启用 ") Boolean isEnable) {
-		List<Permission> list = permissionService.findByName(name, appId, isEnable);
+		List<Permission> list = permissionService.findByName(name, appId,
+				isEnable);
 		Permission permission = new Permission();
 		permission.setId(null);
 		permission.setParentId(-1);
@@ -55,21 +55,25 @@ public class PermissionController extends BaseController {
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public @ResponseBody Result save(
-			@ValidateParam(name = "ID") Integer id,
-			@ValidateParam(name = "应用ID", validators = { Validator.NOT_BLANK }) Integer appId,
+	public @ResponseBody Result save(@ValidateParam(name = "ID") Integer id,
+			@ValidateParam(name = "应用ID", validators = {
+					Validator.NOT_BLANK }) Integer appId,
 			@ValidateParam(name = "父ID") Integer parentId,
 			@ValidateParam(name = "图标") String icon,
-			@ValidateParam(name = "名称", validators = { Validator.NOT_BLANK }) String name,
-			@ValidateParam(name = "权限URL", validators = { Validator.NOT_BLANK }) String url,
-			@ValidateParam(name = "排序", validators = { Validator.NOT_BLANK }) Integer sort,
-			@ValidateParam(name = "是否菜单", validators = { Validator.NOT_BLANK }) Boolean isMenu,
-			@ValidateParam(name = "是否启用 ", validators = { Validator.NOT_BLANK }) Boolean isEnable) {
+			@ValidateParam(name = "名称", validators = {
+					Validator.NOT_BLANK }) String name,
+			@ValidateParam(name = "权限URL", validators = {
+					Validator.NOT_BLANK }) String url,
+			@ValidateParam(name = "排序", validators = {
+					Validator.NOT_BLANK }) Integer sort,
+			@ValidateParam(name = "是否菜单", validators = {
+					Validator.NOT_BLANK }) Boolean isMenu,
+			@ValidateParam(name = "是否启用 ", validators = {
+					Validator.NOT_BLANK }) Boolean isEnable) {
 		Permission permission;
 		if (id == null) {
 			permission = new Permission();
-		}
-		else {
+		} else {
 			permission = permissionService.get(id);
 		}
 		permission.setAppId(appId);
@@ -86,8 +90,10 @@ public class PermissionController extends BaseController {
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public @ResponseBody Result delete(
-			@ValidateParam(name = "id", validators = { Validator.NOT_BLANK }) Integer id,
-			@ValidateParam(name = "应用ID", validators = { Validator.NOT_BLANK }) Integer appId) {
+			@ValidateParam(name = "id", validators = {
+					Validator.NOT_BLANK }) Integer id,
+			@ValidateParam(name = "应用ID", validators = {
+					Validator.NOT_BLANK }) Integer appId) {
 		permissionService.deletePermission(id, appId);
 		return Result.createSuccessResult().setMessage("删除成功");
 	}

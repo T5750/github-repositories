@@ -2,14 +2,12 @@ package com.smart.sso.rpc;
 
 import java.util.List;
 
-
 /**
  * 身份认证系统通信服务接口
  * 
  * @author Joe
  */
 public interface AuthenticationRpcService {
-	
 	/**
 	 * 验证是否已经登录
 	 * 
@@ -29,7 +27,7 @@ public interface AuthenticationRpcService {
 	 * @return
 	 */
 	public RpcUser findAuthInfo(String token);
-	
+
 	/**
 	 * 获取当前应用所有权限(含菜单)
 	 * 
@@ -40,7 +38,7 @@ public interface AuthenticationRpcService {
 	 * @return
 	 */
 	public List<RpcPermission> findPermissionList(String token, String appCode);
-	
+
 	/**
 	 * 更新当前登录用户密码
 	 * 

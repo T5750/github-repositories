@@ -21,12 +21,10 @@ import com.smart.sso.server.service.AppService;
 @Component
 @Aspect
 public class PermissionAspect {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(PermissionAspect.class);
-
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(PermissionAspect.class);
 	@Resource
 	private AppService appService;
-
 	@Resource
 	private PermissionSubject permissionSubject;
 
@@ -34,8 +32,7 @@ public class PermissionAspect {
 	public void access(JoinPoint jp) {
 		try {
 			permissionSubject.update();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			LOGGER.error("应用权限修改AOP异常", e);
 		}
 	}

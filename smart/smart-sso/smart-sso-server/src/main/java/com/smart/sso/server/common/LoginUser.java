@@ -8,9 +8,7 @@ import java.io.Serializable;
  * @author Joe
  */
 public class LoginUser implements Serializable {
-
 	private static final long serialVersionUID = 4507869346123296527L;
-
 	// 登录成功ID
 	private Integer userId;
 	// 登录成功用户名
@@ -40,7 +38,7 @@ public class LoginUser implements Serializable {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	public Object getProfile() {
 		return profile;
 	}
@@ -61,8 +59,7 @@ public class LoginUser implements Serializable {
 		if (userId == null) {
 			if (other.userId != null)
 				return false;
-		}
-		else if (!userId.equals(other.userId))
+		} else if (!userId.equals(other.userId))
 			return false;
 		return true;
 	}

@@ -7,10 +7,8 @@ import com.smart.mvc.model.ResultCode;
  * 
  * @author Joe
  */
-public class CacheException extends ApplicationException{
-
+public class CacheException extends ApplicationException {
 	private static final long serialVersionUID = -2678203134198782909L;
-	
 	public static final String MESSAGE = "缓存异常";
 
 	public CacheException() {
@@ -21,7 +19,7 @@ public class CacheException extends ApplicationException{
 		super(message);
 		this.code = ResultCode.CACHE_ERROR;
 	}
-	
+
 	public CacheException(int code, String message) {
 		super(message);
 		this.code = code;
@@ -31,7 +29,7 @@ public class CacheException extends ApplicationException{
 		super(message, cause);
 		this.code = ResultCode.CACHE_ERROR;
 	}
-	
+
 	public CacheException(int code, String message, Throwable cause) {
 		super(message, cause);
 		this.code = code;

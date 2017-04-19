@@ -8,10 +8,7 @@ import com.smart.mvc.model.EnumItemable;
  * @author Joe
  */
 public enum TrueFalseEnum implements EnumItemable<TrueFalseEnum> {
-
-	TRUE("是", true), 
-	FALSE("否", false);
-
+	TRUE("是", true), FALSE("否", false);
 	private String label;
 	private Boolean value;
 

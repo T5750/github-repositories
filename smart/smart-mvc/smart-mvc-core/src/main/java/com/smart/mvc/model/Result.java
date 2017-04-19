@@ -6,17 +6,14 @@ package com.smart.mvc.model;
  * @author Joe
  */
 public class Result {
-
 	/**
 	 * 结果体
 	 */
 	protected Object data;
-
 	/**
 	 * 状态码
 	 */
 	protected Integer code;
-
 	/**
 	 * 信息
 	 */

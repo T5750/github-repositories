@@ -9,7 +9,6 @@ import org.springframework.web.context.WebApplicationContext;
  * @author Joe
  */
 public final class SpringUtils {
-
 	/**
 	 * 通过实体名称得它对应的service
 	 * 
@@ -18,7 +17,8 @@ public final class SpringUtils {
 	@SuppressWarnings("unchecked")
 	public static <T> T getBean(String beanName) {
 		// 获取当前运行环境下Spring上下文
-		WebApplicationContext webApp = ContextLoader.getCurrentWebApplicationContext();
+		WebApplicationContext webApp = ContextLoader
+				.getCurrentWebApplicationContext();
 		return (T) webApp.getBean(beanName);
 	}
 
@@ -30,7 +30,8 @@ public final class SpringUtils {
 	 */
 	public static <T> T getBean(Class<T> beanType) {
 		// 获取当前运行环境下Spring上下文
-		WebApplicationContext webApp = ContextLoader.getCurrentWebApplicationContext();
+		WebApplicationContext webApp = ContextLoader
+				.getCurrentWebApplicationContext();
 		return webApp.getBean(beanType);
 	}
 }

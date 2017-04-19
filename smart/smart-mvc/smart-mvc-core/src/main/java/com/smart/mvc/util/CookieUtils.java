@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author Joe
  */
 public class CookieUtils {
-
 	private CookieUtils() {
 	}
 
@@ -26,13 +25,11 @@ public class CookieUtils {
 		if (cookies == null || StringUtils.isBlank(name)) {
 			return null;
 		}
-
 		for (Cookie cookie : cookies) {
 			if (name.equals(cookie.getName())) {
 				return cookie.getValue();
 			}
 		}
-
 		return null;
 	}
 
@@ -43,18 +40,15 @@ public class CookieUtils {
 	 * @param response
 	 * @param string
 	 */
-	public static void removeCookie(HttpServletResponse response, String name, String path, String domain) {
-
+	public static void removeCookie(HttpServletResponse response, String name,
+			String path, String domain) {
 		Cookie cookie = new Cookie(name, null);
-
 		if (path != null) {
 			cookie.setPath(path);
 		}
-
 		if (domain != null) {
 			cookie.setDomain(domain);
 		}
-
 		cookie.setMaxAge(-1000);
 		response.addCookie(cookie);
 	}

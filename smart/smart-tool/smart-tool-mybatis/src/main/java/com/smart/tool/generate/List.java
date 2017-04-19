@@ -13,11 +13,10 @@ import com.smart.tool.system.Generator;
  * @author Joe
  */
 public class List {
-
 	private Map<String, Object> dataMap;
 
-	public List(String tableComment, String model, boolean containEnable, String enableName,
-			java.util.List<DummyField> fieldList) {
+	public List(String tableComment, String model, boolean containEnable,
+			String enableName, java.util.List<DummyField> fieldList) {
 		dataMap = new HashMap<String, Object>();
 		/** 公司 **/
 		dataMap.put("path", "${_path}");
@@ -34,8 +33,8 @@ public class List {
 		/** 字段list **/
 		dataMap.put("fieldList", fieldList);
 	}
-	
-	public String getHtml(){
+
+	public String getHtml() {
 		return FreemarkerUtils.getText("list.ftl", dataMap);
 	}
 }

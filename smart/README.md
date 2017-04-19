@@ -95,4 +95,4 @@ smart
 
 ## 变更
 在原项目的基础上
-> 1. 由JDK 1.8 改为 JDK 1.6
+> 1. 由JDK 1.8 改为 JDK 1.6，增加java.beans.Transient.java

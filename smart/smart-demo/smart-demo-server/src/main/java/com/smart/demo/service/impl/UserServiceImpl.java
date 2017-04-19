@@ -10,19 +10,20 @@ import com.smart.mvc.model.Pagination;
 import com.smart.mvc.service.mybatis.impl.ServiceImpl;
 
 @Service("userService")
-public class UserServiceImpl extends ServiceImpl<UserDao, User, Integer> implements UserService {
-
+public class UserServiceImpl extends ServiceImpl<UserDao, User, Integer>
+		implements UserService {
 	@Autowired
 	public void setDao(UserDao dao) {
 		this.dao = dao;
 	}
 
 	@Override
-	public Pagination<User> findPaginationByAccount(String account, Pagination<User> p) {
+	public Pagination<User> findPaginationByAccount(String account,
+			Pagination<User> p) {
 		dao.findPaginationByAccount(account, p);
 		return p;
 	}
-	
+
 	public User findByAccount(String account) {
 		return dao.findByAccount(account);
 	}

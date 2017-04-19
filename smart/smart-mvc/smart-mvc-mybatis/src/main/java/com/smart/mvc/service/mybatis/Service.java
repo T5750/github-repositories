@@ -16,7 +16,6 @@ import com.smart.mvc.model.PersistentObject;
  * @author Joe
  */
 public interface Service<T extends PersistentObject, ID extends Serializable> {
-
 	/**
 	 * 新建实体
 	 * 
@@ -93,8 +92,7 @@ public interface Service<T extends PersistentObject, ID extends Serializable> {
 	public void deleteById(ID id);
 
 	/**
-	 * 通过主键删除实体
-	 * 注：这里别把List改为Collection，会导致覆盖方法的List<ID>调用不到
+	 * 通过主键删除实体 注：这里别把List改为Collection，会导致覆盖方法的List<ID>调用不到
 	 * 
 	 * @param List
 	 *            <PK> pks

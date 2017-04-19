@@ -30,7 +30,6 @@ import com.smart.sso.server.service.impl.PermissionSubject;
 @Controller
 @RequestMapping("/admin/app")
 public class AppController extends BaseController {
-
 	@Resource
 	private AppService appService;
 
@@ -44,8 +43,7 @@ public class AppController extends BaseController {
 		App app;
 		if (id == null) {
 			app = new App();
-		}
-		else {
+		} else {
 			app = appService.get(id);
 		}
 		model.addAttribute("app", app);
@@ -53,17 +51,21 @@ public class AppController extends BaseController {
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public @ResponseBody Result list(
-			@ValidateParam(name = "名称 ") String name,
-			@ValidateParam(name = "开始页码", validators = { Validator.NOT_BLANK }) Integer pageNo,
-			@ValidateParam(name = "显示条数 ", validators = { Validator.NOT_BLANK }) Integer pageSize) {
-		return Result.createSuccessResult().setData(appService.findPaginationByName(name, new Pagination<App>(pageNo, pageSize)));
+	public @ResponseBody Result list(@ValidateParam(name = "名称 ") String name,
+			@ValidateParam(name = "开始页码", validators = {
+					Validator.NOT_BLANK }) Integer pageNo,
+			@ValidateParam(name = "显示条数 ", validators = {
+					Validator.NOT_BLANK }) Integer pageSize) {
+		return Result.createSuccessResult()
+				.setData(appService.findPaginationByName(name,
+						new Pagination<App>(pageNo, pageSize)));
 	}
 
 	@RequestMapping(value = "/validateCode", method = RequestMethod.POST)
 	public @ResponseBody Result validateCode(
 			@ValidateParam(name = "id") Integer id,
-			@ValidateParam(name = "应用编码 ", validators = { Validator.NOT_BLANK }) String code) {
+			@ValidateParam(name = "应用编码 ", validators = {
+					Validator.NOT_BLANK }) String code) {
 		Result result = Result.createSuccessResult();
 		App db = appService.findByCode(code);
 		if (null != db && !db.getId().equals(id)) {
@@ -74,25 +76,29 @@ public class AppController extends BaseController {
 
 	@RequestMapping(value = "/enable", method = RequestMethod.POST)
 	public @ResponseBody Result enable(
-			@ValidateParam(name = "ids", validators = { Validator.NOT_BLANK }) String ids,
-			@ValidateParam(name = "是否启用 ", validators = { Validator.NOT_BLANK }) Boolean isEnable) {
+			@ValidateParam(name = "ids", validators = {
+					Validator.NOT_BLANK }) String ids,
+			@ValidateParam(name = "是否启用 ", validators = {
+					Validator.NOT_BLANK }) Boolean isEnable) {
 		appService.enable(isEnable, getAjaxIds(ids));
 		return Result.createSuccessResult();
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public @ResponseBody Result save(
-			@ValidateParam(name = "ID") Integer id,
-			@ValidateParam(name = "名称 ", validators = { Validator.NOT_BLANK }) String name,
-			@ValidateParam(name = "应用编码 ", validators = { Validator.NOT_BLANK }) String code,
-			@ValidateParam(name = "是否启用 ", validators = { Validator.NOT_BLANK }) Boolean isEnable,
-			@ValidateParam(name = "排序 ", validators = { Validator.NOT_BLANK, Validator.INT }) Integer sort) {
+	public @ResponseBody Result save(@ValidateParam(name = "ID") Integer id,
+			@ValidateParam(name = "名称 ", validators = {
+					Validator.NOT_BLANK }) String name,
+			@ValidateParam(name = "应用编码 ", validators = {
+					Validator.NOT_BLANK }) String code,
+			@ValidateParam(name = "是否启用 ", validators = {
+					Validator.NOT_BLANK }) Boolean isEnable,
+			@ValidateParam(name = "排序 ", validators = { Validator.NOT_BLANK,
+					Validator.INT }) Integer sort) {
 		App app;
 		if (id == null) {
 			app = new App();
 			app.setCreateTime(new Date());
-		}
-		else {
+		} else {
 			app = appService.get(id);
 		}
 		app.setName(name);
@@ -105,15 +111,18 @@ public class AppController extends BaseController {
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public @ResponseBody Result delete(
-			@ValidateParam(name = "ids", validators = { Validator.NOT_BLANK }) String ids) {
+			@ValidateParam(name = "ids", validators = {
+					Validator.NOT_BLANK }) String ids) {
 		appService.deleteById(getAjaxIds(ids));
 		return Result.createSuccessResult();
 	}
-	
+
 	@RequestMapping(value = "/sync/permissions", method = RequestMethod.POST)
 	public @ResponseBody Result syncPermissions(
-			@ValidateParam(name = "应用编码集合", validators = { Validator.NOT_BLANK }) String codes) {
-		PermissionSubject permissionSubject = SpringUtils.getBean(PermissionSubject.class);
+			@ValidateParam(name = "应用编码集合", validators = {
+					Validator.NOT_BLANK }) String codes) {
+		PermissionSubject permissionSubject = SpringUtils
+				.getBean(PermissionSubject.class);
 		if (permissionSubject != null) {
 			String[] codeArray = StringUtils.split(codes, ",");
 			for (String code : codeArray) {

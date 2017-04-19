@@ -12,6 +12,7 @@ import java.util.List;
  * <b>Description:</b><br>
  * <b>Copyright:</b>Copyright (c) 2014 <br>
  * <b>Company:</b>佛山广速网络科技有限公司<br>
+ * 
  * @author 葛传艺
  * @version 0.1 2014-4-9 下午04:44:14
  */
@@ -28,17 +29,17 @@ public class ProPertyUtils {
 		for (PropertyDescriptor p : pr) {
 			if (property[0].equals(p.getName()) && 0 == (property.length - 1)) {
 				return p.getName();
-			}
-			else if (property[0].equals(p.getName()) && 0 < property.length) {
-				return valProperty(p.getPropertyType(), newStr) != null ? p
-						.getName()
-						+ "." + valProperty(p.getPropertyType(), newStr) : null;
+			} else if (property[0].equals(p.getName()) && 0 < property.length) {
+				return valProperty(p.getPropertyType(), newStr) != null
+						? p.getName() + "."
+								+ valProperty(p.getPropertyType(), newStr)
+						: null;
 			}
 		}
 		return null;
 	}
 
-	public static  String valProperty(Class<?> T, String property) {
+	public static String valProperty(Class<?> T, String property) {
 		return valProperty(T, property.split("\\."));
 	}
 
@@ -46,18 +47,17 @@ public class ProPertyUtils {
 		BeanInfo beanInfo = null;
 		try {
 			beanInfo = Introspector.getBeanInfo(clazz);
-		}
-		catch (IntrospectionException e) {
+		} catch (IntrospectionException e) {
 			return null;
 		}
 		return beanInfo.getPropertyDescriptors();
 	}
-	
+
 	public static List<String> getPropertyList(Class<?> T) {
 		PropertyDescriptor[] pr = getPropertyDescriptors(T);
 		List<String> propertys = new ArrayList<String>();
 		for (PropertyDescriptor p : pr) {
-			if(!p.getName().equals("class")) {
+			if (!p.getName().equals("class")) {
 				propertys.add(p.getName());
 			}
 		}

@@ -6,7 +6,6 @@ package com.smart.mvc.captcha;
  * @author Joe
  */
 public class CaptchaException extends RuntimeException {
-
 	private static final long serialVersionUID = -6834765632942616744L;
 
 	public CaptchaException() {

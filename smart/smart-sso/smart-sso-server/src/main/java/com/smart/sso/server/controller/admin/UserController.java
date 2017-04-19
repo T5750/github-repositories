@@ -36,7 +36,6 @@ import com.smart.sso.server.service.UserService;
 @Controller
 @RequestMapping("/admin/user")
 public class UserController extends BaseController {
-
 	@Resource
 	private UserService userService;
 	@Resource
@@ -57,8 +56,7 @@ public class UserController extends BaseController {
 		User user;
 		if (id == null) {
 			user = new User();
-		}
-		else {
+		} else {
 			user = userService.get(id);
 		}
 		model.addAttribute("user", user);
@@ -70,15 +68,20 @@ public class UserController extends BaseController {
 	public @ResponseBody Result list(
 			@ValidateParam(name = "登录名 ") String account,
 			@ValidateParam(name = "应用ID ") Integer appId,
-			@ValidateParam(name = "开始页码", validators = { Validator.NOT_BLANK }) Integer pageNo,
-			@ValidateParam(name = "显示条数 ", validators = { Validator.NOT_BLANK }) Integer pageSize) {
-		return Result.createSuccessResult().setData(userService.findPaginationByAccount(account, appId, new Pagination<User>(pageNo, pageSize)));
+			@ValidateParam(name = "开始页码", validators = {
+					Validator.NOT_BLANK }) Integer pageNo,
+			@ValidateParam(name = "显示条数 ", validators = {
+					Validator.NOT_BLANK }) Integer pageSize) {
+		return Result.createSuccessResult()
+				.setData(userService.findPaginationByAccount(account, appId,
+						new Pagination<User>(pageNo, pageSize)));
 	}
 
 	@RequestMapping(value = "/validateAccount", method = RequestMethod.POST)
 	public @ResponseBody Result validateAccount(
 			@ValidateParam(name = "id") Integer id,
-			@ValidateParam(name = "登录名 ", validators = { Validator.NOT_BLANK }) String account) {
+			@ValidateParam(name = "登录名 ", validators = {
+					Validator.NOT_BLANK }) String account) {
 		Result result = Result.createSuccessResult();
 		User user = userService.findByAccount(account);
 		if (null != user && !user.getId().equals(id)) {
@@ -89,17 +92,21 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/enable", method = RequestMethod.POST)
 	public @ResponseBody Result enable(
-			@ValidateParam(name = "ids", validators = { Validator.NOT_BLANK })String ids,
-			@ValidateParam(name = "是否启用 ", validators = { Validator.NOT_BLANK }) Boolean isEnable) {
+			@ValidateParam(name = "ids", validators = {
+					Validator.NOT_BLANK }) String ids,
+			@ValidateParam(name = "是否启用 ", validators = {
+					Validator.NOT_BLANK }) Boolean isEnable) {
 		userService.enable(isEnable, getAjaxIds(ids));
 		return Result.createSuccessResult();
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public @ResponseBody Result save(@ValidateParam(name = "ID") Integer id,
-			@ValidateParam(name = "登录名", validators = { Validator.NOT_BLANK }) String account,
+			@ValidateParam(name = "登录名", validators = {
+					Validator.NOT_BLANK }) String account,
 			@ValidateParam(name = "密码 ") String password,
-			@ValidateParam(name = "是否启用 ", validators = { Validator.NOT_BLANK }) Boolean isEnable) {
+			@ValidateParam(name = "是否启用 ", validators = {
+					Validator.NOT_BLANK }) Boolean isEnable) {
 		User user;
 		if (id == null) {
 			if (StringUtils.isBlank(password)) {
@@ -107,8 +114,7 @@ public class UserController extends BaseController {
 			}
 			user = new User();
 			user.setCreateTime(new Date());
-		}
-		else {
+		} else {
 			user = userService.get(id);
 		}
 		user.setAccount(account);
@@ -122,14 +128,19 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
 	public @ResponseBody Result resetPassword(
-			@ValidateParam(name = "ids", validators = { Validator.NOT_BLANK }) String ids) {
-		userService.resetPassword(PasswordProvider.encrypt(ConfigUtils.getProperty("system.init.password")), getAjaxIds(ids));
+			@ValidateParam(name = "ids", validators = {
+					Validator.NOT_BLANK }) String ids) {
+		userService.resetPassword(
+				PasswordProvider.encrypt(
+						ConfigUtils.getProperty("system.init.password")),
+				getAjaxIds(ids));
 		return Result.createSuccessResult();
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public @ResponseBody Result delete(
-			@ValidateParam(name = "ids", validators = { Validator.NOT_BLANK }) String ids) {
+			@ValidateParam(name = "ids", validators = {
+					Validator.NOT_BLANK }) String ids) {
 		userService.deleteById(getAjaxIds(ids));
 		return Result.createSuccessResult();
 	}

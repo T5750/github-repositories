@@ -23,13 +23,13 @@ import com.smart.mvc.validator.annotation.ValidateParam;
  * @author Joe
  */
 public class MethodArgumentResovler implements HandlerMethodArgumentResolver {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(StopWatchHandlerInterceptor.class);
-
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(StopWatchHandlerInterceptor.class);
 	/**
 	 * 参数结构缓存
 	 */
-	private Map<MethodParameter, ParamInfo> paramInfoCache = new ConcurrentHashMap<MethodParameter, ParamInfo>(256);
+	private Map<MethodParameter, ParamInfo> paramInfoCache = new ConcurrentHashMap<MethodParameter, ParamInfo>(
+			256);
 
 	public MethodArgumentResovler() {
 		super();
@@ -39,22 +39,22 @@ public class MethodArgumentResovler implements HandlerMethodArgumentResolver {
 	public boolean supportsParameter(MethodParameter parameter) {
 		if (parameter.hasParameterAnnotation(ValidateParam.class)) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
 
 	@Override
-	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+	public Object resolveArgument(MethodParameter parameter,
+			ModelAndViewContainer mavContainer, NativeWebRequest webRequest,
+			WebDataBinderFactory binderFactory) throws Exception {
 		ParamInfo paramInfo = getParamInfo(parameter);
-
 		Object value = null;
 		/**
 		 * 先param里面取
 		 */
-		String[] paramValues = webRequest.getParameterValues(paramInfo.paramName);
+		String[] paramValues = webRequest
+				.getParameterValues(paramInfo.paramName);
 		if (paramValues != null) {
 			value = paramValues.length == 1 ? paramValues[0] : paramValues;
 		}
@@ -62,22 +62,24 @@ public class MethodArgumentResovler implements HandlerMethodArgumentResolver {
 		 * 如果在request里面没有取到就去attribute里面拿
 		 */
 		if (value == null) {
-			value = webRequest.getAttribute(paramInfo.paramName, RequestAttributes.SCOPE_REQUEST);
+			value = webRequest.getAttribute(paramInfo.paramName,
+					RequestAttributes.SCOPE_REQUEST);
 		}
-
 		/**
 		 * 验证器的数据校验
 		 */
 		if (paramInfo.validators != null) {
-			validateValue(value, paramInfo.name, paramInfo.validators, parameter);
+			validateValue(value, paramInfo.name, paramInfo.validators,
+					parameter);
 		}
-
 		/**
 		 * 数据类型的强制转换
 		 */
 		if (binderFactory != null) {
-			WebDataBinder binder = binderFactory.createBinder(webRequest, null, paramInfo.name);
-			value = binder.convertIfNecessary(value, parameter.getParameterType(), parameter);
+			WebDataBinder binder = binderFactory.createBinder(webRequest, null,
+					paramInfo.name);
+			value = binder.convertIfNecessary(value,
+					parameter.getParameterType(), parameter);
 		}
 		return value;
 	}
@@ -95,22 +97,22 @@ public class MethodArgumentResovler implements HandlerMethodArgumentResolver {
 	 *            方法参数
 	 * @throws Exception
 	 */
-	private void validateValue(Object value, String cName, Validator[] validators, MethodParameter parameter)
+	private void validateValue(Object value, String cName,
+			Validator[] validators, MethodParameter parameter)
 			throws Exception {
 		for (int i = 0; i < validators.length; i++) {
 			Validator validator = Validator.getValidator(validators[i]);
 			if (validator != null) {
 				if (value != null && value.toString().trim() != "") {
 					validator.validate(cName, value.toString());
-				}
-				else {
+				} else {
 					if (Validator.NOT_BLANK.equals(validator)) {
 						validator.validate(cName, null);
 					}
 				}
-			}
-			else {
-				LOGGER.error("验证器[" + validators[i] + "],在Validator.java文件中没有定义，请检查！");
+			} else {
+				LOGGER.error("验证器[" + validators[i]
+						+ "],在Validator.java文件中没有定义，请检查！");
 			}
 		}
 	}
@@ -137,25 +139,25 @@ public class MethodArgumentResovler implements HandlerMethodArgumentResolver {
 	 * @return
 	 */
 	protected ParamInfo createParamInfo(MethodParameter parameter) {
-		ValidateParam param = parameter.getParameterAnnotation(ValidateParam.class);
-		return (param != null ? new ParamInfo(parameter.getParameterName(), param) : new ParamInfo(parameter.getParameterName()));
+		ValidateParam param = parameter
+				.getParameterAnnotation(ValidateParam.class);
+		return (param != null
+				? new ParamInfo(parameter.getParameterName(), param)
+				: new ParamInfo(parameter.getParameterName()));
 	};
 
 	/**
 	 * 参数的相关信息
 	 */
 	protected static class ParamInfo {
-
 		private String paramName;
-
 		private String name;
-
 		private Validator[] validators;
-		
+
 		public ParamInfo() {
 			super();
 		}
-		
+
 		public ParamInfo(String paramName) {
 			super();
 			this.paramName = paramName;

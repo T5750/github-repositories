@@ -16,19 +16,17 @@ import com.smart.mvc.config.ConfigUtils;
  * @author Joe
  */
 public class PermissionJmsListener implements MessageListener {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(PermissionJmsListener.class);
-	
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(PermissionJmsListener.class);
+
 	@Override
 	public void onMessage(Message message) {
 		String appCode = null;
 		try {
 			appCode = ((TextMessage) message).getText();
-		}
-		catch (JMSException e) {
+		} catch (JMSException e) {
 			LOGGER.error("Jms illegal message!");
 		}
-
 		if (ConfigUtils.getProperty("sso.app.code").equals(appCode)) {
 			LOGGER.info("成功通知appCode为：{}的应用更新权限！", appCode);
 		}

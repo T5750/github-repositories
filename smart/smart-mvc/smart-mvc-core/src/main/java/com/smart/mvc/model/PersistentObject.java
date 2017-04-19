@@ -7,10 +7,8 @@ import java.io.Serializable;
  * 
  * @author Joe
  */
-public class PersistentObject implements Serializable{
-
+public class PersistentObject implements Serializable {
 	private static final long serialVersionUID = 1472145516693079043L;
-	
 	/** 主键ID */
 	private Integer id;
 

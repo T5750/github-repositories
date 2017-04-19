@@ -1,8 +1,6 @@
 package com.smart.mvc.captcha;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
@@ -13,7 +11,6 @@ import java.util.Random;
  * @author Joe
  */
 public abstract class Captcha {
-
 	private Random random = new Random();
 	private String randString = "023456789ABCDEFGHJKLMNPQRSTUVWXYZ";// 随机产生的字符串
 	private int width = 80;// 图片宽
@@ -49,7 +46,8 @@ public abstract class Captcha {
 	 */
 	public BufferedImage generate() throws IOException {
 		// BufferedImage类是具有缓冲区的Image类,Image类是用于描述图像信息的类
-		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
+		BufferedImage image = new BufferedImage(width, height,
+				BufferedImage.TYPE_INT_BGR);
 		Graphics g = image.getGraphics();// 产生Image对象的Graphics对象,改对象可以在图像上进行各种绘制操作
 		g.fillRect(0, 0, width, height);
 		g.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
@@ -75,8 +73,10 @@ public abstract class Captcha {
 	 */
 	private String drowString(Graphics g, String randomString, int i) {
 		g.setFont(getFont());
-		g.setColor(new Color(random.nextInt(101), random.nextInt(111), random.nextInt(121)));
-		String rand = String.valueOf(getRandomString(random.nextInt(randString.length())));
+		g.setColor(new Color(random.nextInt(101), random.nextInt(111),
+				random.nextInt(121)));
+		String rand = String
+				.valueOf(getRandomString(random.nextInt(randString.length())));
 		randomString += rand;
 		g.translate(random.nextInt(3), random.nextInt(3));
 		g.drawString(rand, 13 * i, 20);
@@ -100,5 +100,4 @@ public abstract class Captcha {
 	public String getRandomString(int num) {
 		return String.valueOf(randString.charAt(num));
 	}
-
 }

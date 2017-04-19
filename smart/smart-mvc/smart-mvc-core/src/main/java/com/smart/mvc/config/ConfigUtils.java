@@ -11,11 +11,11 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
  * @author Joe
  */
 public class ConfigUtils extends DynamicPropertyPlaceholderConfigurer {
-
 	private static Properties properties;
 
 	@Override
-	protected void processProperties(ConfigurableListableBeanFactory beanFactory, Properties props)
+	protected void processProperties(
+			ConfigurableListableBeanFactory beanFactory, Properties props)
 			throws BeansException {
 		super.processProperties(beanFactory, props);
 		properties = props;

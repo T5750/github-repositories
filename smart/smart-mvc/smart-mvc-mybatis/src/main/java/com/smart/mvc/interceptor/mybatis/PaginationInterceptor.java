@@ -1,10 +1,6 @@
 package com.smart.mvc.interceptor.mybatis;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -14,11 +10,7 @@ import org.apache.ibatis.executor.resultset.ResultSetHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
-import org.apache.ibatis.plugin.Plugin;
-import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
@@ -32,27 +24,31 @@ import com.smart.mvc.model.Pagination;
  * 
  * @author Joe
  */
-@Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class }),
-		@Signature(type = ResultSetHandler.class, method = "handleResultSets", args = { Statement.class }) })
+@Intercepts({
+		@Signature(type = StatementHandler.class, method = "prepare", args = {
+				Connection.class }),
+		@Signature(type = ResultSetHandler.class, method = "handleResultSets", args = {
+				Statement.class }) })
 public class PaginationInterceptor implements Interceptor {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(PaginationInterceptor.class);
-	
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(PaginationInterceptor.class);
 	private final ThreadLocal<Pagination<?>> localPagination = new ThreadLocal<Pagination<?>>();
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
 		if (invocation.getTarget() instanceof StatementHandler) {
-			StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
-			Pagination<?> pagination = findPaginationParameter(statementHandler.getBoundSql().getParameterObject());
+			StatementHandler statementHandler = (StatementHandler) invocation
+					.getTarget();
+			Pagination<?> pagination = findPaginationParameter(
+					statementHandler.getBoundSql().getParameterObject());
 			if (pagination == null)
 				return invocation.proceed();
 			else {
 				localPagination.set(pagination);
 			}
-
-			MetaObject metaStatementHandler = SystemMetaObject.forObject(statementHandler);
+			MetaObject metaStatementHandler = SystemMetaObject
+					.forObject(statementHandler);
 			// 分离代理对象链(由于目标类可能被多个拦截器拦截，从而形成多次代理，通过下面的两次循环
 			// 可以分离出最原始的的目标类)
 			while (metaStatementHandler.hasGetter("h")) {
@@ -67,7 +63,8 @@ public class PaginationInterceptor implements Interceptor {
 			MappedStatement mappedStatement = (MappedStatement) metaStatementHandler
 					.getValue("delegate.mappedStatement");
 			// 分页信息if (localPage.get() != null) {
-			BoundSql boundSql = (BoundSql) metaStatementHandler.getValue("delegate.boundSql");
+			BoundSql boundSql = (BoundSql) metaStatementHandler
+					.getValue("delegate.boundSql");
 			// 分页参数作为参数对象parameterObject的一个属性
 			String sql = boundSql.getSql();
 			// 重写sql
@@ -76,11 +73,11 @@ public class PaginationInterceptor implements Interceptor {
 			metaStatementHandler.setValue("delegate.boundSql.sql", pageSql);
 			Connection connection = (Connection) invocation.getArgs()[0];
 			// 重设分页参数里的总页数等
-			setPageParameter(sql, connection, mappedStatement, boundSql, pagination);
+			setPageParameter(sql, connection, mappedStatement, boundSql,
+					pagination);
 			// 将执行权交给下一个拦截器
 			return invocation.proceed();
-		}
-		else if (invocation.getTarget() instanceof ResultSetHandler) {
+		} else if (invocation.getTarget() instanceof ResultSetHandler) {
 			Pagination<?> pagination = localPagination.get();
 			if (pagination == null)
 				return invocation.proceed();
@@ -88,8 +85,7 @@ public class PaginationInterceptor implements Interceptor {
 				Object result = invocation.proceed();
 				pagination.setList((List) result);
 				return result;
-			}
-			finally {
+			} finally {
 				localPagination.remove();
 			}
 		}
@@ -99,8 +95,7 @@ public class PaginationInterceptor implements Interceptor {
 	private Pagination<?> findPaginationParameter(Object param) {
 		if (param instanceof Pagination<?>) {
 			return (Pagination<?>) param;
-		}
-		else if (param instanceof Map) {
+		} else if (param instanceof Map) {
 			for (Object val : ((Map<?, ?>) param).values()) {
 				if (val instanceof Pagination<?>) {
 					return (Pagination<?>) val;
@@ -120,10 +115,10 @@ public class PaginationInterceptor implements Interceptor {
 	 */
 	@Override
 	public Object plugin(Object target) {
-		if (target instanceof StatementHandler || target instanceof ResultSetHandler) {
+		if (target instanceof StatementHandler
+				|| target instanceof ResultSetHandler) {
 			return Plugin.wrap(target, this);
-		}
-		else {
+		} else {
 			return target;
 		}
 	}
@@ -134,7 +129,9 @@ public class PaginationInterceptor implements Interceptor {
 
 	public String buildPageSql(String sql, Pagination<?> pagination) {
 		StringBuilder pageSql = new StringBuilder(sql);
-		pageSql.append(" limit " + (pagination.getPageNo() - 1) * pagination.getPageSize() + "," + pagination.getPageSize());
+		pageSql.append(" limit "
+				+ (pagination.getPageNo() - 1) * pagination.getPageSize() + ","
+				+ pagination.getPageSize());
 		return pageSql.toString();
 	}
 
@@ -147,38 +144,37 @@ public class PaginationInterceptor implements Interceptor {
 	 * @param boundSql
 	 * @param page
 	 */
-	private void setPageParameter(String sql, Connection connection, MappedStatement mappedStatement,
-			BoundSql boundSql, Pagination<?> pagination) {
+	private void setPageParameter(String sql, Connection connection,
+			MappedStatement mappedStatement, BoundSql boundSql,
+			Pagination<?> pagination) {
 		// 记录总记录数
 		String countSql = "select count(0) from (" + sql + ") a";
 		PreparedStatement countStmt = null;
 		ResultSet rs = null;
 		try {
 			countStmt = connection.prepareStatement(countSql);
-			BoundSql countBS = new BoundSql(mappedStatement.getConfiguration(), countSql,
-					boundSql.getParameterMappings(), boundSql.getParameterObject());
-			setParameters(countStmt, mappedStatement, countBS, boundSql.getParameterObject());
+			BoundSql countBS = new BoundSql(mappedStatement.getConfiguration(),
+					countSql, boundSql.getParameterMappings(),
+					boundSql.getParameterObject());
+			setParameters(countStmt, mappedStatement, countBS,
+					boundSql.getParameterObject());
 			rs = countStmt.executeQuery();
 			int rowCount = 0;
 			if (rs.next()) {
 				rowCount = rs.getInt(1);
 			}
 			pagination.setRowCount(rowCount);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			LOGGER.error("Ignore this exception", e);
-		}
-		finally {
+		} finally {
 			try {
 				rs.close();
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				LOGGER.error("Ignore this exception", e);
 			}
 			try {
 				countStmt.close();
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				LOGGER.error("Ignore this exception", e);
 			}
 		}
@@ -193,9 +189,11 @@ public class PaginationInterceptor implements Interceptor {
 	 * @param parameterObject
 	 * @throws java.sql.SQLException
 	 */
-	private void setParameters(PreparedStatement ps, MappedStatement mappedStatement, BoundSql boundSql,
+	private void setParameters(PreparedStatement ps,
+			MappedStatement mappedStatement, BoundSql boundSql,
 			Object parameterObject) throws SQLException {
-		ParameterHandler parameterHandler = new DefaultParameterHandler(mappedStatement, parameterObject, boundSql);
+		ParameterHandler parameterHandler = new DefaultParameterHandler(
+				mappedStatement, parameterObject, boundSql);
 		parameterHandler.setParameters(ps);
 	}
 }

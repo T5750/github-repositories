@@ -8,14 +8,7 @@
  */
 package com.smart.mvc.util;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.channels.FileChannel;
 
 /**
@@ -24,24 +17,26 @@ import java.nio.channels.FileChannel;
  * @author Joe
  */
 public class FileUtils {
-
 	private static final char UNIX_SEPARATOR = '/';
-
 	private static final char WINDOWS_SEPARATOR = '\\';
-
 	private static final char EXTENSION_SEPARATOR = '.';
 
 	/**
-	 * Returns the index of the last extension separator character, which is a dot. 返回最后"."的位置
+	 * Returns the index of the last extension separator character, which is a
+	 * dot. 返回最后"."的位置
 	 * <p>
-	 * This method also checks that there is no directory separator after the last dot. To do this it uses
-	 * {@link #indexOfLastSeparator(String)} which will handle a file in either Unix or Windows format.
+	 * This method also checks that there is no directory separator after the
+	 * last dot. To do this it uses {@link #indexOfLastSeparator(String)} which
+	 * will handle a file in either Unix or Windows format.
 	 * <p>
-	 * The output will be the same irrespective of the machine that the code is running on.
+	 * The output will be the same irrespective of the machine that the code is
+	 * running on.
 	 * 
 	 * @param filename
-	 *            the filename to find the last path separator in, null returns -1
-	 * @return the index of the last separator character, or -1 if there is no such character
+	 *            the filename to find the last path separator in, null returns
+	 *            -1
+	 * @return the index of the last separator character, or -1 if there is no
+	 *         such character
 	 */
 	public static int indexOfExtension(String filename) {
 		if (filename == null) {
@@ -53,16 +48,20 @@ public class FileUtils {
 	}
 
 	/**
-	 * Returns the index of the last directory separator character. 返回最后目录分割符的位置(unix or window)
+	 * Returns the index of the last directory separator character.
+	 * 返回最后目录分割符的位置(unix or window)
 	 * <p>
-	 * This method will handle a file in either Unix or Windows format. The position of the last forward or backslash is
-	 * returned.
+	 * This method will handle a file in either Unix or Windows format. The
+	 * position of the last forward or backslash is returned.
 	 * <p>
-	 * The output will be the same irrespective of the machine that the code is running on.
+	 * The output will be the same irrespective of the machine that the code is
+	 * running on.
 	 * 
 	 * @param filename
-	 *            the filename to find the last path separator in, null returns -1
-	 * @return the index of the last separator character, or -1 if there is no such character
+	 *            the filename to find the last path separator in, null returns
+	 *            -1
+	 * @return the index of the last separator character, or -1 if there is no
+	 *         such character
 	 */
 	public static int indexOfLastSeparator(String filename) {
 		if (filename == null) {
@@ -93,14 +92,14 @@ public class FileUtils {
 		}
 		final int index = indexOfLastSeparator(fullFilename);
 		return fullFilename.substring(index + 1);
-
 	}
 
 	/**
-	 * Gets the extension of a filename 获取文件扩展名，即截取字串中最后一个点“。”号(不包括点号)后面的字串作为扩展名返回.
+	 * Gets the extension of a filename
+	 * 获取文件扩展名，即截取字串中最后一个点“。”号(不包括点号)后面的字串作为扩展名返回.
 	 * <p>
-	 * This method returns the textual part of the filename after the last dot. There must be no directory separator
-	 * after the dot.
+	 * This method returns the textual part of the filename after the last dot.
+	 * There must be no directory separator after the dot.
 	 * 
 	 * <pre>
 	 * example:
@@ -111,23 +110,22 @@ public class FileUtils {
 	 *   a/b/c             --> ""
 	 * </pre>
 	 * <p>
-	 * The output will be the same irrespective of the machine that the code is running on.
+	 * The output will be the same irrespective of the machine that the code is
+	 * running on.
 	 * 
 	 * @param filename
 	 *            the filename to retrieve the extension of.
-	 * @return the extension of the file or an empty string if none exists or <code>null</code> if the filename is
-	 *         <code>null</code>.
+	 * @return the extension of the file or an empty string if none exists or
+	 *         <code>null</code> if the filename is <code>null</code>.
 	 */
 	public static String getFilenameExtension(final String filename) {
-
 		if (filename == null) {
 			return null;
 		}
 		int index = indexOfExtension(filename);
 		if (index == -1) {
 			return "";
-		}
-		else {
+		} else {
 			return filename.substring(index + 1);
 		}
 	}
@@ -158,15 +156,13 @@ public class FileUtils {
 	 * @return boolean
 	 */
 	public static boolean createDirectoryRecursively(String directory) {
-
 		if (directory == null) {
 			return false;
 		}
 		File pathname = new File(directory);
 		if (pathname.exists()) {
 			return !pathname.isFile();
-		}
-		else if (!pathname.isAbsolute()) {
+		} else if (!pathname.isAbsolute()) {
 			pathname = new File(pathname.getAbsolutePath());
 		}
 		final String parent = pathname.getParent();
@@ -189,11 +185,9 @@ public class FileUtils {
 	 * @throws java.io.IOException
 	 */
 	public static File createFile(final String filename) throws IOException {
-
 		if (filename == null) {
 			return null;
-		}
-		else {
+		} else {
 			return createFile(new File(filename));
 		}
 	}
@@ -210,7 +204,6 @@ public class FileUtils {
 	 * @throws java.io.IOException
 	 */
 	public static File createFile(final File file) throws IOException {
-
 		if (!file.exists()) {
 			createDirectoryRecursively(file.getParent());
 			file.createNewFile();
@@ -227,8 +220,8 @@ public class FileUtils {
 	 *            目标文件(夹),为null将不处理
 	 * @throws java.io.IOException
 	 */
-	public static void copy(String fromFilename, String toFilename) throws IOException {
-
+	public static void copy(String fromFilename, String toFilename)
+			throws IOException {
 		if (fromFilename != null && toFilename != null) {
 			copy(new File(fromFilename), new File(toFilename));
 		}
@@ -250,11 +243,9 @@ public class FileUtils {
 			return;
 		if (from.isFile()) {
 			copyFile(from, to);
-		}
-		else {
+		} else {
 			copyDirectiory(from, to);
 		}
-
 	}
 
 	/**
@@ -266,10 +257,10 @@ public class FileUtils {
 	 *            目标文件夹
 	 * @throws java.io.IOException
 	 */
-	public static void copyFileforJava(final InputStream inputStream, final File to) throws IOException {
+	public static void copyFileforJava(final InputStream inputStream,
+			final File to) throws IOException {
 		createFile(to);
 		OutputStream outputStream = null;
-
 		try {
 			// copy inputStream to outputStream
 			outputStream = new BufferedOutputStream(new FileOutputStream(to));
@@ -284,9 +275,7 @@ public class FileUtils {
 				}
 				outputStream.flush();
 			}
-
-		}
-		finally {
+		} finally {
 			if (inputStream != null) {
 				inputStream.close();
 			}
@@ -294,7 +283,6 @@ public class FileUtils {
 				outputStream.close();
 			}
 		}
-
 	}
 
 	/**
@@ -313,11 +301,13 @@ public class FileUtils {
 	 * @throws java.io.IOException
 	 * @throws java.io.FileNotFoundException
 	 * 
-	 * @see java.nio.channels.FileChannel#transferTo(long, long, java.nio.channels.WritableByteChannel)
+	 * @see java.nio.channels.FileChannel#transferTo(long, long,
+	 *      java.nio.channels.WritableByteChannel)
 	 * 
 	 */
 	@SuppressWarnings("resource")
-	public static long copyFile(File from, File to) throws IOException, FileNotFoundException {
+	public static long copyFile(File from, File to)
+			throws IOException, FileNotFoundException {
 		if (!from.exists()) {
 			return -1;
 		}
@@ -325,7 +315,6 @@ public class FileUtils {
 		FileChannel fcin = new FileInputStream(from).getChannel();
 		FileChannel fcout = new FileOutputStream(to).getChannel();
 		long size = fcin.size();
-
 		// 分批次向目标管道输入数据,每批次2MB
 		int length = 2097152;
 		while (true) {
@@ -353,23 +342,23 @@ public class FileUtils {
 	 * @throws java.io.IOException
 	 * 
 	 */
-	public static void copyDirectiory(final File sourceDir, final File targetDir) throws IOException {
+	public static void copyDirectiory(final File sourceDir,
+			final File targetDir) throws IOException {
 		final File[] files = sourceDir.listFiles();
 		if (files == null) {
 			return;
 		}
-
 		// 创建目标目录
 		String targetPath = targetDir.getAbsolutePath();
 		createDirectoryRecursively(targetPath);
-
 		for (int i = 0; i < files.length; i++) {
 			final File file = files[i];
 			if (file.isDirectory()) {
-				copyDirectiory(file, new File(targetPath + File.separator + file.getName()));
-			}
-			else {
-				copyFile(file, new File(targetPath + File.separator + file.getName()));
+				copyDirectiory(file,
+						new File(targetPath + File.separator + file.getName()));
+			} else {
+				copyFile(file,
+						new File(targetPath + File.separator + file.getName()));
 			}
 		}
 	}
@@ -383,11 +372,11 @@ public class FileUtils {
 	 * @throws java.io.IOException
 	 * 
 	 */
-	public static void move(final String fromFilename, final String toFilename) throws IOException {
+	public static void move(final String fromFilename, final String toFilename)
+			throws IOException {
 		if (fromFilename == null || toFilename == null) {
 			return;
-		}
-		else {
+		} else {
 			move(new File(fromFilename), new File(toFilename));
 		}
 	}
@@ -425,7 +414,6 @@ public class FileUtils {
 	 * @return long
 	 */
 	public static long toFileSize(String size) {
-
 		if (size != null) {
 			size = size.toUpperCase();
 			final StringBuilder sb = new StringBuilder();
@@ -441,16 +429,13 @@ public class FileUtils {
 			if (sb2.length() == 0 || (c = sb2.charAt(0)) == 'B') {
 				// ${todo} 此外转化可深化和优化
 				return Long.parseLong(sb.toString());
-			}
-			else {
+			} else {
 				final double l = Double.parseDouble(sb.toString());
 				if (c == 'G') {
 					return (long) (GB * l);
-				}
-				else if (c == 'M') {
+				} else if (c == 'M') {
 					return (long) (MB * l);
-				}
-				else if (c == 'K') {
+				} else if (c == 'K') {
 					return (long) (KB * l);
 				}
 			}
@@ -480,14 +465,12 @@ public class FileUtils {
 	 * @return 文件大小,单位long
 	 */
 	public static long sizeOfDirectory(final File directory) {
-
 		if (!directory.exists()) {
 			return -1;
 		}
 		if (!directory.isDirectory()) {
 			return directory.length();
 		}
-
 		long size = 0;
 		final File[] files = directory.listFiles();
 		if (files == null) {
@@ -497,8 +480,7 @@ public class FileUtils {
 			final File file = files[i];
 			if (file.isDirectory()) {
 				size += sizeOfDirectory(file);
-			}
-			else {
+			} else {
 				size += file.length();
 			}
 		}
@@ -512,7 +494,6 @@ public class FileUtils {
 	 *            待删除的文件(夹)
 	 */
 	public static void delete(final File dir) {
-
 		delete(dir, true);
 	}
 
@@ -532,7 +513,6 @@ public class FileUtils {
 			dir.delete();
 			return;
 		}
-
 		final String[] list = dir.list();
 		if (list != null) {
 			for (final String element : list) {
@@ -544,5 +524,4 @@ public class FileUtils {
 			dir.delete();
 		}
 	}
-
 }

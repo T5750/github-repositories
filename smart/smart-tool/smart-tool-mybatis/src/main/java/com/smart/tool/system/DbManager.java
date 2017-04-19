@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  * 数据库连接管理
@@ -15,13 +15,13 @@ import javax.swing.JOptionPane;
  * @author Joe
  */
 public class DbManager {
-	public static Connection getConnection(String driver, String url, String userName, String password) {
+	public static Connection getConnection(String driver, String url,
+			String userName, String password) {
 		Connection con = null;
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url, userName, password);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "数据库连接失败!");
 		}
 		return con;
@@ -31,12 +31,12 @@ public class DbManager {
 		List<String> tableNames = new ArrayList<String>();
 		try {
 			DatabaseMetaData meta = con.getMetaData();
-			ResultSet rs = meta.getTables(null, null, null, new String[] { "TABLE" });
+			ResultSet rs = meta.getTables(null, null, null,
+					new String[] { "TABLE" });
 			while (rs.next()) {
 				tableNames.add(rs.getString(3));
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "获取表名失败!");
 		}
 		return tableNames;

@@ -7,12 +7,9 @@ import com.smart.mvc.model.ResultCode;
  * 
  * @author Joe
  */
-public class ApplicationException extends RuntimeException{
-
+public class ApplicationException extends RuntimeException {
 	private static final long serialVersionUID = -2678203134198782909L;
-	
 	public static final String MESSAGE = "应用异常";
-
 	protected int code = ResultCode.APPLICATION_ERROR;
 
 	public ApplicationException() {
@@ -22,7 +19,7 @@ public class ApplicationException extends RuntimeException{
 	public ApplicationException(String message) {
 		super(message);
 	}
-	
+
 	public ApplicationException(int code, String message) {
 		super(message);
 		this.code = code;
@@ -31,7 +28,7 @@ public class ApplicationException extends RuntimeException{
 	public ApplicationException(String message, Throwable cause) {
 		super(message, cause);
 	}
-	
+
 	public ApplicationException(int code, String message, Throwable cause) {
 		super(message, cause);
 		this.code = code;

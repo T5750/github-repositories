@@ -20,12 +20,13 @@ import com.smart.sso.client.SessionPermission;
 @Controller
 @RequestMapping("/admin/admin")
 public class AdminController {
-
 	@RequestMapping(method = RequestMethod.GET)
 	public String execute(HttpServletRequest request, Model model) {
-		SessionPermission sessionPermission = ApplicationUtils.getSessionPermission(request);
+		SessionPermission sessionPermission = ApplicationUtils
+				.getSessionPermission(request);
 		// 设置当前登录用户没有的权限
-		model.addAttribute("sessionUserNoPermissions", sessionPermission == null ? null : sessionPermission.getNoPermissions());
+		model.addAttribute("sessionUserNoPermissions", sessionPermission == null
+				? null : sessionPermission.getNoPermissions());
 		// 默认首页
 		// model.addAttribute("defaultPage", null);
 		return "/admin";
@@ -33,9 +34,12 @@ public class AdminController {
 
 	@RequestMapping(value = "/menu", method = RequestMethod.GET)
 	public @ResponseBody Result menu(HttpServletRequest request) {
-		SessionPermission sessionPermission = ApplicationUtils.getSessionPermission(request);
+		SessionPermission sessionPermission = ApplicationUtils
+				.getSessionPermission(request);
 		// 如果配置的权限拦截器，则获取登录用户权限下的菜单，没有权限拦截限制的情况下，获取当前系统菜单呈现
-		return Result.createSuccessResult().setData(
-				sessionPermission == null ? ApplicationUtils.getApplicationMenu(request) : sessionPermission.getMenuList());
+		return Result.createSuccessResult()
+				.setData(sessionPermission == null
+						? ApplicationUtils.getApplicationMenu(request)
+						: sessionPermission.getMenuList());
 	}
 }

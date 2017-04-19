@@ -6,7 +6,6 @@ package com.smart.mvc.model;
  * @author Joe
  */
 public class Item implements Itemable {
-	
 	private String label;
 	private Object value;
 

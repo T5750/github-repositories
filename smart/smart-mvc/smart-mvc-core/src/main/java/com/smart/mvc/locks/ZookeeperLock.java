@@ -5,12 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooDefs;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +18,11 @@ import com.smart.mvc.util.StringUtils;
  * @author Joe
  */
 public class ZookeeperLock extends DistributedLock {
-	private final Logger logger = LoggerFactory.getLogger(DistributedLock.class);
+	private final Logger logger = LoggerFactory
+			.getLogger(DistributedLock.class);
 	private final int ZK_SESSION_TIMEOUT = 5000;
 	private String root = "/lock-";
 	private CountDownLatch countDownLatch = new CountDownLatch(1);
-
 	private ZooKeeper zooKeeper;
 	private String myPath;
 
@@ -44,16 +39,14 @@ public class ZookeeperLock extends DistributedLock {
 			try {
 				Stat stat = zooKeeper.exists(root, false);
 				if (stat == null) {
-					zooKeeper.create(root, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+					zooKeeper.create(root, new byte[0],
+							ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 				}
-			}
-			catch (KeeperException e) {
+			} catch (KeeperException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-
 		}
 	}
 
@@ -65,14 +58,13 @@ public class ZookeeperLock extends DistributedLock {
 	 */
 	public void lock() {
 		try {
-			myPath = zooKeeper.create(root + "/lock_", new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE,
+			myPath = zooKeeper.create(root + "/lock_", new byte[0],
+					ZooDefs.Ids.OPEN_ACL_UNSAFE,
 					CreateMode.EPHEMERAL_SEQUENTIAL);
 			judgeLock();
-		}
-		catch (KeeperException e) {
+		} catch (KeeperException e) {
 			e.printStackTrace();
-		}
-		catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
@@ -90,12 +82,10 @@ public class ZookeeperLock extends DistributedLock {
 		if (nodes.length > 0) {
 			if (!myPath.equals(root + "/" + nodes[0])) {
 				waitForLock(nodes[0]);
-			}
-			else {
+			} else {
 				countDownLatch.countDown();
 			}
-		}
-		else {
+		} else {
 			countDownLatch.countDown();
 		}
 	}
@@ -107,12 +97,12 @@ public class ZookeeperLock extends DistributedLock {
 	 * @throws InterruptedException
 	 * @throws org.apache.zookeeper.KeeperException
 	 */
-	private void waitForLock(String nodePath) throws InterruptedException, KeeperException {
+	private void waitForLock(String nodePath)
+			throws InterruptedException, KeeperException {
 		Stat stat = zooKeeper.exists(root + "/" + nodePath, false);
 		if (stat == null) {
 			judgeLock();
-		}
-		else {
+		} else {
 			waitForLock(nodePath);
 		}
 	}
@@ -126,11 +116,9 @@ public class ZookeeperLock extends DistributedLock {
 		}
 		try {
 			zooKeeper.delete(myPath, -1);
-		}
-		catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
-		catch (KeeperException e) {
+		} catch (KeeperException e) {
 			e.printStackTrace();
 		}
 	}
@@ -142,7 +130,8 @@ public class ZookeeperLock extends DistributedLock {
 	 */
 	public boolean tryLock() {
 		try {
-			myPath = zooKeeper.create(root + "/lock_", new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE,
+			myPath = zooKeeper.create(root + "/lock_", new byte[0],
+					ZooDefs.Ids.OPEN_ACL_UNSAFE,
 					CreateMode.EPHEMERAL_SEQUENTIAL);
 			List<String> list = zooKeeper.getChildren(root, false);
 			String[] nodes = list.toArray(new String[list.size()]);
@@ -150,11 +139,9 @@ public class ZookeeperLock extends DistributedLock {
 			if (myPath.equals(root + "/" + nodes[0])) {
 				return true;
 			}
-		}
-		catch (KeeperException e) {
+		} catch (KeeperException e) {
 			e.printStackTrace();
-		}
-		catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		return false;
@@ -179,11 +166,9 @@ public class ZookeeperLock extends DistributedLock {
 				}
 			});
 			latch.await();
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			logger.error("IOException", e);
-		}
-		catch (InterruptedException ex) {
+		} catch (InterruptedException ex) {
 			logger.error("InterruptedException", ex);
 		}
 		return zk;

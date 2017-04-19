@@ -8,18 +8,16 @@ import com.smart.mvc.model.PersistentObject;
  * @author Joe
  */
 public class RolePermission extends PersistentObject {
-
 	private static final long serialVersionUID = 2817362249993235590L;
-
 	/** 应用ID */
 	private Integer appId;
 	private Integer roleId;
 	private Integer permissionId;
-	
+
 	public RolePermission() {
 		super();
 	}
-	
+
 	public RolePermission(Integer appId, Integer roleId, Integer permissionId) {
 		super();
 		this.appId = appId;

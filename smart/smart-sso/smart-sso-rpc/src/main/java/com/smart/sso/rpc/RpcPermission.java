@@ -8,9 +8,7 @@ import java.io.Serializable;
  * @author Joe
  */
 public class RpcPermission implements Serializable {
-
 	private static final long serialVersionUID = 6413358335961655343L;
-
 	/** ID */
 	private Integer id;
 	/** 父ID */

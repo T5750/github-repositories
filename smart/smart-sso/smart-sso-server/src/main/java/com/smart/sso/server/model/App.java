@@ -12,12 +12,10 @@ import com.smart.mvc.model.PersistentObject;
  * @author Joe
  */
 public class App extends PersistentObject {
-
 	private static final long serialVersionUID = 7902814112969375973L;
-	
 	/** 名称 */
 	private String name;
-	/** 编码  */
+	/** 编码 */
 	private String code;
 	/** 排序 */
 	private Integer sort = Integer.valueOf(1);
@@ -26,10 +24,10 @@ public class App extends PersistentObject {
 	private Date createTime;
 	/** 是否启用 */
 	private Boolean isEnable = Boolean.valueOf(true);
-	
-	public App(){
+
+	public App() {
 	}
-	
+
 	public App(String name, String code, Integer sort, Boolean isEnable) {
 		super();
 		this.name = name;
@@ -77,10 +75,10 @@ public class App extends PersistentObject {
 	public void setIsEnable(Boolean isEnable) {
 		this.isEnable = isEnable;
 	}
-	
+
 	/** 以下为显示辅助参数 */
 	private Boolean isChecked = Boolean.valueOf(false);
-	
+
 	public Boolean getIsChecked() {
 		return isChecked;
 	}
@@ -88,8 +86,9 @@ public class App extends PersistentObject {
 	public void setIsChecked(Boolean isChecked) {
 		this.isChecked = isChecked;
 	}
-	
+
 	public String getIsEnableStr() {
-		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel() : TrueFalseEnum.FALSE.getLabel();
+		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel()
+				: TrueFalseEnum.FALSE.getLabel();
 	}
 }

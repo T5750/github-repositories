@@ -16,7 +16,7 @@ import com.smart.mvc.service.hibernate.Service;
  * @param <T>
  * @param <ID>
  */
-@SuppressWarnings( { "unchecked", "rawtypes" })
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Serializable>
 		implements Service<DAO, T, ID> {
 	/**
@@ -64,7 +64,7 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 			delete(t);
 		}
 	}
-	
+
 	@Override
 	public T deleteById(ID pk) {
 		T t = get(pk);
@@ -78,28 +78,27 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 		delete(ts);
 		return ts;
 	}
-	
-	public T deleteByProperty(String property, Object values){
-		T t=findByProperty(property, values);
+
+	public T deleteByProperty(String property, Object values) {
+		T t = findByProperty(property, values);
 		delete(t);
 		return t;
 	}
-	
-	public List<T> deleteListByProperty(String property, Object values){
-		
-		List<T> ts=findListByProperty(property, values);
+
+	public List<T> deleteListByProperty(String property, Object values) {
+		List<T> ts = findListByProperty(property, values);
 		delete(ts);
 		return ts;
 	}
-	
-	public T deleteByPropertys(String[] property, Object... values){
-		T t=findByPropertys(property, values);
+
+	public T deleteByPropertys(String[] property, Object... values) {
+		T t = findByPropertys(property, values);
 		delete(t);
 		return t;
 	}
-	
-	public List<T> deleteListByPropertys(String[] property, Object... values){
-		List<T> ts=findListByPropertys(property, values);
+
+	public List<T> deleteListByPropertys(String[] property, Object... values) {
+		List<T> ts = findListByPropertys(property, values);
 		delete(ts);
 		return ts;
 	}
@@ -117,19 +116,19 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 		}
 		return list;
 	}
-	
+
 	@Override
 	public T findByProperty(String property, Object values) {
 		return findByPropertys(new String[] { property }, values);
 	}
-	
+
 	@Override
-	public T findByProperty(String sortHql,String property, Object values) {
-		List<T> list=dao.findListByPropertys(sortHql, new String[] { property }, new Object[] {values});
+	public T findByProperty(String sortHql, String property, Object values) {
+		List<T> list = dao.findListByPropertys(sortHql,
+				new String[] { property }, new Object[] { values });
 		if (list != null && list.size() > 0) {
 			return list.get(0);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
@@ -139,19 +138,18 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 		List<T> list = dao.findListByPropertys(property, values);
 		if (list != null && list.size() > 0) {
 			return list.get(0);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
-	public T findByProperty(String sortHql,String[] property, Object... values) {
-		List<T> list=dao.findListByPropertys(sortHql, property, values);
+	public T findByProperty(String sortHql, String[] property,
+			Object... values) {
+		List<T> list = dao.findListByPropertys(sortHql, property, values);
 		if (list != null && list.size() > 0) {
 			return list.get(0);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
@@ -160,13 +158,13 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 	public List<T> findListByPropertys(String[] property, Object... values) {
 		return dao.findListByPropertys(property, values);
 	}
-	
+
 	@Override
 	public List<T> findListByPropertys(String sortHql, String[] property,
 			Object... values) {
 		return dao.findListByPropertys(sortHql, property, values);
 	}
-	
+
 	@Override
 	public List<T> findList() {
 		return dao.findByAll(null);
@@ -174,17 +172,19 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 
 	@Override
 	public List<T> findList(String sortHql) {
-		return dao.findListByPropertys(sortHql,null);
+		return dao.findListByPropertys(sortHql, null);
 	}
-	
+
 	@Override
 	public List<T> findListByProperty(String property, Object values) {
 		return dao.findListByPropertys(new String[] { property }, values);
 	}
-	
+
 	@Override
-	public List<T> findListByProperty(String sortHql,String property, Object values) {
-		return dao.findListByPropertys(sortHql,new String[] { property }, values);
+	public List<T> findListByProperty(String sortHql, String property,
+			Object values) {
+		return dao.findListByPropertys(sortHql, new String[] { property },
+				values);
 	}
 
 	@Override
@@ -198,33 +198,32 @@ public class ServiceImpl<DAO extends Dao, T extends Serializable, ID extends Ser
 		dao.findByAll(p, null, sortHql);
 		return p;
 	}
-	
+
 	@Override
-	public Pagination<T> findPaginationByProperty(Pagination<T> p, String property,
-			Object values) {
-		dao.findByAll(p, new String[]{property}, null, values);
-		return p;
-	}
-	
-	@Override
-	public Pagination<T> findPaginationByProperty(String sortHql, Pagination<T> p,
+	public Pagination<T> findPaginationByProperty(Pagination<T> p,
 			String property, Object values) {
-		dao.findByAll(p, new String[]{property}, sortHql, values);
+		dao.findByAll(p, new String[] { property }, null, values);
 		return p;
 	}
-	
+
 	@Override
-	public Pagination<T> findPaginationByPropertys(Pagination<T> p, String[] property,
-			Object... values) {
+	public Pagination<T> findPaginationByProperty(String sortHql,
+			Pagination<T> p, String property, Object values) {
+		dao.findByAll(p, new String[] { property }, sortHql, values);
+		return p;
+	}
+
+	@Override
+	public Pagination<T> findPaginationByPropertys(Pagination<T> p,
+			String[] property, Object... values) {
 		dao.findByAll(p, property, null, values);
 		return p;
 	}
 
 	@Override
-	public Pagination<T> findPaginationByPropertys(String sortHql, Pagination<T> p,
-			String[] property, Object... values) {
+	public Pagination<T> findPaginationByPropertys(String sortHql,
+			Pagination<T> p, String[] property, Object... values) {
 		dao.findByAll(p, property, sortHql, values);
 		return p;
 	}
-
 }

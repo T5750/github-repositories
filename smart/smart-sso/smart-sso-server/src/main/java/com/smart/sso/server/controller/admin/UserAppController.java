@@ -28,14 +28,14 @@ import com.smart.sso.server.service.UserAppService;
 @Controller
 @RequestMapping("/admin/userApp")
 public class UserAppController extends BaseController {
-
 	@Resource
 	private AppService appService;
 	@Resource
 	private UserAppService userAppService;
-	
+
 	@RequestMapping(value = "/allocate", method = RequestMethod.GET)
-	public String edit(@ValidateParam(name = "管理员Id", validators = { Validator.NOT_BLANK }) Integer userId, Model model) {
+	public String edit(@ValidateParam(name = "管理员Id", validators = {
+			Validator.NOT_BLANK }) Integer userId, Model model) {
 		model.addAttribute("userId", userId);
 		model.addAttribute("appList", getAppList(userId));
 		return "/admin/userApp";
@@ -43,7 +43,8 @@ public class UserAppController extends BaseController {
 
 	@RequestMapping(value = "/allocateSave", method = RequestMethod.POST)
 	public @ResponseBody Result allocateSave(
-			@ValidateParam(name = "管理员ID", validators = { Validator.NOT_BLANK }) Integer userId,
+			@ValidateParam(name = "管理员ID", validators = {
+					Validator.NOT_BLANK }) Integer userId,
 			@ValidateParam(name = "应用IDS") String appIds) {
 		List<Integer> idList = getAjaxIds(appIds);
 		List<UserApp> list = new ArrayList<UserApp>();
@@ -57,15 +58,15 @@ public class UserAppController extends BaseController {
 		userAppService.allocate(userId, idList, list);
 		return Result.createSuccessResult().setMessage("授权成功");
 	}
-	
+
 	private List<App> getAppList(Integer userId) {
 		List<App> list = appService.findByAll(null);
 		for (App app : list) {
-			UserApp userApp = userAppService.findByUserAppId(userId, app.getId());
+			UserApp userApp = userAppService.findByUserAppId(userId,
+					app.getId());
 			if (null != userApp) {
 				app.setIsChecked(true);
-			}
-			else {
+			} else {
 				app.setIsChecked(false);
 			}
 		}

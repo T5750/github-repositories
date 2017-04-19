@@ -20,7 +20,6 @@ import com.smart.sso.server.service.UserService;
 
 @Service("authenticationRpcService")
 public class AuthenticationRpcServiceImpl implements AuthenticationRpcService {
-
 	@Resource
 	private PermissionService permissionService;
 	@Resource
@@ -32,7 +31,7 @@ public class AuthenticationRpcServiceImpl implements AuthenticationRpcService {
 	public boolean validate(String token) {
 		return tokenManager.validate(token) != null;
 	}
-	
+
 	@Override
 	public RpcUser findAuthInfo(String token) {
 		LoginUser user = tokenManager.validate(token);
@@ -41,23 +40,23 @@ public class AuthenticationRpcServiceImpl implements AuthenticationRpcService {
 		}
 		return null;
 	}
-	
+
 	@Override
-	public List<RpcPermission> findPermissionList(String token, String appCode) {
+	public List<RpcPermission> findPermissionList(String token,
+			String appCode) {
 		if (StringUtils.isBlank(token)) {
 			return permissionService.findListById(appCode, null);
-		}
-		else {
+		} else {
 			LoginUser user = tokenManager.validate(token);
 			if (user != null) {
-				return permissionService.findListById(appCode, user.getUserId());
-			}
-			else {
+				return permissionService.findListById(appCode,
+						user.getUserId());
+			} else {
 				return new ArrayList<RpcPermission>(0);
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean updatePassword(String token, String newPassword) {
 		LoginUser loginUser = tokenManager.validate(token);
@@ -66,8 +65,7 @@ public class AuthenticationRpcServiceImpl implements AuthenticationRpcService {
 			user.setPassword(PasswordProvider.encrypt(newPassword));
 			userService.update(user);
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}

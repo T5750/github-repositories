@@ -11,34 +11,45 @@ import com.smart.sso.server.model.UserApp;
  * @author Joe
  */
 public interface UserAppService extends Service<UserApp, Integer> {
-	
 	/**
 	 * 根据管理员ID和角色ID查询映射
-	 * @param userId 管理员ID
-	 * @param roleId 角色ID
+	 * 
+	 * @param userId
+	 *            管理员ID
+	 * @param roleId
+	 *            角色ID
 	 * @return
 	 */
 	public UserApp findByUserAppId(Integer userId, Integer roleId);
-	
+
 	/**
 	 * 根据管理员ID给管理员分配角色
-	 * @param userId 管理员ID
-	 * @param idList 应用ID集合
-	 * @param list 管理员角色映射集合
+	 * 
+	 * @param userId
+	 *            管理员ID
+	 * @param idList
+	 *            应用ID集合
+	 * @param list
+	 *            管理员角色映射集合
 	 * @return
 	 */
-	public void allocate(Integer userId, List<Integer> idList, List<UserApp> list);
-	
+	public void allocate(Integer userId, List<Integer> idList,
+			List<UserApp> list);
+
 	/**
 	 * 根据管理员ID集合删除映射
-	 * @param idList 管理员ID集合
+	 * 
+	 * @param idList
+	 *            管理员ID集合
 	 * @return
 	 */
 	public void deleteByUserIds(List<Integer> idList);
-	
+
 	/**
 	 * 根据应用ID集合删除映射
-	 * @param idList 应用ID集合
+	 * 
+	 * @param idList
+	 *            应用ID集合
 	 * @return
 	 */
 	public void deleteByAppIds(List<Integer> idList);

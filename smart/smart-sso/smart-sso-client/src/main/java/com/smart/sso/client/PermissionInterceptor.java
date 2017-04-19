@@ -21,15 +21,16 @@ import com.smart.sso.rpc.AuthenticationRpcService;
 import com.smart.sso.rpc.RpcPermission;
 
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
-
 	@Autowired
 	private AuthenticationRpcService authenticationRpcService;
 
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest request,
+			HttpServletResponse response, Object handler)
 			throws ServletException, IOException {
 		String path = request.getServletPath();
-		Set<String> applicationPermissionSet = ApplicationUtils.getApplicationPermission(request);
+		Set<String> applicationPermissionSet = ApplicationUtils
+				.getApplicationPermission(request);
 		if (!applicationPermissionSet.contains(path)) {
 			return true;
 		}
@@ -45,7 +46,8 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
 	}
 
 	private Set<String> getLocalPermissionSet(HttpServletRequest request) {
-		SessionPermission sessionPermission = ApplicationUtils.getSessionPermission(request);
+		SessionPermission sessionPermission = ApplicationUtils
+				.getSessionPermission(request);
 		if (sessionPermission == null) {
 			sessionPermission = invokePermissionInSession(request);
 		}
@@ -58,11 +60,12 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
 	 * @param token
 	 * @return
 	 */
-	public SessionPermission invokePermissionInSession(HttpServletRequest request) {
+	public SessionPermission invokePermissionInSession(
+			HttpServletRequest request) {
 		SessionUser user = ApplicationUtils.getSessionUser(request);
-		List<RpcPermission> dbList = authenticationRpcService.findPermissionList(user.getToken(),
-				ConfigUtils.getProperty("sso.app.code"));
-
+		List<RpcPermission> dbList = authenticationRpcService
+				.findPermissionList(user.getToken(),
+						ConfigUtils.getProperty("sso.app.code"));
 		List<RpcPermission> menuList = new ArrayList<RpcPermission>();
 		Set<String> operateSet = new HashSet<String>();
 		for (RpcPermission menu : dbList) {
@@ -73,16 +76,15 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
 				operateSet.add(menu.getUrl());
 			}
 		}
-
 		SessionPermission sessionPermission = new SessionPermission();
 		// 设置登录用户菜单列表
 		sessionPermission.setMenuList(menuList);
-
 		// 保存登录用户没有权限的URL，方便前端去隐藏相应操作按钮
-		Set<String> noPermissionSet = new HashSet<String>(ApplicationUtils.getApplicationPermission(request));
+		Set<String> noPermissionSet = new HashSet<String>(
+				ApplicationUtils.getApplicationPermission(request));
 		noPermissionSet.removeAll(operateSet);
-		sessionPermission.setNoPermissions(StringUtils.join(noPermissionSet.toArray(), ","));
-
+		sessionPermission.setNoPermissions(
+				StringUtils.join(noPermissionSet.toArray(), ","));
 		// 保存登录用户权限列表
 		sessionPermission.setPermissionSet(operateSet);
 		ApplicationUtils.setSessionPermission(request, sessionPermission);

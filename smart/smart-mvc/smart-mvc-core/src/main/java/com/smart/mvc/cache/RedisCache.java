@@ -9,9 +9,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import com.smart.mvc.exception.CacheException;
 
 public class RedisCache<K, V> {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(RedisCache.class);
-
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(RedisCache.class);
 	private RedisTemplate<K, V> redisTemplate;
 
 	public V get(K key) {
@@ -19,15 +18,12 @@ public class RedisCache<K, V> {
 		try {
 			if (key == null) {
 				return null;
-			}
-			else {
+			} else {
 				return redisTemplate.opsForValue().get(key);
 			}
-		}
-		catch (Throwable t) {
+		} catch (Throwable t) {
 			throw new CacheException(t);
 		}
-
 	}
 
 	public V set(K key, V value) {
@@ -35,8 +31,7 @@ public class RedisCache<K, V> {
 		try {
 			redisTemplate.opsForValue().set(key, value);
 			return value;
-		}
-		catch (Throwable t) {
+		} catch (Throwable t) {
 			throw new CacheException(t);
 		}
 	}
@@ -44,10 +39,10 @@ public class RedisCache<K, V> {
 	public V set(K key, V value, long timeout) {
 		LOGGER.debug("set key [" + key + "]");
 		try {
-			redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.MINUTES);
+			redisTemplate.opsForValue().set(key, value, timeout,
+					TimeUnit.MINUTES);
 			return value;
-		}
-		catch (Throwable t) {
+		} catch (Throwable t) {
 			throw new CacheException(t);
 		}
 	}
@@ -56,8 +51,7 @@ public class RedisCache<K, V> {
 		LOGGER.debug("delete key [" + key + "]");
 		try {
 			redisTemplate.delete(key);
-		}
-		catch (Throwable t) {
+		} catch (Throwable t) {
 			throw new CacheException(t);
 		}
 	}

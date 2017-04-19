@@ -14,8 +14,8 @@ import com.smart.mvc.model.Pagination;
  * @author Joe
  */
 public interface UserDao extends Dao<User, Integer> {
-	
-	public List<User> findPaginationByAccount(@Param("account") String account, Pagination<User> p);
-	
+	public List<User> findPaginationByAccount(@Param("account") String account,
+			Pagination<User> p);
+
 	public User findByAccount(@Param("account") String account);
 }

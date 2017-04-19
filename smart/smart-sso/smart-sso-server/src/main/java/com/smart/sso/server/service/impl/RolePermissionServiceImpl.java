@@ -14,8 +14,9 @@ import com.smart.sso.server.model.RolePermission;
 import com.smart.sso.server.service.RolePermissionService;
 
 @Service("rolePermissionService")
-public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionDao, RolePermission, Integer> implements RolePermissionService {
-
+public class RolePermissionServiceImpl
+		extends ServiceImpl<RolePermissionDao, RolePermission, Integer>
+		implements RolePermissionService {
 	@Autowired
 	public void setDao(RolePermissionDao dao) {
 		this.dao = dao;
@@ -35,11 +36,11 @@ public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionDao, Ro
 	public void deleteByPermissionIds(List<Integer> idList) {
 		dao.deleteByPermissionIds(idList);
 	}
-	
+
 	public void deleteByRoleIds(List<Integer> idList) {
 		dao.deleteByRoleIds(idList);
 	}
-	
+
 	public void deleteByAppIds(List<Integer> idList) {
 		dao.deleteByAppIds(idList);
 	}

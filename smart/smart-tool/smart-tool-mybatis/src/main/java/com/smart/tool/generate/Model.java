@@ -15,11 +15,11 @@ import com.smart.tool.system.StringUtils;
  * @author Joe
  */
 public class Model {
-
 	private Map<String, Object> dataMap;
 
-	public Model(String company, String project, String module, String model, List<DummyField> fieldList,
-			String tableName, String extendsProject, String versionId, boolean containEnable, boolean containDate,
+	public Model(String company, String project, String module, String model,
+			List<DummyField> fieldList, String tableName, String extendsProject,
+			String versionId, boolean containEnable, boolean containDate,
 			String tableComment) {
 		dataMap = new HashMap<String, Object>();
 		/** 公司 **/

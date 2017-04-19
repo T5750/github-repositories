@@ -14,27 +14,26 @@ import javax.servlet.http.HttpServletResponse;
  * @author Joe
  */
 public class CaptchaHelper {
-
 	public static final String CACHE_CAPTCHA = "_captcha";
 
-	public static void setInCache(final HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public static void setInCache(final HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 		BufferedImage image = new Captcha() {
 			protected void setInCache(String captcha) {
 				request.getSession().setAttribute(CACHE_CAPTCHA, captcha);
 			}
 		}.generate();
-
 		ServletOutputStream out = response.getOutputStream();
 		ImageIO.write(image, "jpg", out);
 		try {
 			out.flush();
-		}
-		finally {
+		} finally {
 			out.close();
 		}
 	}
 
 	public static boolean validate(String sessionCaptcha, String captcha) {
-		return sessionCaptcha == null ? false : sessionCaptcha.equalsIgnoreCase(captcha);
+		return sessionCaptcha == null ? false
+				: sessionCaptcha.equalsIgnoreCase(captcha);
 	}
 }

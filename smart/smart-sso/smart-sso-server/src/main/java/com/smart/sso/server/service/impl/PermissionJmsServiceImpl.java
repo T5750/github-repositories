@@ -18,14 +18,14 @@ import com.smart.sso.server.service.PermissionJmsService;
  */
 @Component
 public class PermissionJmsServiceImpl implements PermissionJmsService {
-
 	@Override
 	public void send(String destinationName, final String appCode) {
 		JmsTemplate jmsTemplate = SpringUtils.getBean(JmsTemplate.class);
 		if (jmsTemplate != null) {
 			jmsTemplate.send(destinationName, new MessageCreator() {
 				@Override
-				public Message createMessage(Session session) throws JMSException {
+				public Message createMessage(Session session)
+						throws JMSException {
 					return session.createTextMessage(appCode);
 				}
 			});

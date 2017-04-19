@@ -26,7 +26,6 @@ import com.smart.sso.rpc.AuthenticationRpcService;
 @Controller
 @RequestMapping("/admin/profile")
 public class ProfileController extends BaseController {
-
 	@Resource
 	private UserService userService;
 	@Resource
@@ -34,17 +33,21 @@ public class ProfileController extends BaseController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String execute(Model model, HttpServletRequest request) {
-		model.addAttribute("user", ApplicationUtils.getSessionUser(request).getProfile());
+		model.addAttribute("user",
+				ApplicationUtils.getSessionUser(request).getProfile());
 		return "/admin/profile";
 	}
 
 	@RequestMapping(value = "/savePassword", method = RequestMethod.POST)
 	public @ResponseBody Result save(
-			@ValidateParam(name = "新密码", validators = { Validator.NOT_BLANK }) String newPassword,
-			@ValidateParam(name = "确认密码", validators = { Validator.NOT_BLANK }) String confirmPassword,
+			@ValidateParam(name = "新密码", validators = {
+					Validator.NOT_BLANK }) String newPassword,
+			@ValidateParam(name = "确认密码", validators = {
+					Validator.NOT_BLANK }) String confirmPassword,
 			HttpServletRequest request) {
 		if (newPassword.equals(confirmPassword)
-				&& authenticationRpcService.updatePassword(ApplicationUtils.getSessionUser(request).getToken(),
+				&& authenticationRpcService.updatePassword(
+						ApplicationUtils.getSessionUser(request).getToken(),
 						newPassword))
 			return Result.createSuccessResult().setMessage("修改成功");
 		else

@@ -6,7 +6,6 @@ import java.util.Random;
  * 字符串公用类
  */
 public class StringUtils {
-
 	/**
 	 * 验证可能为空格或者""及null的字符串
 	 * 
@@ -45,7 +44,7 @@ public class StringUtils {
 	public static boolean isNotBlank(final CharSequence cs) {
 		return !isBlank(cs);
 	}
-	
+
 	/**
 	 * 产生随机数
 	 */

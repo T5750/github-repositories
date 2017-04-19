@@ -11,7 +11,6 @@ import java.util.List;
  * @author Joe
  */
 public class StringUtils {
-
 	/**
 	 * 验证可能为空格或者""及null的字符串
 	 * 
@@ -39,22 +38,20 @@ public class StringUtils {
 		}
 		return true;
 	}
-	
 
 	/**
 	 * Description:验证字符串数组是否为空
 	 * 
 	 * @author 唐海洋
-	 * @Version 1.0 2016-7-21下午5:34:41 
+	 * @Version 1.0 2016-7-21下午5:34:41
 	 * @param css
 	 * @return
 	 */
-	public static boolean isBlank(final CharSequence ... css) {
+	public static boolean isBlank(final CharSequence... css) {
 		if (css == null)
 			return true;
-		
 		for (CharSequence cs : css) {
-			if(isNotBlank(cs)) {
+			if (isNotBlank(cs)) {
 				return false;
 			}
 		}
@@ -103,7 +100,6 @@ public class StringUtils {
 		if (!iterator.hasNext()) {
 			return String.valueOf(first);
 		}
-
 		StringBuilder buf = new StringBuilder().append(first);
 		while (iterator.hasNext()) {
 			Object obj = iterator.next();
@@ -125,7 +121,8 @@ public class StringUtils {
 	 *            是否为未显示内容添加"..."
 	 * @return
 	 */
-	public static String substring(String str, final int length, final boolean dot) {
+	public static String substring(String str, final int length,
+			final boolean dot) {
 		return substring(str, 0, length, dot);
 	}
 
@@ -142,7 +139,8 @@ public class StringUtils {
 	 *            是否为未显示内容添加"..."
 	 * @return
 	 */
-	public static String substring(String str, int beginIndex, int endIndex, final boolean dot) {
+	public static String substring(String str, int beginIndex, int endIndex,
+			final boolean dot) {
 		if (str != null) {
 			if (str.length() >= (endIndex + 1)) {
 				str = str.substring(beginIndex, endIndex);
@@ -209,16 +207,12 @@ public class StringUtils {
 			if (step > str.length()) {
 				list = new ArrayList<String>(1);
 				list.add(str);
-			}
-			else {
+			} else {
 				list = new ArrayList<String>();
-
 				int i = 0;
 				do {
 					list.add(str.substring(i, i += step));
-				}
-				while ((i + step) < str.length());
-
+				} while ((i + step) < str.length());
 				if (i < str.length()) {
 					list.add(str.substring(i, str.length()));
 				}

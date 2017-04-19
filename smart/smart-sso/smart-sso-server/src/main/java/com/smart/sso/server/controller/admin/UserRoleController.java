@@ -32,7 +32,6 @@ import com.smart.sso.server.service.UserRoleService;
 @Controller
 @RequestMapping("/admin/userRole")
 public class UserRoleController extends BaseController {
-
 	@Resource
 	private AppService appService;
 	@Resource
@@ -41,25 +40,33 @@ public class UserRoleController extends BaseController {
 	private UserRoleService userRoleService;
 
 	@RequestMapping(value = "/allocate", method = RequestMethod.GET)
-	public String edit(@ValidateParam(name = "管理员Id", validators = { Validator.NOT_BLANK }) Integer userId, Model model) {
-		List<App> appList = appService.findByUserId(TrueFalseEnum.TRUE.getValue(), userId);
+	public String edit(@ValidateParam(name = "管理员Id", validators = {
+			Validator.NOT_BLANK }) Integer userId, Model model) {
+		List<App> appList = appService
+				.findByUserId(TrueFalseEnum.TRUE.getValue(), userId);
 		model.addAttribute("userId", userId);
 		model.addAttribute("appList", appList);
-		model.addAttribute("roleList", getRoleList(userId, CollectionUtils.isEmpty(appList) ? null : appList.get(0).getId()));
+		model.addAttribute("roleList",
+				getRoleList(userId, CollectionUtils.isEmpty(appList) ? null
+						: appList.get(0).getId()));
 		return "/admin/userRole";
 	}
-	
+
 	@RequestMapping(value = "/change", method = RequestMethod.GET)
 	public @ResponseBody Result changeApp(
-			@ValidateParam(name = "应用ID ", validators = { Validator.NOT_BLANK }) Integer appId,
-			@ValidateParam(name = "管理员ID", validators = { Validator.NOT_BLANK }) Integer userId) {
+			@ValidateParam(name = "应用ID ", validators = {
+					Validator.NOT_BLANK }) Integer appId,
+			@ValidateParam(name = "管理员ID", validators = {
+					Validator.NOT_BLANK }) Integer userId) {
 		return Result.createSuccessResult().setData(getRoleList(userId, appId));
 	}
 
 	@RequestMapping(value = "/allocateSave", method = RequestMethod.POST)
 	public @ResponseBody Result allocateSave(
-			@ValidateParam(name = "应用ID ", validators = { Validator.NOT_BLANK }) Integer appId,
-			@ValidateParam(name = "管理员ID", validators = { Validator.NOT_BLANK }) Integer userId,
+			@ValidateParam(name = "应用ID ", validators = {
+					Validator.NOT_BLANK }) Integer appId,
+			@ValidateParam(name = "管理员ID", validators = {
+					Validator.NOT_BLANK }) Integer userId,
 			@ValidateParam(name = "角色IDS ") String roleIds) {
 		List<Integer> idList = getAjaxIds(roleIds);
 		List<UserRole> list = new ArrayList<UserRole>();
@@ -76,13 +83,14 @@ public class UserRoleController extends BaseController {
 	}
 
 	private List<Role> getRoleList(Integer userId, Integer appId) {
-		List<Role> list = roleService.findByAppId(TrueFalseEnum.TRUE.getValue(), appId);
+		List<Role> list = roleService.findByAppId(TrueFalseEnum.TRUE.getValue(),
+				appId);
 		for (Role role : list) {
-			UserRole userRole = userRoleService.findByUserRoleId(userId, role.getId());
+			UserRole userRole = userRoleService.findByUserRoleId(userId,
+					role.getId());
 			if (null != userRole) {
 				role.setIsChecked(true);
-			}
-			else {
+			} else {
 				role.setIsChecked(false);
 			}
 		}

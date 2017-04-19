@@ -27,27 +27,29 @@ import com.smart.sso.rpc.RpcPermission;
  * @author Joe
  */
 public class PermissionInitServlet extends HttpServlet {
-
 	private static final long serialVersionUID = -7462526216386306510L;
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(PermissionInitServlet.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(PermissionInitServlet.class);
 
 	public void init() throws ServletException {
 		ServletContext servletContext = getServletContext();
 		initApplicationPermissions(servletContext);
 	}
-	
+
 	/**
 	 * 应用初始化，获取应用所有的菜单及权限
+	 * 
 	 * @param servletContext
 	 */
-	public static void initApplicationPermissions(ServletContext servletContext) {
-		AuthenticationRpcService authenticationRpcService = SpringUtils.getBean(AuthenticationRpcService.class);
+	public static void initApplicationPermissions(
+			ServletContext servletContext) {
+		AuthenticationRpcService authenticationRpcService = SpringUtils
+				.getBean(AuthenticationRpcService.class);
 		List<RpcPermission> dbList = null;
 		try {
-			dbList = authenticationRpcService.findPermissionList(null, ConfigUtils.getProperty("sso.app.code"));
-		}
-		catch (Exception e) {
+			dbList = authenticationRpcService.findPermissionList(null,
+					ConfigUtils.getProperty("sso.app.code"));
+		} catch (Exception e) {
 			dbList = new ArrayList<RpcPermission>(0);
 			LOGGER.error("无法连接到单点登录鉴权系统,请检查配置sso.server.url", e);
 		}

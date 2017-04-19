@@ -17,12 +17,13 @@ import com.smart.sso.client.SsoInterceptor;
 @Controller
 @RequestMapping("/logout")
 public class LogoutController {
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
-		String ssoLogoutUrl = new StringBuilder().append(ConfigUtils.getProperty("sso.server.url"))
-				.append("/logout?backUrl=").append(SsoInterceptor.getLocalUrl(request))
+		String ssoLogoutUrl = new StringBuilder()
+				.append(ConfigUtils.getProperty("sso.server.url"))
+				.append("/logout?backUrl=")
+				.append(SsoInterceptor.getLocalUrl(request))
 				.append("/admin/admin").toString();
 		return "redirect:" + ssoLogoutUrl;
 	}

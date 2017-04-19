@@ -18,8 +18,9 @@ import com.smart.sso.server.service.PermissionService;
 import com.smart.sso.server.service.RolePermissionService;
 
 @Service("permissionService")
-public class PermissionServiceImpl extends ServiceImpl<PermissionDao, Permission, Integer> implements PermissionService {
-
+public class PermissionServiceImpl
+		extends ServiceImpl<PermissionDao, Permission, Integer>
+		implements PermissionService {
 	@Resource
 	private RolePermissionService rolePermissionService;
 	@Resource
@@ -34,13 +35,14 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionDao, Permission
 	public void enable(Boolean isEnable, List<Integer> idList) {
 		verifyRows(dao.enable(isEnable, idList), idList.size(), "权限数据库更新失败");
 	}
-	
+
 	@Permissible
 	public void save(Permission t) {
 		super.save(t);
 	}
 
-	public List<Permission> findByName(String name, Integer appId, Boolean isEnable) {
+	public List<Permission> findByName(String name, Integer appId,
+			Boolean isEnable) {
 		return dao.findByName(name, appId, isEnable);
 	}
 
@@ -48,18 +50,16 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionDao, Permission
 	@Transactional
 	public void deletePermission(Integer id, Integer appId) {
 		List<Integer> idList = new ArrayList<Integer>();
-		
 		List<Permission> list = permissionService.findByName(null, appId, null);
 		loopSubList(id, idList, list);
 		idList.add(id);
-		
 		rolePermissionService.deleteByPermissionIds(idList);
-		
 		verifyRows(dao.deleteById(idList), idList.size(), "权限数据库删除失败");
 	}
 
 	// 递归方法，删除子权限
-	protected void loopSubList(Integer id, List<Integer> idList, List<Permission> list) {
+	protected void loopSubList(Integer id, List<Integer> idList,
+			List<Permission> list) {
 		for (Permission p : list) {
 			if (id.equals(p.getParentId())) {
 				idList.add(p.getId());
@@ -67,7 +67,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionDao, Permission
 			}
 		}
 	}
-	
+
 	public void deleteByAppIds(List<Integer> idList) {
 		dao.deleteByAppIds(idList);
 	}

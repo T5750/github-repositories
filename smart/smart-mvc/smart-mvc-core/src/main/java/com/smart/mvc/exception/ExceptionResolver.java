@@ -22,22 +22,20 @@ import com.smart.mvc.model.ResultCode;
  * @author Joe
  */
 public class ExceptionResolver implements HandlerExceptionResolver {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionResolver.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(ExceptionResolver.class);
 
 	@Override
-	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
-			Exception exception) {
+	public ModelAndView resolveException(HttpServletRequest request,
+			HttpServletResponse response, Object handler, Exception exception) {
 		Result result = null;
 		if (exception instanceof ApplicationException) {
 			ApplicationException ae = (ApplicationException) exception;
 			result = Result.create(ae.getCode()).setMessage(ae.getMessage());
-		}
-		else {
+		} else {
 			result = Result.create(ResultCode.ERROR).setMessage("未知错误");
 			LOGGER.error(exception.getMessage(), exception);
 		}
-
 		response.setContentType("application/json;charset=UTF-8");
 		response.setStatus(HttpStatus.OK.value());
 		try {
@@ -45,9 +43,10 @@ public class ExceptionResolver implements HandlerExceptionResolver {
 			writer.write(JSON.toJSONString(result));
 			writer.flush();
 			writer.close();
-		}
-		catch (IOException ie) {
-			LOGGER.error("Failed to serialize the object to json for exception resolver!", ie);
+		} catch (IOException ie) {
+			LOGGER.error(
+					"Failed to serialize the object to json for exception resolver!",
+					ie);
 		}
 		return new ModelAndView();
 	}

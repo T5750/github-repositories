@@ -9,9 +9,7 @@ import com.smart.mvc.model.PersistentObject;
  * @author Joe
  */
 public class Role extends PersistentObject {
-
 	private static final long serialVersionUID = 564115576254799088L;
-
 	/** 应用ID */
 	private Integer appId;
 	/** 名称 */
@@ -62,10 +60,10 @@ public class Role extends PersistentObject {
 	public void setIsEnable(Boolean isEnable) {
 		this.isEnable = isEnable;
 	}
-	
+
 	/** 以下为显示辅助参数 */
 	private Boolean isChecked = Boolean.valueOf(false);
-	
+
 	public Boolean getIsChecked() {
 		return isChecked;
 	}
@@ -73,8 +71,9 @@ public class Role extends PersistentObject {
 	public void setIsChecked(Boolean isChecked) {
 		this.isChecked = isChecked;
 	}
-	
+
 	public String getIsEnableStr() {
-		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel() : TrueFalseEnum.FALSE.getLabel();
+		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel()
+				: TrueFalseEnum.FALSE.getLabel();
 	}
 }

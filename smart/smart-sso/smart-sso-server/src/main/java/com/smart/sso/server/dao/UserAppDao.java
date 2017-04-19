@@ -13,8 +13,8 @@ import com.smart.sso.server.model.UserApp;
  * @author Joe
  */
 public interface UserAppDao extends Dao<UserApp, Integer> {
-
-	public UserApp findByUserAppId(@Param("userId") Integer userId, @Param("appId") Integer appId);
+	public UserApp findByUserAppId(@Param("userId") Integer userId,
+			@Param("appId") Integer appId);
 
 	public int deleteByAppIds(@Param("idList") List<Integer> idList);
 

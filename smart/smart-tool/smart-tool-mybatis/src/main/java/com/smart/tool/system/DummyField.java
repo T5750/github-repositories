@@ -68,7 +68,7 @@ public class DummyField {
 	public void setMaxLength(Integer maxLength) {
 		this.maxLength = maxLength;
 	}
-	
+
 	public Integer getIntMaxLength() {
 		return intMaxLength;
 	}
@@ -77,12 +77,14 @@ public class DummyField {
 		this.intMaxLength = intMaxLength;
 	}
 
-	public String getMaxLengthStr(){
-		return (maxLength != null && maxLength > 0) ? maxLength.toString() : null;
+	public String getMaxLengthStr() {
+		return (maxLength != null && maxLength > 0) ? maxLength.toString()
+				: null;
 	}
-	
-	public String getIntMaxLengthStr(){
-		return (intMaxLength != null && intMaxLength > 0) ? intMaxLength.toString() : null;
+
+	public String getIntMaxLengthStr() {
+		return (intMaxLength != null && intMaxLength > 0)
+				? intMaxLength.toString() : null;
 	}
 
 	public Boolean isNullable() {
@@ -92,12 +94,12 @@ public class DummyField {
 	public void setNullable(Boolean nullable) {
 		this.nullable = nullable;
 	}
-	
-	public String getNullableStr(){
+
+	public String getNullableStr() {
 		return (nullable != null && nullable) ? "true" : "false";
 	}
-	
-	public String getUpperFieldName(){
+
+	public String getUpperFieldName() {
 		return Generator.getUpperStr(fieldName);
 	}
 

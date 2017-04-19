@@ -22,16 +22,15 @@ import com.smart.mvc.service.mybatis.Service;
  * @param <ID>
  * @author Joe
  */
-public abstract class ServiceImpl<DAO extends Dao<T, ID>, T extends PersistentObject, ID extends Serializable> implements
-		Service<T, ID> {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(ServiceImpl.class);
-	
+public abstract class ServiceImpl<DAO extends Dao<T, ID>, T extends PersistentObject, ID extends Serializable>
+		implements Service<T, ID> {
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(ServiceImpl.class);
 	/**
 	 * 数据访问对象，提供子类使用
 	 */
 	protected DAO dao;
-	
+
 	public abstract void setDao(DAO dao);
 
 	/**
@@ -44,8 +43,7 @@ public abstract class ServiceImpl<DAO extends Dao<T, ID>, T extends PersistentOb
 	public void save(T t) {
 		if (t.getId() == null) {
 			dao.insert(t);
-		}
-		else {
+		} else {
 			dao.update(t);
 		}
 	}
@@ -154,18 +152,18 @@ public abstract class ServiceImpl<DAO extends Dao<T, ID>, T extends PersistentOb
 	public void deleteById(List<ID> idList) {
 		verifyRows(dao.deleteById(idList), idList.size(), "数据库删除失败");
 	}
-	
+
 	/**
 	 * 查所有分页
 	 * 
 	 * @param p
 	 * @return
 	 */
-	public Pagination<T> findByAllPagination(Pagination<T> p){
+	public Pagination<T> findByAllPagination(Pagination<T> p) {
 		dao.findByAll(p);
 		return p;
 	}
-	
+
 	/**
 	 * 为高并发环境出现的更新和删除操作，验证更新数据库记录条数
 	 * 
@@ -176,7 +174,8 @@ public abstract class ServiceImpl<DAO extends Dao<T, ID>, T extends PersistentOb
 	protected void verifyRows(int updateRows, int rows, String message) {
 		if (updateRows != rows) {
 			DaoException e = new DaoException(message);
-			LOGGER.error("need update is {}, but real update rows is {}.", rows, updateRows, e);
+			LOGGER.error("need update is {}, but real update rows is {}.", rows,
+					updateRows, e);
 			throw e;
 		}
 	}

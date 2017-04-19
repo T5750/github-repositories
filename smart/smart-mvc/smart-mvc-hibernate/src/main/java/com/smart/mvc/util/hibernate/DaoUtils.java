@@ -7,7 +7,6 @@ import java.lang.reflect.Type;
  * 获取对象泛型参数Class
  */
 public class DaoUtils {
-
 	public static Class<?> getSuperClassType(Class<?> clazz) {
 		return getSuperClassType(clazz, 0);
 	}
@@ -21,18 +20,17 @@ public class DaoUtils {
 		}
 		Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
 		if (index >= params.length || index < 0) {
-			throw new IllegalArgumentException("Index: " + index + ", Size of "
-					+ clazz.getSimpleName() + "'s Parameterized Type: "
-					+ params.length);
+			throw new IllegalArgumentException(
+					"Index: " + index + ", Size of " + clazz.getSimpleName()
+							+ "'s Parameterized Type: " + params.length);
 		}
 		if (!(params[index] instanceof Class<?>)) {
-			throw new IllegalArgumentException(
-					clazz.getSimpleName()
-							+ " not set the actual class on superclass generic parameter");
+			throw new IllegalArgumentException(clazz.getSimpleName()
+					+ " not set the actual class on superclass generic parameter");
 		}
 		return (Class<?>) params[index];
 	}
-	
+
 	/**
 	 * 获取当前Class参数
 	 */

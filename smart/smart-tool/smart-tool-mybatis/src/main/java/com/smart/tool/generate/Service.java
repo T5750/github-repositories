@@ -12,10 +12,10 @@ import com.smart.tool.system.StringUtils;
  * @author Joe
  */
 public class Service {
-
 	private Map<String, Object> dataMap;
 
-	public Service(String company, String project, String module, String model) {
+	public Service(String company, String project, String module,
+			String model) {
 		dataMap = new HashMap<String, Object>();
 		/** 公司 **/
 		dataMap.put("company", company);
@@ -27,8 +27,8 @@ public class Service {
 		/** 模型 **/
 		dataMap.put("model", model);
 	}
-	
-	public String getHtml(){
+
+	public String getHtml() {
 		return FreemarkerUtils.getText("service.ftl", dataMap);
 	}
 }

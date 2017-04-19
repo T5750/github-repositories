@@ -15,11 +15,8 @@ import org.slf4j.LoggerFactory;
  * @author Joe
  */
 public class TokenManager {
-
 	private static Logger LOGGER = LoggerFactory.getLogger(TokenManager.class);
-
 	private final Timer timer = new Timer(true);
-
 	// 令牌有效期，单位为秒，默认30分钟
 	private int tokenTimeout = 1800;
 	// 令牌存储结构
@@ -77,39 +74,41 @@ public class TokenManager {
 		extendeExpiredTime(dummyUser);
 		tokenMap.putIfAbsent(token, dummyUser);
 	}
-	
+
 	public void remove(String token) {
 		tokenMap.remove(token);
 	}
-	
-	public String existsLoginUser(LoginUser loginUser){
+
+	public String existsLoginUser(LoginUser loginUser) {
 		synchronized (tokenMapMonitor) {
-    		for (Entry<String, DummyUser> entry : tokenMap.entrySet()) {
-    			String token = entry.getKey();
-    			DummyUser dummyUser = entry.getValue();
-    			// 当前时间大于过期时间
-    			if (dummyUser.loginUser.equals(loginUser)) {
-    				extendeExpiredTime(dummyUser);
-    				return token;
-    			}
-    		}
+			for (Entry<String, DummyUser> entry : tokenMap.entrySet()) {
+				String token = entry.getKey();
+				DummyUser dummyUser = entry.getValue();
+				// 当前时间大于过期时间
+				if (dummyUser.loginUser.equals(loginUser)) {
+					extendeExpiredTime(dummyUser);
+					return token;
+				}
+			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 扩展过期时间
+	 * 
 	 * @param dummyUser
 	 */
-	private void extendeExpiredTime(DummyUser dummyUser){
-		dummyUser.expired = new Date(new Date().getTime() + tokenTimeout * 1000);
+	private void extendeExpiredTime(DummyUser dummyUser) {
+		dummyUser.expired = new Date(
+				new Date().getTime() + tokenTimeout * 1000);
 	}
 
 	// 复合结构体，含loginUser与过期时间expried两个成员
 	private class DummyUser {
 		private LoginUser loginUser;
 		private Date expired; // 过期时间
-		
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -122,8 +121,7 @@ public class TokenManager {
 			if (loginUser == null) {
 				if (other.loginUser != null)
 					return false;
-			}
-			else if (!loginUser.equals(other.loginUser))
+			} else if (!loginUser.equals(other.loginUser))
 				return false;
 			return true;
 		}

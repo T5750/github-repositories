@@ -11,45 +11,47 @@ import com.smart.sso.rpc.RpcPermission;
 
 @SuppressWarnings("unchecked")
 public class ApplicationUtils {
-	
 	/**
 	 * sso授权回调参数token名称
 	 */
 	public static final String SSO_TOKEN_NAME = "__vt_param__";
-	
 	/**
 	 * 系统所有菜单
 	 */
 	public static final String APPLICATION_MENU = "_applicationMenu";
-
 	/**
 	 * 系统所有权限
 	 */
 	public static final String APPLICATION_PERMISSION = "_applicationPermission";
-
 	/**
 	 * 登录用户
 	 */
 	public static final String SESSION_USER = "_sessionUser";
-
 	/**
 	 * 登录用户权限
 	 */
 	public static final String SESSION_USER_PERMISSION = "_sessionUserPermission";
 
-	public static Set<String> getApplicationPermission(HttpServletRequest request) {
-		return (Set<String>) request.getServletContext().getAttribute(APPLICATION_PERMISSION);
+	public static Set<String> getApplicationPermission(
+			HttpServletRequest request) {
+		return (Set<String>) request.getServletContext()
+				.getAttribute(APPLICATION_PERMISSION);
 	}
 
-	public static void setApplicationPermission(ServletContext servletContext, Set<String> applicationPermissionSet) {
-		servletContext.setAttribute(APPLICATION_PERMISSION, applicationPermissionSet);
+	public static void setApplicationPermission(ServletContext servletContext,
+			Set<String> applicationPermissionSet) {
+		servletContext.setAttribute(APPLICATION_PERMISSION,
+				applicationPermissionSet);
 	}
 
-	public static List<RpcPermission> getApplicationMenu(HttpServletRequest request) {
-		return (List<RpcPermission>) request.getServletContext().getAttribute(APPLICATION_MENU);
+	public static List<RpcPermission> getApplicationMenu(
+			HttpServletRequest request) {
+		return (List<RpcPermission>) request.getServletContext()
+				.getAttribute(APPLICATION_MENU);
 	}
 
-	public static void setApplicationMenu(ServletContext servletContext, List<RpcPermission> applicationMenuList) {
+	public static void setApplicationMenu(ServletContext servletContext,
+			List<RpcPermission> applicationMenuList) {
 		servletContext.setAttribute(APPLICATION_MENU, applicationMenuList);
 	}
 
@@ -57,16 +59,21 @@ public class ApplicationUtils {
 		return (SessionUser) request.getSession().getAttribute(SESSION_USER);
 	}
 
-	public static void setSessionUser(HttpServletRequest request, SessionUser sessionUser) {
+	public static void setSessionUser(HttpServletRequest request,
+			SessionUser sessionUser) {
 		request.getSession().setAttribute(SESSION_USER, sessionUser);
 	}
 
-	public static SessionPermission getSessionPermission(HttpServletRequest request) {
-		return (SessionPermission) request.getSession().getAttribute(SESSION_USER_PERMISSION);
+	public static SessionPermission getSessionPermission(
+			HttpServletRequest request) {
+		return (SessionPermission) request.getSession()
+				.getAttribute(SESSION_USER_PERMISSION);
 	}
 
-	public static void setSessionPermission(HttpServletRequest request, SessionPermission sessionPermission) {
-		request.getSession().setAttribute(SESSION_USER_PERMISSION, sessionPermission);
+	public static void setSessionPermission(HttpServletRequest request,
+			SessionPermission sessionPermission) {
+		request.getSession().setAttribute(SESSION_USER_PERMISSION,
+				sessionPermission);
 	}
 
 	public static String getIpAddr(HttpServletRequest request) {
@@ -80,12 +87,10 @@ public class ApplicationUtils {
 			int index = ip.indexOf(',');
 			if (index != -1) {
 				return ip.substring(0, index);
-			}
-			else {
+			} else {
 				return ip;
 			}
-		}
-		else {
+		} else {
 			return request.getRemoteAddr();
 		}
 	}

@@ -1,6 +1,6 @@
 package com.smart.sso.server.model;
 
-//import java.beans.Transient;
+import java.beans.Transient;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.smart.mvc.model.PersistentObject;
@@ -11,9 +11,7 @@ import com.smart.mvc.model.PersistentObject;
  * @author Joe
  */
 public class Permission extends PersistentObject {
-
 	private static final long serialVersionUID = 4368792338865943489L;
-
 	/** 应用ID */
 	private Integer appId;
 	/** 父ID */
@@ -32,7 +30,7 @@ public class Permission extends PersistentObject {
 	private Boolean isMenu;
 	/** 是否启用 */
 	private Boolean isEnable;
-	
+
 	public Integer getAppId() {
 		return this.appId;
 	}
@@ -48,7 +46,7 @@ public class Permission extends PersistentObject {
 	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
-	
+
 	public String getIcon() {
 		return icon;
 	}
@@ -64,7 +62,7 @@ public class Permission extends PersistentObject {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getUrl() {
 		return url;
 	}
@@ -96,18 +94,18 @@ public class Permission extends PersistentObject {
 	public void setIsEnable(Boolean isEnable) {
 		this.isEnable = isEnable;
 	}
-	
-//	@Transient
+
+	@Transient
 	public String getUrlStr() {
 		return url;
 	}
-	
-//	@Transient
+
+	@Transient
 	public String getPermissionIcon() {
 		return icon;
 	}
 
-//	@Transient
+	@Transient
 	public Integer getpId() {
 		return this.parentId;
 	}

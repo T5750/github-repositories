@@ -12,7 +12,6 @@ import com.smart.mvc.model.Pagination;
  * @author Joe
  */
 public interface Dao<T, ID extends Serializable> {
-
 	/**
 	 * 如果实体未持久化过则新建实体，否则更新实体
 	 * 
@@ -36,7 +35,7 @@ public interface Dao<T, ID extends Serializable> {
 	 *            t
 	 */
 	public int deleteById(ID id);
-	
+
 	/**
 	 * 删除实体
 	 * 
@@ -53,7 +52,7 @@ public interface Dao<T, ID extends Serializable> {
 	 * @return T
 	 */
 	public T get(ID pk);
-	
+
 	/**
 	 * 查所有分页
 	 * 

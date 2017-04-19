@@ -12,7 +12,6 @@ import com.smart.mvc.util.StringUtils;
  * @author Joe
  */
 public class BaseController {
-
 	private Integer[] getAjaxIds(final String str, final String separator) {
 		Integer[] ids = null;
 		if (str != null) {
@@ -26,6 +25,7 @@ public class BaseController {
 	}
 
 	protected List<Integer> getAjaxIds(final String id) {
-		return StringUtils.isBlank(id) ? new ArrayList<Integer>(0) : Arrays.asList(getAjaxIds(id, ","));
+		return StringUtils.isBlank(id) ? new ArrayList<Integer>(0)
+				: Arrays.asList(getAjaxIds(id, ","));
 	}
 }

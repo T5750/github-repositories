@@ -7,9 +7,7 @@ import java.util.Set;
 import com.smart.sso.rpc.RpcPermission;
 
 public class SessionPermission implements Serializable {
-	
 	private static final long serialVersionUID = 7744061178030182892L;
-	
 	// 登录用户菜单
 	private List<RpcPermission> menuList;
 	// 登录用户权限

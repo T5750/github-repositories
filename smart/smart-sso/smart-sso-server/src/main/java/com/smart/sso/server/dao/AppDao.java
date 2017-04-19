@@ -15,14 +15,17 @@ import com.smart.sso.server.model.App;
  * @author Joe
  */
 public interface AppDao extends Dao<App, Integer> {
-	
-	public int enable(@Param("isEnable") Boolean isEnable, @Param("idList") List<Integer> idList);
-	
-	public List<App> findPaginationByName(@Param("name") String name, Pagination<App> p);
-	
+	public int enable(@Param("isEnable") Boolean isEnable,
+			@Param("idList") List<Integer> idList);
+
+	public List<App> findPaginationByName(@Param("name") String name,
+			Pagination<App> p);
+
 	public App findByCode(@Param("code") String code);
-	
-	public List<App> findByUserId(@Param("isEnable") Boolean isEnable, @Param("userId") Integer userId);
-	
-	public Set<String> findAppCodeByUserId(@Param("isEnable") Boolean isEnable, @Param("userId") Integer userId);
+
+	public List<App> findByUserId(@Param("isEnable") Boolean isEnable,
+			@Param("userId") Integer userId);
+
+	public Set<String> findAppCodeByUserId(@Param("isEnable") Boolean isEnable,
+			@Param("userId") Integer userId);
 }

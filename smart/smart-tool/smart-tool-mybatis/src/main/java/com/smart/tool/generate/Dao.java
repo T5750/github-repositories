@@ -12,7 +12,6 @@ import com.smart.tool.system.StringUtils;
  * @author Joe
  */
 public class Dao {
-
 	private Map<String, Object> dataMap;
 
 	public Dao(String company, String project, String module, String model) {
@@ -27,8 +26,8 @@ public class Dao {
 		/** 模型 **/
 		dataMap.put("model", model);
 	}
-	
-	public String getHtml(){
+
+	public String getHtml() {
 		return FreemarkerUtils.getText("dao.ftl", dataMap);
 	}
 }

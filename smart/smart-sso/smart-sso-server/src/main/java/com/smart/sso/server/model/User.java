@@ -12,9 +12,7 @@ import com.smart.mvc.model.PersistentObject;
  * @author Joe
  */
 public class User extends PersistentObject {
-
 	private static final long serialVersionUID = 1106412532325860697L;
-	
 	/** 登录名 */
 	private String account;
 	/** 密码 */
@@ -89,6 +87,7 @@ public class User extends PersistentObject {
 	}
 
 	public String getIsEnableStr() {
-		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel() : TrueFalseEnum.FALSE.getLabel();
+		return (isEnable != null && isEnable) ? TrueFalseEnum.TRUE.getLabel()
+				: TrueFalseEnum.FALSE.getLabel();
 	}
 }

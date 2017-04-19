@@ -13,10 +13,10 @@ import com.smart.tool.system.StringUtils;
  * @author Joe
  */
 public class ServiceImpl {
-
 	private Map<String, Object> dataMap;
 
-	public ServiceImpl(String company, String project, String module, String model) {
+	public ServiceImpl(String company, String project, String module,
+			String model) {
 		dataMap = new HashMap<String, Object>();
 		/** 公司 **/
 		dataMap.put("company", company);
@@ -30,8 +30,8 @@ public class ServiceImpl {
 		/** 小写开头模型 **/
 		dataMap.put("_model", Generator.getLowerStr(model));
 	}
-	
-	public String getHtml(){
+
+	public String getHtml() {
 		return FreemarkerUtils.getText("serviceImpl.ftl", dataMap);
 	}
 }

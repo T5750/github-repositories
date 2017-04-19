@@ -17,32 +17,33 @@ import com.smart.sso.server.service.UserAppService;
 import com.smart.sso.server.service.UserRoleService;
 
 @Service("userAppService")
-public class UserAppServiceImpl extends ServiceImpl<UserAppDao, UserApp, Integer> implements UserAppService {
-
+public class UserAppServiceImpl extends
+		ServiceImpl<UserAppDao, UserApp, Integer> implements UserAppService {
 	@Resource
 	private UserRoleService userRoleService;
-	
+
 	@Autowired
 	public void setDao(UserAppDao dao) {
 		this.dao = dao;
 	}
-	
+
 	@Permissible
 	@Transactional
-	public void allocate(Integer userId, List<Integer> idList, List<UserApp> list) {
+	public void allocate(Integer userId, List<Integer> idList,
+			List<UserApp> list) {
 		userRoleService.deleteForChangeApp(userId, idList);
 		dao.deleteByUserIds(Arrays.asList(userId));
 		super.save(list);
 	}
-	
+
 	public UserApp findByUserAppId(Integer userId, Integer roleId) {
 		return dao.findByUserAppId(userId, roleId);
 	}
-	
+
 	public void deleteByUserIds(List<Integer> idList) {
 		dao.deleteByUserIds(idList);
 	}
-	
+
 	public void deleteByAppIds(List<Integer> idList) {
 		dao.deleteByAppIds(idList);
 	}
