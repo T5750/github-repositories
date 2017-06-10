@@ -46,10 +46,10 @@
 
 ![image](http://img.my.csdn.net/uploads/201704/14/1492181328_8251.png)
 
-## 数据库表结构:
+## 数据库表结构
 ![image](http://7xi78h.com1.z0.glb.clouddn.com/db.png)
 
-## 原文传送门:
+## 原文传送门
 [Javaee-tutorial](https://github.com/C0de8ug/Javaee-tutorial)
 
 ## 变更

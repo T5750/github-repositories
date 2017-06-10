@@ -12,6 +12,7 @@
         <module>Javaee-tutorial</module>
         <module>SpringMVC-Mybatis-Shiro-redis-0.2</module>
         <module>smart</module>
-    </modules>
+		<module>MyBatis-Spring-Boot</module>
+	</modules>
 
 </project>

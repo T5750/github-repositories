@@ -25,7 +25,7 @@
 密码：sojson
 ps:定时任务的sql会把密码改变为sojson.com
 
-### 原文传送门:
+### 原文传送门
 [SpringMVC-Mybatis-Shiro-redis-0.2](https://github.com/baichengzhou/SpringMVC-Mybatis-Shiro-redis-0.2)
 
 ### 变更
