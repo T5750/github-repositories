@@ -7,12 +7,55 @@
 - [mapper-spring-boot-starter](https://github.com/abel533/mapper-boot-starter)
 - [pagehelper-spring-boot-starter](https://github.com/pagehelper/pagehelper-spring-boot)
 
-### Quick Process
+### Dependencies
 
-1. 将源代码导入IDEA中
-2. 执行D:\Cnb14\workspace-idea-14\github-repositories\MyBatis-Spring-Boot\src\main\resources\test.sql
-3. 启动Application
+```
+<!--mybatis-->
+<dependency>
+    <groupId>org.mybatis.spring.boot</groupId>
+    <artifactId>mybatis-spring-boot-starter</artifactId>
+    <version>1.1.1</version>
+</dependency>
+<!--mapper-->
+<dependency>
+    <groupId>tk.mybatis</groupId>
+    <artifactId>mapper-spring-boot-starter</artifactId>
+    <version>1.1.1</version>
+</dependency>
+<!--pagehelper-->
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper-spring-boot-starter</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
 
-### 原文传送门:
+### application.properties
+
+```
+#mybatis
+mybatis.type-aliases-package=tk.mybatis.springboot.model
+mybatis.mapper-locations=classpath:mapper/*.xml
+
+#mapper
+#mappers 多个接口时逗号隔开
+mapper.mappers=tk.mybatis.springboot.util.MyMapper
+mapper.not-empty=false
+mapper.identity=MYSQL
+
+#pagehelper
+pagehelper.helperDialect=mysql
+pagehelper.reasonable=true
+pagehelper.supportMethodsArguments=true
+pagehelper.params=count=countSql
+```
+
+### Tips
+
+- Commits on Jun 10, 2017
+
+### Links
 
 [MyBatis-Spring-Boot](https://github.com/abel533/MyBatis-Spring-Boot)
+[Mapper](https://github.com/abel533/Mapper)
+[Mybatis-PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)

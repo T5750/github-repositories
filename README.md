@@ -57,7 +57,7 @@
 - 前端模板：Ace 1.3.3(Bootstrap) https://github.com/bopoda/ace
 
 ## MyBatis-Spring-Boot
-[MyBatis-Spring-Boot](https://github.com/abel533/MyBatis-Spring-Boot)Spring Boot 集成 MyBatis, 分页插件 PageHelper, 通用 Mapper
+[MyBatis-Spring-Boot](https://github.com/abel533/MyBatis-Spring-Boot) Spring Boot 集成 MyBatis, 分页插件 PageHelper, 通用 Mapper
 - [Spring Boot 1.5.1.RELEASE](https://github.com/spring-projects/spring-boot)
 - [mybatis-spring-boot-starter](https://github.com/mybatis/spring-boot-starter)
 - [mapper-spring-boot-starter](https://github.com/abel533/mapper-boot-starter)
