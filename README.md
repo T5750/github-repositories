@@ -62,3 +62,26 @@
 - [mybatis-spring-boot-starter](https://github.com/mybatis/spring-boot-starter)
 - [mapper-spring-boot-starter](https://github.com/abel533/mapper-boot-starter)
 - [pagehelper-spring-boot-starter](https://github.com/pagehelper/pagehelper-spring-boot)
+
+## any-video
+[any-video](https://github.com/T5750/github-repositories/tree/master/any-video) Spring Boot 结合网络爬虫开发的完整视频网站
+
+### 开发环境
+- JDK 1.8
+- MariaDB 10.1.22（MySql通用）
+- Redis 3.2.8
+- Maven 3.3.9
+- 开发工具 intellij idea 2016
+- 版本控制 Git
+- 开发测试环境 Windows 10
+- 生产运行环境 CentOS 7.2
+
+### 技术框架
+- 核心：Spring Boot 1.5.1
+- 数据：Mybatis
+- 数据库连接池：Hikari
+- 安全: Spring Serucity
+- 模板：Thymeleaf 3
+- 前端：Bootstrap  + Jquery
+- 爬虫：Jsoup
+- 容器: Undertow

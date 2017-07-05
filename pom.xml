@@ -13,6 +13,7 @@
         <module>SpringMVC-Mybatis-Shiro-redis-0.2</module>
         <module>smart</module>
 		<module>MyBatis-Spring-Boot</module>
+		<module>any-video</module>
 	</modules>
 
 </project>
