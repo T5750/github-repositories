@@ -2,7 +2,7 @@
 
 Spring Boot 结合网络爬虫开发的完整视频网站，演示地址：http://www.ictgu.cn
 
-![首页](http://upload-images.jianshu.io/upload_images/3424642-a987228814be7597.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![首页](http://upload-images.jianshu.io/upload_images/3424642-c2983ce316b60629.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ### 开发环境
 
@@ -17,7 +17,7 @@ Spring Boot 结合网络爬虫开发的完整视频网站，演示地址：http:
 
 ### 技术框架
 
-- 核心：Spring Boot 1.5.1
+- 核心：Spring Boot 1.5.3
 - 数据：Mybatis
 - 数据库连接池：Hikari
 - 安全: Spring Serucity
@@ -41,6 +41,7 @@ Spring Boot 结合网络爬虫开发的完整视频网站，演示地址：http:
 
 ### Tips
 
+- Commits on Oct 19, 2017
 - Commits on Jun 28, 2017
 
 ### 原文传送门
