@@ -77,7 +77,7 @@
 - 生产运行环境 CentOS 7.2
 
 ### 技术框架
-- 核心：Spring Boot 1.5.1
+- 核心：Spring Boot 1.5.3
 - 数据：Mybatis
 - 数据库连接池：Hikari
 - 安全: Spring Serucity
