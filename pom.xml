@@ -15,6 +15,7 @@
 		<module>MyBatis-Spring-Boot</module>
 		<module>any-video</module>
 		<module>mybatis-generator-gui</module>
+		<module>any-chat</module>
 	</modules>
 
 </project>

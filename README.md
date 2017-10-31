@@ -88,3 +88,12 @@
 
 ## mybatis-generator-gui
 [mybatis-generator-gui](https://github.com/T5750/github-repositories/tree/master/mybatis-generator-gui) 是基于[mybatis generator](http://www.mybatis.org/generator/index.html)开发一款界面工具, 本工具可以使你非常容易及快速生成Mybatis的Java POJO文件及数据库Mapping文件。
+
+## any-chat
+[any-chat](https://github.com/T5750/github-repositories/tree/master/any-chat) Spring Boot + WebSocket 开发 WEB即时通信工具
+
+### Runtime Environment
+ - [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
+ - [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
+ - [Undertow](http://undertow.io/downloads.html)
+ - [WebSocket](http://websocket.org)
