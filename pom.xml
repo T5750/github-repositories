@@ -16,6 +16,7 @@
 		<module>any-video</module>
 		<module>mybatis-generator-gui</module>
 		<module>any-chat</module>
+		<module>iBase4J-Common</module>
 	</modules>
 
 </project>

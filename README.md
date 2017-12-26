@@ -97,3 +97,6 @@
  - [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
  - [Undertow](http://undertow.io/downloads.html)
  - [WebSocket](http://websocket.org)
+
+## iBase4J-Common
+[iBase4J-Common](https://github.com/iBase4J/iBase4J-Common) iBase4J核心jar包
