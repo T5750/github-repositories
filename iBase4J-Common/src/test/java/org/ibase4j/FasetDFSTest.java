@@ -1,6 +1,6 @@
 package org.ibase4j;
 
-import org.ibase4j.core.util.UploadUtil;
+import top.ibase4j.core.util.UploadUtil;
 import org.junit.Test;
 import org.springframework.test.context.web.WebAppConfiguration;
 
