@@ -19,6 +19,7 @@
 		<module>iBase4J-Common</module>
 		<module>iBase4J-SpringBoot</module>
 		<module>renren-security</module>
+		<module>renren-fast</module>
 	</modules>
 
 </project>
