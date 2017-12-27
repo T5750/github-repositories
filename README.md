@@ -114,3 +114,6 @@
 - 会话管理：Spring-Session 1.3.0
 - 日志管理：SLF4J、Log4j2
 - 前端框架：Angular JS + Bootstrap + Jquery
+
+## renren-security
+[renren-security](https://github.com/T5750/github-repositories/tree/master/renren-security) renren-security的SpringBoot版，方便SpringBoot开发者使用，该版本要求JDK1.8

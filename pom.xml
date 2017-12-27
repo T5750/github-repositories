@@ -18,6 +18,7 @@
 		<module>any-chat</module>
 		<module>iBase4J-Common</module>
 		<module>iBase4J-SpringBoot</module>
+		<module>renren-security</module>
 	</modules>
 
 </project>
