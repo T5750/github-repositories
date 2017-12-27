@@ -99,4 +99,18 @@
  - [WebSocket](http://websocket.org)
 
 ## iBase4J-Common
-[iBase4J-Common](https://github.com/iBase4J/iBase4J-Common) iBase4J核心jar包
+[iBase4J-Common](https://github.com/T5750/github-repositories/tree/master/iBase4J-Common) iBase4J核心jar包
+
+## iBase4J-SpringBoot
+[iBase4J-SpringBoot](https://github.com/T5750/github-repositories/tree/master/iBase4J-SpringBoot) iBase4J的SpringBoot版本
+
+### 技术选型
+- 核心框架：Sring boot + Spring Framework 5.0.0 + Dubbo 2.5.3 + ibase4j-common 1.1.3
+- 安全框架：Apache Shiro 1.2
+- 任务调度：Spring + Quartz
+- 持久层框架：MyBatis 3.4 + MyBatis-Plus 2.1
+- 数据库连接池：Alibaba Druid 1.0
+- 缓存框架：Redis
+- 会话管理：Spring-Session 1.3.0
+- 日志管理：SLF4J、Log4j2
+- 前端框架：Angular JS + Bootstrap + Jquery
