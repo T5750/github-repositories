@@ -96,8 +96,13 @@ renren-fast
 ![输入图片说明](http://cdn.renren.io/img/35dfe497ea7642028c7d6115a5a1c5e8 "在这里输入图片标题")
 
 ## Tips
-
 - Commits on 2017-12-25
+- app
+    - register: ```http://localhost:8080/renren-fast/app/register?mobile=18888888888&password=123456```
+    - login: ```http://localhost:8080/renren-fast/app/login?mobile=18888888888&password=123456```
+    - userInfo: ```http://localhost:8080/renren-fast/app/userInfo```
+    - userId: ```http://localhost:8080/renren-fast/app/userId```
+    - notToken: ```http://localhost:8080/renren-fast/app/notToken```
 
 ## Links
 - [renren-fast](https://gitee.com/babaio/renren-fast)
