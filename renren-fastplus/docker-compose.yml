@@ -1,0 +1,8 @@
+version: '2'
+services:
+  renren-fastplus:
+    image: renren/fastplus
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.profiles.active=dev

@@ -108,3 +108,7 @@
 - 数据库连接池: Druid 1.0
 - 日志管理: SLF4J 1.7、Log4j
 - 页面交互: Vue2.x
+
+## 12.renren-fastplus
+[renren-fastplus](https://github.com/T5750/github-repositories/tree/master/renren-fastplus) 是[renren-fast](https://github.com/T5750/github-repositories/tree/master/renren-fast)的企业版，针对企业的Java快速开发平台，引入部门管理、实现数据权限等功能
+- 框架同renren-fast
