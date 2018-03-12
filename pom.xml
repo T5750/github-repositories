@@ -21,6 +21,7 @@
 		<module>renren-security</module>
 		<module>renren-fast</module>
 		<module>renren-fastplus</module>
+		<module>JavaQuarkBBS</module>
 	</modules>
 
 </project>

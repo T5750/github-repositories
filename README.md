@@ -112,3 +112,17 @@
 ## 12.renren-fastplus
 [renren-fastplus](https://github.com/T5750/github-repositories/tree/master/renren-fastplus) 是[renren-fast](https://github.com/T5750/github-repositories/tree/master/renren-fast)的企业版，针对企业的Java快速开发平台，引入部门管理、实现数据权限等功能
 - 框架同renren-fast
+
+## 13.JavaQuarkBBS
+[JavaQuarkBBS](https://github.com/T5750/github-repositories/tree/master/JavaQuarkBBS) 是一款使用Java编写的简易社区系统。采用前后端分离的机制实现。前台项目通过http访问RESTFulAPI获取信息渲染页面。项目技术分层明显,模块分离，采用springboot构建模块。前台页面来自FlyUI的开源社区模板
+- Springboot
+- springData
+- Netty
+- hibernate-jpa
+- shiro
+- thymeleaf
+- Ehcache
+- swagger2
+- Bootstrap
+- Datatables，zTree
+- LayUI
