@@ -39,7 +39,7 @@
 - LayUI
 
 ## swagger2生成的RESTFul API文档
-(默认在http://localhost:8081下)
+(默认在[http://localhost:8081](http://localhost:8081)下)
  ![image](https://raw.githubusercontent.com/ChinaLHR/JavaQuarkBBS/master/resource/images/quark_rest_1.JPG)  <br>
  ![image](https://raw.githubusercontent.com/ChinaLHR/JavaQuarkBBS/master/resource/images/quark_rest_2.JPG)  <br>
 
@@ -78,3 +78,6 @@
 
 ## Tips
 - Commits on Oct 26, 2017
+
+## Links
+- [JavaQuarkBBS](https://github.com/ChinaLHR/JavaQuarkBBS)
