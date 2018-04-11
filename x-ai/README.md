@@ -10,7 +10,7 @@
 - 使用开源项目bootdo修改。原项目访问地址: [bootdo](https://gitee.com/lcg0124/bootdo)
 - 使用接口为百度AI: [http://ai.baidu.com/](http://ai.baidu.com/)
 - 使用接口为腾讯AI: [http://ai.qq.com/](http://ai.qq.com/)
-- 人脸检测功能需要修改自己应用的相关参数具体代码在```com\xai\baiduai\restapi\common\BDContants.java```中，修改3个参数，参数获取 [https://login.bce.baidu.com/创建人脸模块的应用](https://login.bce.baidu.com/%E5%88%9B%E5%BB%BA%E4%BA%BA%E8%84%B8%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BA%94%E7%94%A8) 即可获取到哦。
+- 人脸检测功能需要修改自己应用的相关参数具体代码在```com\xai\baiduai\restapi\common\BDContants.java```中，修改3个参数，参数获取 [https://login.bce.baidu.com/](https://login.bce.baidu.com/) 创建人脸模块的应用，即可获取。
 
  **人脸检测网页截图:** 
 ![人脸检测网页截图](https://gitee.com/uploads/images/2018/0203/143236_e011c6fd_131538.jpeg "页面截图.jpg")
@@ -25,10 +25,10 @@
 ## Tips
 - Commits on 2018-04-08
 - Reduce: img, js
-- modified: db
+- Modified: db
 	- 帐号：admin，密码：123456
 	- Menus, Permissions
 
-## Linksh
+## Links
 - [x-ai](https://gitee.com/xshuai/x-ai)
 - [x-ai项目说明文档](https://x-ai.mydoc.io/)
