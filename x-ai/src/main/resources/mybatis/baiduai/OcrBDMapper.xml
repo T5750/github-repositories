@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xai.baiduai.manager.dao.OCRBDDao">
+
+	<select id="get" resultType="com.xai.baiduai.manager.domain.OCRBdDO">
+		select `ocrId`,`logId`,`wordsResultNum`,`direction`,`imageStatus`,`editTool`,`riskType`,`address`,`birth`,`name`,`idCardNum`,`sex`,`nation`,`issueDate`,`authority`,`expiryDate`,`cardNum`,`expiraDate`,`driverModel`,`expiraBeginDate`,`nationality`,`birthDate`,`firstIssueDate`,`brandModel`,`dateIssue`,`useProperty`,`engineNum`,`numPlate`,`posseMan`,`createDate`,`vin`,`vehicleType`,`unitName`,`legalPerson`,`termValidity`,`idNum`,`socialCreditCode`,`words`,`bankName`,`bankCardNumber`,`bankCardType`,`apiType`,`imagePath`
+		from ai_ocr_bd where ocrId = #{value}
+	</select>
+
+	<select id="list" resultType="com.xai.baiduai.manager.domain.OCRBdDO">
+		select
+		`ocrId`,`logId`,`wordsResultNum`,`direction`,`imageStatus`,`editTool`,`riskType`,`address`,`birth`,`name`,`idCardNum`,`sex`,`nation`,`issueDate`,`authority`,`expiryDate`,`cardNum`,`expiraDate`,`driverModel`,`expiraBeginDate`,`nationality`,`birthDate`,`firstIssueDate`,`brandModel`,`dateIssue`,`useProperty`,`engineNum`,`numPlate`,`posseMan`,`createDate`,`vin`,`vehicleType`,`unitName`,`legalPerson`,`termValidity`,`idNum`,`socialCreditCode`,`words`,`bankName`,`bankCardNumber`,`bankCardType`,`apiType`,`imagePath`
+		from ai_ocr_bd
+		<!--<where>-->
+			<!--<if test="roleId != null and roleId != ''"> and role_id = #{roleId} </if>-->
+			<!--<if test="roleName != null and roleName != ''"> and role_name = #{roleName} </if>-->
+			<!--<if test="roleSign != null and roleSign != ''"> and role_sign = #{roleSign} </if>-->
+			<!--<if test="remark != null and remark != ''"> and remark = #{remark} </if>-->
+			<!--<if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>-->
+			<!--<if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>-->
+			<!--<if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>-->
+		<!--</where>-->
+		<choose>
+			<when test="sort != null and sort.trim() != ''">
+				order by ${sort} ${order}
+			</when>
+			<otherwise>
+				order by ocrId desc
+			</otherwise>
+		</choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from ai_ocr_bd
+		<!--<where>-->
+			<!--<if test="roleId != null and roleId != ''"> and role_id = #{roleId} </if>-->
+			<!--<if test="roleName != null and roleName != ''"> and role_name = #{roleName} </if>-->
+			<!--<if test="roleSign != null and roleSign != ''"> and role_sign = #{roleSign} </if>-->
+			<!--<if test="remark != null and remark != ''"> and remark = #{remark} </if>-->
+			<!--<if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>-->
+			<!--<if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>-->
+			<!--<if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>-->
+		<!--</where>-->
+	</select>
+	<insert id="save" parameterType="com.xai.baiduai.manager.domain.OCRBdDO"
+			useGeneratedKeys="true" keyProperty="ocrId">
+		insert into ai_ocr_bd
+		(
+		`logId`,`wordsResultNum`,`direction`,`imageStatus`,`editTool`,`riskType`,`address`,`birth`,`name`,`idCardNum`,`sex`,`nation`,`issueDate`,`authority`,`expiryDate`,`cardNum`,`expiraDate`,`driverModel`,`expiraBeginDate`,`nationality`,`birthDate`,`firstIssueDate`,`brandModel`,`dateIssue`,`useProperty`,`engineNum`,`numPlate`,`posseMan`,`createDate`,`vin`,`vehicleType`,`unitName`,`legalPerson`,`termValidity`,`idNum`,`socialCreditCode`,`words`,`bankName`,`bankCardNumber`,`bankCardType`,`apiType`,`imagePath`
+		)
+		values
+		(
+		#{logId},
+		#{wordsResultNum},
+		#{direction},
+		#{imageStatus},
+		#{editTool},
+		#{riskType},
+		#{address},
+		#{birth},
+		#{name},
+		#{idCardNum},
+		#{sex},
+		#{nation},
+		#{issueDate},
+		#{authority},
+		#{expiryDate},
+		#{cardNum},
+		#{expiraDate},
+		#{driverModel},
+		#{expiraBeginDate},
+		#{nationality},
+		#{birthDate},
+		#{firstIssueDate},
+		#{brandModel},
+		#{dateIssue},
+		#{useProperty},
+		#{engineNum},
+		#{numPlate},
+		#{posseMan},
+		#{createDate},
+		#{vin},
+		#{vehicleType},
+		#{unitName},
+		#{legalPerson},
+		#{termValidity},
+		#{idNum},
+		#{socialCreditCode},
+		#{words},
+		#{bankName},
+		#{bankCardNumber},
+		#{bankCardType},
+		#{apiType},
+		#{imagePath}
+		)
+	</insert>
+	<delete id="remove">
+		delete from ai_ocr_bd where ocrId = #{value}
+	</delete>
+	<delete id="batchRemove">
+		delete from ai_ocr_bd where ocrId in
+		<foreach item="ocrId" collection="array" open="(" separator=","
+				 close=")">
+			#{ocrId}
+		</foreach>
+	</delete>
+</mapper>

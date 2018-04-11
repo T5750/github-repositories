@@ -22,6 +22,7 @@
 		<module>renren-fast</module>
 		<module>renren-fastplus</module>
 		<module>JavaQuarkBBS</module>
+		<module>x-ai</module>
 	</modules>
 
 </project>

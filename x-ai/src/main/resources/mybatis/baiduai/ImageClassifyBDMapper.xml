@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xai.baiduai.manager.dao.ImageClassifyBDDao">
+
+    <select id="get" resultType="com.xai.baiduai.manager.domain.ImageClassifyBdDO">
+        select
+        `icrId`,`logId`,`resultNum`,`name`,`calorie`,`probability`,`score`,`left`,`top`,`width`,`height`,`type`,`apiType`,`imagePath`,`colorResult`,`year`
+        from ai_imageclassify_bd where icrId = #{value}
+    </select>
+
+    <select id="list" resultType="com.xai.baiduai.manager.domain.ImageClassifyBdDO">
+        select
+        `icrId`,`logId`,`resultNum`,`name`,`calorie`,`probability`,`score`,`left`,`top`,`width`,`height`,`type`,`apiType`,`imagePath`,`colorResult`,`year`
+        from ai_imageclassify_bd
+        <!--<where>-->
+        <!--<if test="roleId != null and roleId != ''"> and role_id = #{roleId} </if>-->
+        <!--<if test="roleName != null and roleName != ''"> and role_name = #{roleName} </if>-->
+        <!--<if test="roleSign != null and roleSign != ''"> and role_sign = #{roleSign} </if>-->
+        <!--<if test="remark != null and remark != ''"> and remark = #{remark} </if>-->
+        <!--<if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>-->
+        <!--<if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>-->
+        <!--<if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>-->
+        <!--</where>-->
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by icrId desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from ai_imageclassify_bd
+        <!--<where>-->
+        <!--<if test="roleId != null and roleId != ''"> and role_id = #{roleId} </if>-->
+        <!--<if test="roleName != null and roleName != ''"> and role_name = #{roleName} </if>-->
+        <!--<if test="roleSign != null and roleSign != ''"> and role_sign = #{roleSign} </if>-->
+        <!--<if test="remark != null and remark != ''"> and remark = #{remark} </if>-->
+        <!--<if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>-->
+        <!--<if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>-->
+        <!--<if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>-->
+        <!--</where>-->
+    </select>
+    <insert id="save" parameterType="com.xai.baiduai.manager.domain.ImageClassifyBdDO"
+            useGeneratedKeys="true" keyProperty="icrId">
+        insert into ai_imageclassify_bd
+        (
+        `logId`,`resultNum`,`name`,`calorie`,`probability`,`score`,`left`,`top`,`width`,`height`,`type`,`apiType`,`imagePath`,`colorResult`,`year`
+        )
+        values
+        (
+        #{logId},
+        #{resultNum},
+        #{name},
+        #{calorie},
+        #{probability},
+        #{score},
+        #{left},
+        #{top},
+        #{width},
+        #{height},
+        #{type},
+        #{apiType},
+        #{imagePath},
+        #{colorResult},
+        #{year}
+        )
+    </insert>
+    <delete id="remove">
+        delete from ai_imageclassify_bd where icrId = #{value}
+    </delete>
+    <delete id="batchRemove">
+        delete from ai_imageclassify_bd where faceId in
+        <foreach item="icrId" collection="array" open="(" separator=","
+                 close=")">
+            #{icrId}
+        </foreach>
+    </delete>
+</mapper>

@@ -126,3 +126,9 @@
 - Bootstrap
 - Datatables，zTree
 - LayUI
+
+## 14.x-ai
+[x-ai](https://github.com/T5750/github-repositories/tree/master/x-ai) 人工智能：人脸检测、图像识别、文字识别
+- [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
+- [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
+- [MySQL 5.6](http://www.mysql.com/)

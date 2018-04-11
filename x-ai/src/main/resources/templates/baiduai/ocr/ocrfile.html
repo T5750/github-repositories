@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>文字识别--XAI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="baidu-site-verification" content="GOPjfm49Yc">
+    <!--[if IE 9]>
+    <link rel="stylesheet" href="//aip.bdstatic.com/portal/dist/1515141530954/css/ie9.style.css">
+    <![endif]-->
+    <link rel="stylesheet" href="/css/baiduai/vendor.style.css">
+    <link rel="stylesheet" href="/css/baiduai/face-detect.style.css">
+<!--     <script src="/js/plugins/baiduai/push.js"></script>
+    <script src="/js/plugins/baiduai/hm.js"></script> -->
+    <style type="text/css">
+        .select-icr {
+            width: 100%;
+            height: 35px;
+            font-size: 20px;
+        }
+        .icr-select-text{
+            font-size: 20px;
+            font-family:微软雅黑;
+        }
+    </style>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.form.js"></script>
+    <script>
+        function faceUp(){
+        	var fileInfo = $("#fileImage").val();
+        	if(fileInfo==''){
+        		alert("必须选择图片哦");
+        		return;
+        	}
+        	if(fileInfo.indexOf('.PNG')==-1&&fileInfo.indexOf('.png')==-1&&fileInfo.indexOf('.jpg')==-1&&fileInfo.indexOf('.JPG')==-1&&fileInfo.indexOf('.JPEG')==-1&&fileInfo.indexOf('.jpeg')==-1&&fileInfo.indexOf('.bmp')==-1&&fileInfo.indexOf('.BMP')==-1){
+        		alert("可支持PNG、JPG、jpeg、BMP图片文件格式");
+        		return;
+        	}
+			var option = {
+                url: "/bd/ocrBD/ocrbd" ,//url
+			 	type: "POST",//方法类型
+			 	dataType: "json",//预期服务器返回的数据类型
+				success : function(result) {
+						if(result.code!=5){
+							var griddata;
+							if(result.type=='idcardf'){
+                                griddata = "<table class='data-view-table'><tr><th>姓名</th><td>"+result.name+"</td></tr><tr><th>公民身份证号码</th><td>"+result.idCardNum+"</td></tr><tr><th>地址</th><td>"+result.address+"</td></tr><tr><th>性别</th><td>"+result.sex+"</td></tr><tr><th>出生</th><td>"+result.birth+"</td></tr><tr><th>民族</th><td>"+result.nation+"</td></tr></table>";;
+                                $("#resultFace").html(griddata);
+                            }
+                            if(result.type=='bankcard'){
+                                griddata = "<table class='data-view-table'><tr><th>银行卡卡号</th><td>"+result.bankCardNumber+"</td></tr><tr><th>银行名</th><td>"+result.bankName+"</td></tr><tr><th>银行卡类型</th><td>"+result.bankCardType+"</td></tr><tr><th>类型说明</th><td>0:不能识别; 1: 借记卡; 2: 信用卡</td></tr></table>";;
+                                $("#resultFace").html(griddata);
+                            }
+                            if(result.type=='general'){
+                                griddata = "<table class='data-view-table'><tr><th>识别的内容</th></tr><tr><td><textarea  rows=\"15\" cols=\"75\" wrap=\"hard\">"+result.words+"</textarea></td></tr></table>";;
+                                $("#resultFace").html(griddata);
+                            }
+						}else{
+							var griddata;
+							griddata ="<h1 class='h1msg'>"+result.msg+"</h1>";							
+							$("#resultFace").html(griddata);
+						}
+					}
+				};
+				$("#formImageClassify").ajaxSubmit(option);
+			}
+			function clearFile() {
+                var canvasimage = $("#canvasimage");
+                var cxt = canvasimage.getContext("2d");
+                canvasimage.height =canvasimage.height;
+            }
+</script>
+</head>
+<body class="ai-platform">
+<form id="formImageClassify" enctype="multipart/form-data">
+<div class="ai-content">
+    <div class="tech-section tech-demo" id="tech-demo">
+        <div class="ai-container">
+            <div class="tech-demo-title">文字识别</div>
+            <div>
+                <p class="icr-select-text">请选择识别类型：</p>
+                <select name="apiType" class="select-icr" onchange="clearFile()">
+                    <option value="general">通用文字识别</option>
+                    <optgroup label='身份证识别(反面)'></optgroup>
+                    <option value="idcardf">身份证识别(正面)</option>
+                    <option value="bankcard">银行卡识别</option>
+                    <optgroup label='网络图片文字识别' value="idcardb"></optgroup>
+                    <optgroup label='行驶证识别' ></optgroup>
+                    <optgroup label='驾驶证识别' ></optgroup>
+                    <optgroup label='营业执照识别' ></optgroup>
+                    <optgroup label='车牌识别' ></optgroup>
+                    <optgroup label='通用票据识别' ></optgroup>
+                    <optgroup label='手写文字识别'></optgroup>
+<!--
+                     <option value="idcardb" disabled="disabled">身份证识别(反面)</option>
+                    <option value="webimage" disabled="disabled">网络图片文字识别</option>
+                    <option value="vehicle_license" disabled="disabled">行驶证识别</option>
+                    <option value="driving_license" disabled="disabled">驾驶证识别</option>
+                    <option value="business_license" disabled="disabled">营业执照识别</option>
+                    <option value="license_plate" disabled="disabled">车牌识别</option>
+                    <option value="receipt" disabled="disabled">通用票据识别</option>
+                    <option value="handwriting" disabled="disabled">手写文字识别</option>-->
+                </select>
+            </div>
+            <div class="demo-container clear-float">
+                <div class="clear-float">
+                    <div class="data-view-container">
+                        <div class="data-view" data-label="识别图片" id="demo-result">
+                            <div class="canvas-container has-result"><canvas id="canvasimage" width="592" height="400" data-scale="0.9932432432432432" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.993243);">您的浏览器暂时不支持canvas，请选用现代浏览器！</canvas></div>
+                            <div id="result-gallery" style="display: none;">
+                                <ul class="gallery-container"><li class="active"><img src=""></li></ul>
+                            </div>
+                        </div>
+                        <div class="demo-data">
+                            <label id="demo-photo-upload" class="">
+                                <input type="file" name="file" id="fileImage" onchange="faceUp()">选取图片
+                            </label>
+<!--                             <label id="photo-upload" class="" style="margin-left:20px;">
+                                <a href="javascript:void(0)" onclick="faceUp()"  style="text-decoration: none;color: white;">点击上传</a>
+                            </label> -->
+                        </div>
+                        <p class="demo-desc">
+                            提示：可支持PNG、JPG、jpeg、BMP图片文件，不支持GIF图片，图片大小不超过2M，长边不超过2048像素，为保证正常识别效果，请保证需要识别部分为图片主体部分。</p>
+                    </div>
+                    <div class="data-view-container">
+                        <div class="data-view" data-label="识别结果" style="height:400px;">
+                           <div id="resultFace">
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--30478167010202517514011210-->
+<script src="/js/plugins/baiduai/vendor.js"></script>
+<script src="/js/plugins/baiduai/face-detect.js"></script>
+<script> var _trace_page_logid = 3047816701; </script>
+</form>
+</body>
+</html>
