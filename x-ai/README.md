@@ -25,6 +25,7 @@
 ## Tips
 - Commits on 2018-04-08
 - Reduce: img, js
+- 帐号admin，密码123456
 
 ## Linksh
 - [x-ai](https://gitee.com/xshuai/x-ai)

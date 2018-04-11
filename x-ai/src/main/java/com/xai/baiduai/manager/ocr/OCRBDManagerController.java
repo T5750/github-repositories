@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 图像识别管理模块
+ * 文字识别管理模块
  *
  * @author 小帅丶
  * @create 2018-02-07 15:06

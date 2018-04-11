@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50638
 File Encoding         : 65001
 
-Date: 2018-04-11 11:10:51
+Date: 2018-04-11 15:46:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -698,15 +698,16 @@ CREATE TABLE `ai_face_bd` (
   `cartoon` text COMMENT '卡通人脸置信度，[0~1]',
   `imageBase64` text,
   PRIMARY KEY (`faceId`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ai_face_bd
 -- ----------------------------
-INSERT INTO `ai_face_bd` VALUES ('1', '123456', '1', '31.760', '42.18240', '139', '143', '96', '95', '0.6158', '-2', '3.8627', '4.751', '-2.60', '0', '0.999176', 'heart', '0.466', 'male', '0.99', '1', '0.999', 'yellow', '0.999', '0', '0', '0', '0', '0.1042', '0.1370', '0', '0', '120', '1', '0.96', '0.0388', 'iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAP5klEQVR4nO2dXYhdWVbHtzN3r33b1EMhKQ3pu9c5jXkITNAw00orAeshDREiBKyHRvNQD8HJQzNEyUAeIpTkIWiDzRg0SoQaph9aOiP9EHoi5qGQiM3QSjnEe/baU4NXaJ1GCmkhSNAo5cM9ValU3+97zlnn3vv/wf+hQ9e9+5y91t2fay1jAAAAAAAAmD+E3V1hWtNuBwC1JLC7KEzPM3bXtNsCQC2J7O4J0x6cBIAedFLTjJ4+hpMA0INOapqB6YYw7XVl391OzbJ2uwBQZ8uYhjA9eeEcL2k7srsXvF2PKZ3WbisAKmTcPB+8XQ+txqowbfdxlj1h+kS8vdpeMUvabQZAhczTGWF6NsBJ9oSpk3k6o91WAFTIz0YGOcieMD3NPF3SbisAlZB5OpNPsdYi20cjOMi+k2AkAfNLYNoQps9HdIheeoI1CZhbIjfOCdN98XbrJTFtC7vdUZwkMm1qPwcAKnRS08xS+0ZI3HVh93iAo+A+FwAZu2u9HcTtxpPmuHb7AFBHvPvzXk4S2P2ZdtsAUKfdcqf6nZUEdhe12weAOsL23T4L9p0tYxra7QNAlZA0fkmYftxzPZK4b2q3DwB1ord3ejsI/UBa9HPa7QNAlYzdm5Hpf/ts+/6BdvsAUEeYPurjID/OuHleu30AqCLsvtHv8DAwfVu7fQCo0l4xS4Oux4dWY1W7jQCoIon7kwH3tP5Cu30AqJJfeOx7mRGjCFh4hOnTvk6S0EPt9gGgSr+T9Vz/lbF7U7uNAKiRcfP84JgRd0+7jQCokacPejrASZ7hOjxYaPpdgz8UM/IN7TYCoEbwdn2IgzzWbiMAasSW/cXBDmL//Z9fO/Yz2u0EQA0ZkiElpM1Uu40AqDEksQMcBNSbnVdfaUnLXcgSeyUwbWSJvRK5ca6TmmYRn5+nDIKDgNmh3XKnJKGbMjAxtduNTLenTQI3zEEQjgtqQ+bp0mCn6B1TPk2pA2H6ZMDnPy3y+QCYiHZ67IQk9HAcxziizqQFdISpM+hzi35WAMainR47IUxhCufY1/1xvzs/Tcc5CKgv+7UGi1BgujHOd+e1Rfp/ZkIflvXcAAwlS+yVopzj0JrkQeTGuVG+X5jWhowgd8t+BwD0pcjRo9cCe9gWrXi6NWRE2qjmTQDQA5muzscQDV8/DNvizRJ7pYr3AMAXGL5AnnI9MiRstpOapgypbYi8vUCNDWO+JEz/UZqDePrLdsv8VL/vj4n71aGfkTR+ucJXAsDLRKadMkeRjN21Ad99e9jft9NjJ6p8HwC8hDC9V6aDCNMPd1qNXzn6vT/qlkN4MuRv//PTlnlF470AYIwxRry9WrKD7EW2j45+b/+qUy8Jp+hAl+3ULMvguPAi9Ozwd+abA52hf+ftltZ7AeAAYXe3TAc5ero+PMw2H3m8vaP1TgA4IC+P9rxgxwji6Z3M05mj3yej3vvy9qrG+wDgC4yyozRUCX0YvF0ftPOUX6cf6fOy1L5R5TsAoC/5WmTgod3A6RDTzijfM87VlmkDsQAolMj20RQjyJNhnz/05u4EDgdmlC1jGoHdxSyxV3rNw+tIZNqcwkGet1N7dtDnD8nFe0T23aqeG1RMe8Us9fg1fhKYbtQ5leaUDrIXPX3cL368e+/K7Y68/kAptvmkk5rmkHn2s8ju3rBfWw0C08Y0DtKdGvVOOJ15emv0z3G7SNQwp8hYVzfc48zTW3UxhnZqz07rIP2mRzJeIoj3NJ4flIwMjY7rq8/E0zt1GFUi04MinCR6e2c/b9YEUYtr2u8BFEw8aY6PM8ceoCeS0M2dV19pVf0M26lZ7o4ihTxH7vh2S8Y7hHyG7d05RJjuD5oyyERnDO5xltgrk6bT6UU+jbosbN/NR4vtAh1i+pGH6UFRzwpqgrTchR6dfRDKGlqN1ZjS6Snjv7fzO1OXY0qnR/mVDWkzlZa7IAndzHNelRheW4xC4t6uos9ARXRS0+wRdHQ/sLt48N/evm5MfjaSuOuTjSY9R5hdYdoWb7f2lbelf3HMmmvUbChgRjga1xCZdrZTs9xdk3T/7eivfQGjydwKEYRzRJ/Dr4MdGGEKkWmz199uGdPInavsWIxZ0vPqeg+UTj6Nei6H5vaHd58iN84NOzkPaTOdMifuXKndcqfK7zlQCd2dIPvosIFPmuU8P2me2bVDccIdrLlBmN6TlrsQvb2z38HT5HFqr5il/LpH7XebStQzjTMgUAL7aTWF6fKBgyTu+rSfu52a5bx4TacGBqshXDWZJ/KQ1T1help0suX2ilnK4yjWJKGbkWnz0Hbu3C7wsd07Z0Rv72TsrvXbtSqL7dQsh7SZhlZjVZjWxNurgWkjMG2Ip3ci0+bLso8On5vko1RHCjubKUgoezB/bBnTmOWCk+2WO3V4PaUs5MQC9STj5vkaTN+C9nsAoC+RG+dUnQRTLFB38kuYRefLGknjlnIDQIUiwnAnEXJigZlB4SrM06rDkKW7jf6hJHSzLiHQYEYoMFpy1PXHwyqf72g6osj2EaIawVjI5PH2kzjIzaqeq2+2lYQeYiQBYyGDw4oLU1V1CdvpsRMy4N5b1Ye+YMbJg8BKv0hZVdDUKInyEAIMxiIk7u1yHcTtVvEc4u3rI7bpOXbUwMjsnDIr4ul7JTrI0Nrq07LVLT/9wahtimz/OnutmZTdLjAn5Bcjy3GQCk7Qx6lR8sJJ6HbZ7QJzRH4TuIwRpNBwgZ5tHy8N6oup1oxk6Qc1II6VjHqsEaTULd6Q0G9M2rbI9J0y2wbmjDJSFwVv18ts87QjX2g1VstsH5gjone/XcIocrms9or/yZPC9K9TOQjTd//+a8aW1UYwR+TnIsXe9m25C2W1t6jNBYQDg5EpeppV5hQmT/taRDvvl9VGMGcIuz8t1EHYfq2stkZ294ppp9vdweEhGIXxCnOO4CAlxvQL0ydFtRPnImAkhOmjIh3kn161P19KO7sL9CIzV35/D4t1MIgtYxpS8OXFstYgfWq4TCUcHIKByKGMkoUZXUnln2NC7xfd1irjVsAMUlTBz7IdZJK7V6Moevq46LaCOaG4ktFHplgFn6THlE5LiTEs+5V8AXiJsi4rZom9UlQbs9S+IUyfleUcwliHgB68VH+x6BGEaaOQNnq7LtUkvkNNd/CCfOfqSXkGN9119/aKWSplQd5PWKiDw4i3V0s2uIkDptqpPduj4nCpQmIHcEA7tWfF0z+Wa3Dub8Zt1wfGfDm/Wdyp0jmEaS8m9H4Z7xrMIMLubgVGN1bZg3Z67ESlU6ovjiAPynrfYIbIs4BUkch6YCno9opZaqf2bObpkni6JdqFf7zdqqoPQI0Rdo8r+1XuUSk4P+ybJJa8XFWcJhXUkFKzmPTQ0cyK+Uih7ww9VX6SCVBzystg0sdB8myG+ZZyJelOJ3dm1DFZaA5V8K1Ont4xpsgApzIdpJo8wqCm5PXaqzW8hB6Wn+K0ED3FXawFp+rp1b7hiVLptzGF2PRFRzzFGhhiHfXfgd2vafcPUKTTTfKsbYj1FKrwgpA2U3VDrKeQpxcYs8P0lRoYYw1lv6XdN6AGYATprZ1XX2lp9w2oAXCQLwpx6OCA7dQsaxtk3RTZ3dPuF1AT4CA95O0fa/cLqAl5RhB9o6yRkHIUHJCVVUVqhlVUUgkwB0hCD7UNsm7C7V1gjDEmS+xXpZq0OTOlkNCva/cNqAGlZy+ZUW2nZlm7b0ANiGwfaRtjDRW0+wXUgDxIahaum1crT7e0+wYos2fMl4TpO+rGWENl7N7U7h+gSCc1TfH0jrYh1lGRaUe7f4ASMaXT+ZlH0DbE2grTq/lhOzXLodVYzdhdC0wbkd29yLQZE3pfvN06ULeoJbZyR1C75U5p9yuYgpjS6ch0WxTy0y6AtrX7F0xAm+krGbtrwvRRYPqfGhjSfCqh39XuazAiP/jZpZ+WhH4zMH1bmP5N3XgWQCFtrmr3OxhCxs3zwvT7Usf8tHMt97cfGPNl7f4HPcg8nQne/U5+afD/9I1l8RRwvb1edFLTzDOZ3xft1P7QXuTGOW2bAGa/Iqu7K+x2tY0COtCn2nax0IS0mUpCN6uuqweNpujtHW0bWUja6bETCEaqv4qs2Q7GIDDd0O58aLjaqT2rbSsLiTCtaXc+NFTPUdpAifaKWRLsUNVdY1XbBQUTmL5bAyOA+utH2jay0ITEXa+BEUD9hRFEk+Dteg2MAOor91jbRhaaLLFX9I0A6itvt7RtZKEJif1DdSOA+iuhh9o2stAoFceERncQlFjTBNdLai7EoOuSRwLqGwLUT2vaNrLQ7BnzE9J1kn+pgTFAR5Ql9qvaNgLM/jV3+kzbIKDDcrvadgEOEdLmqnj6nr5hQMK0F5k2tW0CHKFbzcl+S5ATV1/eXtW2B9AH6d70xZRLUSjzXHM6qWnmu1xwlOqFJHGzwnZqliPTgxoYzeIooZva/Q7GoL1ilnCoWJ2Qg3cGEabLgsV76QpMf6Xd12BCMNUqXxm7a9r9DCakndqz2gY078Lu1YwjCNMtUx9p9y+YksD26zUwpPlU4r6p3b9gSiRpvhawo1WGnoq3r2v3LyiAmND7NTCoORPiz+eGkLi39Q1qvoTdqzkCaUuLF3av5oAtYxqBaUNwYFiwML2aabaMaQRv13HdpByFxF3X7mMwAZ3UNOEY5SumdFq7r8EYRG9/ITD9XmD6B23jWQB9HwU6Z4TQaqxKty4h1hiVyd3V7ncwgHjSHM+TWAd9Y1k8BXYXtW0A9EFa7oKgRoiqtlOzrG0HoA8B19dVFZj+TtsGwACQm1dXkd09bRsAAxB297SNZJH1Q7a/pW0DYAC4MqIp97i9Ypa0bQAMIHLjnL6hLIyeR6bbmadLuHc1I2wZ0xCmz2tgPAsgnHfMJML0nr7xzL8i023tvgYTkHm6pG08CyJkS5xFOqlpCqZZlQgJ4WaUyPaPtI1nERSZNrT7GkwAdrMqc5Ad7b4GE9BJTTOwfaRtQAsi1B2cRcTbqzUwnkXQfe2+BhPQXjFLwm63BgZUR32e31t7LzJt7ksSepj/e5DR66g8x0HhjIIt3y8qMN3YMqYxyvvLdwSfjvCZGyV3JSgL6ZZfG9rJC6Kxp0My2sHrkzL6DlREu+VORaZNOQi9dY9D4q5nni6FVmM14+b54O16NwWQeyzzFKLr7VZI3PVJzywyT28N/Y6EPiy6z4AS8aQ5Puz/6a5faE268ewzGaEYmR60U3t22veVv4sX78DTLWFaC96uC9MaDgsXnPaKWcoSeyV2t41rP7JETx9n3Dxf5DsITDe6I7C7O+r6BSwg8aQ5fshZ6nSdpRO9vZN5OqP9jgA4oN1yp4RpLTBtiKdbkWkzJvS+eLuVb5d2ck07TesI0yeS0MPItCmebgVv18Xb1xGkBOaSeNIcD2kz7SVkBgEAAADmgf8H1xWu1zDg7HcAAAAASUVORK5CYII=');
-INSERT INTO `ai_face_bd` VALUES ('2', '123465', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAOqUlEQVR4nO2dL3DUzBvHIyoqKhAIBAKBqEAgKhCI/e1umQoE4hUIxAkEc9PL7g0VCERnXoFAvAKBeMWJuzzLHKICUfGKE4hXML9BIBDM/CoQFYiKiooT/ERSuOZyd8nlz26S72fm69pk82S/t0l293k8DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoLO5xsyF4guSYtlflTKDMQio6FMh+Epr+5Hxxyf/RsVwd3bbcVgEpgh5MNoelRZIYfQtHPlPouFf0le6N7tq8BgFIQPu1xRV8ymGKRJstGFdYd3whHH6hWUsH+bt/ssM5gs8p+aR3WH94Wmv4pwBhxDVl3fCPpnOEjW+Hng6rRVCiasH3arrqvVo7waU8oOi8xmKe7fbOTeG5FQwduNrS+LrgfHLDDyUbV/bYSuCYtwl+DsgN5Lvzgcfz87HCyIRR9dOBGQzkklXljo/+WCveDw6oDyXXQibeDPafrQtGZ7ZsM5ZPUQ1Z9Ly4J4QePLQVyKhXdj7eH+6Nntm8wlFsnrDvestGfC2W3b3ZEue8cq3TKtLk12yZ2ONko6OsZZFOaHlnq1sXADicbUplv1gOpaBJvm1R034F2QTkklfnTRr8uDK6CfdtB/K3Rw3j7hDIf7LcLWl/mg41+XQhMD66JbDPjpUoq+hr/PCgUPbHdLijfPbXVv3PDVfDSdgAT9GS2jaw73hKKLhxoF7SOtHlvq3/nRir6aj2A8zqKt1MoOnagXdAa4n5wYKNv54b1h7dtB2+BzuPrerhPTx1oF7SGZC+Qtvp4Lhx9vArl095sWx02M7Rcc18ma0NJCxELkVT0aratrDPYtN0mKLPO43NbtUIo+uxAEBdpmNBeZ762QSs15T49tdGvC0Mo+u5AIBdpbmgWbhsaiiQVfW3EBjnbgVweZPNtvr2YMHRY50LRR+4Hh43ZOOVAUJfpJN5etk/bUg8Z5JYe+O/u2Oi/pSPsLk5cpU+24wNajlB04oARFqjG63dAMxCKJvaNkCypzFvb8QEtRzi895urYH+2raw73uI66EDuqhEbo2YJ81zZN0OSWH94uy5thaJ7VudJwSSi2WnnXtSTlkdHCeustw1arMYZxPM8Tyg6sh3YuOaWmYRZTjCL7rgaaRCph8x2YGOaxh+vsO22HmqkQTzPrRnqpFxKUpvXttsFrVZjDcL2aVtUkyhulc7Yc7p+pW3he9KJA22DVqixBvE8z5OK/rIdYK5Jz7cLuXrrokYbJCpvYHF/iBnMtSkc2bAXvSZqtEE8L8xwYmmP+sekRMfC4Zl+aF6NN4jnRStmq00i9ympFALXQcf2DYeyqRUG8bxfiaMnFQTVJC1PiB6tMO9RM7XGIJ73Kx3p25KCOeV+cJh43tAcp7ZvNpRdrTLIJeEknfm3wEAeLapABHPUW600yCVRaYR194RPhaLjZbUiYI76q9UGuYRpcyuqQPVRLC9wcyoUHXGfnsYn/+LI3ugezFF/wSAJsMPJBtPmluyN7u32zQ7rjW6m/l89uCY0/W37xkIwiFOw7nhL+tQTyvzX9k2FitOyEt8gA7IXyDT1t6M9IMMSq0wdWa8x7oiKiCdGEIuEdUxGD4tceZxUPLStwCANQvjBf8LFlcH/YJBiwCNWA2HP6Xr0eLDWUn0Y5DcYQVLAntN1ps0tF5Sl3bIXSLHG3noY5DcwSIxdHdyN9lp8FOGGJBc2TM1qGq4sNh+ivSpPluV8jSYaT2CQ9YBBvKjuuA46jpR8XkenXAUvF008su74RpZlMTDIb1pvEKFGD2tsjLguFi527I63Muxp+SHCUQdqs0GipSGuPULllzbvk5bLR0tXmne9jquWBnFhr3nJStxwhUwo1at2BuGKXtgOWhXiir7EX+BZZ7DpaInrxqpWBoly2bbmMUNq8zoeAzxqVavaGCTKJdW25ePTpLp4Qpv3DrStFaqNQaKXcusBq1pS0df4o5bwac92u9qiWhik7Ymek+Y2GvR522nVwiDRsgvrwbIn8288JtwPDuy3q/mqhUGwQ29+VWmUxggZGktWLQyCx4nk+obC4XJzTVEtDGI7SI7oPD7DHn3ytd2uRst5g4SL9ewHygXFi4B6nueVuHUXUjUwyK4O7toOkiviir7E48P90bPsxzID2/vFsSe9IBwsp2ZV8YlD1h1viYwbq5Ylu2sSMEg7ZeZilDHfMAwCg7imI7E8Y2MWXcQ3Vz3w392BQeaBQWqj8Jm/qONxPziIxynLrkMYBAZxTGYQ5sAqbBQ5icdJKHoCg1wFBqmNwlqFhS4P8WlvNk7RaudU69VgEBjEMYUGKXjJ/tF8rFLvODwV9veLV6HccYZBKjSI5xW6bH8azzrPtLll/1qbJRikEv02SLhttpi1ZUlZUISiY/vX2xzBIJXoar30Aqvdfo+Xmo62JTtwzc0QDFKJrhokKiZazArl3uiP+LGFou/2r7kZgkEq0VWDeN6v+ohFHP84fuwi51zaLhikEs0bxPM8T6xfQPTqTewPb88eN1oBjcwnRcQWBqlCCwxS0PtCUnogZD4pRjBIJUo2iOdlWyKyRD+Q+aQcwSCVaLFBCry+J3PHRhbG3IJBKtFig3ie5wlFkwLOgcwnJQgGqUTLDVLUNT7w392ZPS4yn+QXDFKJlhvE8zxPhHtGcp0nOfOJGdi//voKBqlEqw1S0N77vJlPzmzvI8ee9Iw01SBJ5YVFAaMI90fPEo6bdr5lbp9JnYFBaqOEmXRlPsTXUbH+8LbIOcGXM/MJDAKDuGIQOklKSl3EO8Nc5pPwZR0GgUFcVbJBpDLfyhhFFoxYaSYkYRAYxB2DCEU/uU9P565ZmTc5z3ken1lP+dIKg8AgbhlEKDqdq0UYLjbMN3+h6dGVOKb7mgWDwCDOGeQn16TnrjtnJd/4bsNon8iq/5sK+/vIi1TueweDOGAQoeg0Pn8RvVivnSZowXZcB2JRL8EglWilQRI7dJ7JLhikGMEglWi1QYSiM6YH12b/Jk+yufjLP+uNbtqPQ/0Eg1SiVAZJHkUUvVjjnGesO75x5XxI5rCWYJBKlM4gQtFFvGN7XvbdgUmfjoUiYz8O9ZPzBmlGAZ3UBklckcu64y2h6Z8U55omVaEq5LNxS+W8QaLPk1lv7oVwKvVNeoMIRXN5dy+JRtOkhYdnQpv3bJ+2k/5PoNjn2nLeIJ7neULRp4wX9nFpB6xcGQ2i6Hu8BsgsrDve2u2bHeEHj5NWBV85T2/0h/3rr69qYZCs+Wyjz6PLOmDFymyQn0LR57w3JzIH0v/kUC0Mwg4nGxmquX6Osqiv6oAVai2D/BSKzhY9bi2NV3e8FWV6hzlyKr6Y1FnYPm2n6FQ/Lh85UnbAirS2QX4KRVOhzIc0RmGdwWaUsdGha6+16rU2LZo4OxJJv4zavJ99bnerk+QyyC9JZb5JRX9xTVpoeiT1kAlNj7gK9kX4Ip6p2i20Mt5vqu3hBcG64y3h0x7XQUfqIYvXyfC8ZhoEqlTT3b7ZqaZHW8CtDgiD1E1J6VwbhVsdEAapk6Sir/E9Oo3DrQ4Ig9RI0/ie/kbiVgeEQWqiz6smXhuDWx0QBnFcU6nN69rMeRSBWx0QBnFQF1zRF6noVWtGjVnc6oDzBmG90U2mzS2XlCY1kFR033Y7c2vJOrfW4LpBXESkKMNQi7VJYDUwSHZgkBYBg2QHBmkRMEh2YJAWAYNkBwZpETBIdmCQFgGDZAcGaREwSHZgkBYBg2QHBmkRMEh2YJAWAYNkBwZpETBIdmCQFgGDZAcGaREwSHZgkBYBg2QHBmkRMEh2YJAWAYNkBwZpETBIdmCQFgGDZAcGaREwSDaiQkUr67C0ImdUG4BB0sF6o5tS0Suh6DTDNR2L3uiPVqXJaRowyGLC0WL0UCjzQeSrIXIqFb3CY1cNgUHmYd3xDa6Cl6Kc+o0YVeoEDDITC5/2olLSVVScwqhSB9puEPacrnM/OLAcB4wqrtJWg0Sloo1wqy56OKr0h7erigNYQZsMwvTgGlfBvlT01f61rtRE+MHjxtffcJ02GET2RveEMgPh1miRVj+kNq/ZPm2XERuwgqYahHXHW9wfPROKPtu/rsKEUaVqmmaQ3b7Zkcq8FeVUsr0QikyaRzSp6FWGmvVZhVGlKppgENYZbHIddNKUJVhTJ9wPDi7LAYgMa7EqeLzDqFImdTbIA//dHanMG6HorIT2TIU274VPewkxS22QSy4/EJQ+qmBepVhEMc/ohXRQqczbNG1mncGm1Oa1KGdC7zv3g8OkmvIzMctskFlKHlXOuU9P1+gKIAmh6e/8HZu+FnGzuSadps3RqFF0xzoWmh6lmazLa5BLyhxVpB6yNLEEK+CadO4bos37Im6yVHR/VXsf+O/uFNiRfqyz3KMog8xS/Khi/s1yfrCAgjrcE6nMnzmPcca6461V7eUq2C+gvblebMswyCUFjioX65wfJBD9cq11I7iiL6wz2GS90U2R412EK3qRpq05DHImlXnzwH93J3+8qtlRmHNUOct7fhDBuuMba3bu6WxpYKHp0TqdVyrzLe2v+W7f7GQ8/ifu09MiP4NWZZBL1hxVjoo6P/A8T/jBY5Fxco37wUH8ONEkXZYO/CPNu0fsHKte0i+kMm93+2anuAj9pmqDzJJyVDnH594S2NXBXanMtxSd+nTRp0TWGWxyRS9Sjkif1rmR0b7w4znDKvrCVbDP9OBa7mAsIc2XP9Yd3yizDUtGlc+zozoomCjwL4Wij0m/TOFk1OoOGD62Jf7STYWmf7gmnfexR/i0x/3gkGvSVXYK7tPTFQb5XlVbPC+MtdRDhlGjYlhvdFPqIZN6yHb7ZmedDT2sM9iUvdG9y+NcLteoM6wz2Fy2HovroGO7jQBYhe3TtphfhTDlKnhpu20AOMFl1hOugpfcHz3DTkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmsv/AU5pVhBV7YzrAAAAAElFTkSuQmCC');
-INSERT INTO `ai_face_bd` VALUES ('29', '3010481620020313', '1', '19.00', '34.25', '1255', '369', '233', '233', '1.00', '0', '-2.30', '-7.25', '0.08', '0', '0.00', 'square', '0.42', 'male', '1.00', '0', '1.00', 'yellow', '1.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '146', '1', '1.00', '0.00', '/Facedb/1517635316faceBDidcard.jpg');
-INSERT INTO `ai_face_bd` VALUES ('30', '3270604773020314', '1', '23.00', '44.80', '139', '143', '96', '96', '1.00', '-2', '3.58', '4.25', '-2.85', '0', '0.00', 'square', '0.04', 'male', '1.00', '1', '1.00', 'yellow', '1.00', '0.00', '0.00', '0.00', '0.02', '0.07', '0.13', '0.00', '0.00', '120', '1', '0.98', '0.02', '/Facedb/1517637899faceBDtest2.jpg');
+INSERT INTO `ai_face_bd` VALUES ('1', '123456', '1', '31.760', '42.18240', '139', '143', '96', '95', '0.6158', '-2', '3.8627', '4.751', '-2.60', '0', '0.999176', 'heart', '0.466', 'male', '0.99', '1', '0.999', 'yellow', '0.999', '0', '0', '0', '0', '0.1042', '0.1370', '0', '0', '120', '1', '0.96', '0.0388', '/img/a1.jpg');
+INSERT INTO `ai_face_bd` VALUES ('2', '123465', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '/img/a2.jpg');
+INSERT INTO `ai_face_bd` VALUES ('29', '3010481620020313', '1', '19.00', '34.25', '1255', '369', '233', '233', '1.00', '0', '-2.30', '-7.25', '0.08', '0', '0.00', 'square', '0.42', 'male', '1.00', '0', '1.00', 'yellow', '1.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '146', '1', '1.00', '0.00', '/img/a3.jpg');
+INSERT INTO `ai_face_bd` VALUES ('30', '3270604773020314', '1', '23.00', '44.80', '139', '143', '96', '96', '1.00', '-2', '3.58', '4.25', '-2.85', '0', '0.00', 'square', '0.04', 'male', '1.00', '1', '1.00', 'yellow', '1.00', '0.00', '0.00', '0.00', '0.02', '0.07', '0.13', '0.00', '0.00', '120', '1', '0.98', '0.02', '/img/a4.jpg');
+INSERT INTO `ai_face_bd` VALUES ('33', '4267366144041113', '1', '40.00', '33.13', '216', '141', '128', '128', '1.00', '8', '-2.90', '-5.14', '7.95', '1', '0.00', 'square', '0.11', 'male', '1.00', '0', '1.00', 'yellow', '1.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '149', '1', '0.99', '0.01', '/Facedb/1523424621faceBDmayun.jpg');
 
 -- ----------------------------
 -- Table structure for `ai_imageclassify_bd`
@@ -735,10 +736,10 @@ CREATE TABLE `ai_imageclassify_bd` (
 -- ----------------------------
 -- Records of ai_imageclassify_bd
 -- ----------------------------
-INSERT INTO `ai_imageclassify_bd` VALUES ('5', '2709856466492253686', '3', '百立乐', null, '16.30%', '0.00', '219', '531', '639', '159', '1', 'logo', '/ICRdb/logo1518076900ICRBD巨人易购营业执照.jpg', null, null);
-INSERT INTO `ai_imageclassify_bd` VALUES ('6', '6138063111602504209', '0', '栀子花', null, null, '0.39', null, null, null, null, null, 'plant', '/ICRdb/plant1518078732ICRBDu=2054669226,3705658703&fm=27&gp=0.jpg', null, null);
-INSERT INTO `ai_imageclassify_bd` VALUES ('7', '1348474149175697173', '0', '栀子花', null, null, '0.39', null, null, null, null, null, 'plant', '/ICRdb/plant1518079156ICRBDu=2054669226,3705658703&fm=27&gp=0.jpg', null, null);
-INSERT INTO `ai_imageclassify_bd` VALUES ('8', '1061109524073054138', '0', '紫玉兰', null, null, '0.33', null, null, null, null, null, 'plant', '/ICRdb/plant1518145664ICRBDtimg.jpg', null, null);
+INSERT INTO `ai_imageclassify_bd` VALUES ('5', '2709856466492253686', '3', '百立乐', null, '16.30%', '0.00', '219', '531', '639', '159', '1', 'logo', '/img/loadfail.png', null, null);
+INSERT INTO `ai_imageclassify_bd` VALUES ('6', '6138063111602504209', '0', '栀子花', null, null, '0.39', null, null, null, null, null, 'plant', '/img/loadfail.png', null, null);
+INSERT INTO `ai_imageclassify_bd` VALUES ('7', '1348474149175697173', '0', '栀子花', null, null, '0.39', null, null, null, null, null, 'plant', '/img/loadfail.png', null, null);
+INSERT INTO `ai_imageclassify_bd` VALUES ('8', '1061109524073054138', '0', '紫玉兰', null, null, '0.33', null, null, null, null, null, 'plant', '/img/loadfail.png', null, null);
 
 -- ----------------------------
 -- Table structure for `ai_ocr_bd`
@@ -789,11 +790,12 @@ CREATE TABLE `ai_ocr_bd` (
   `apiType` varchar(255) DEFAULT NULL,
   `imagePath` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ocrId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ai_ocr_bd
 -- ----------------------------
+INSERT INTO `ai_ocr_bd` VALUES ('7', '8440878620532151189', '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '中国银行', '6227 6588 8888 8888', '2', 'bankcard', '/img/card.jpg');
 
 -- ----------------------------
 -- Table structure for `blog_content`
@@ -1103,7 +1105,7 @@ CREATE TABLE `sys_log` (
   `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
   `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8 COMMENT='系统日志';
+) ENGINE=InnoDB AUTO_INCREMENT=274 DEFAULT CHARSET=utf8 COMMENT='系统日志';
 
 -- ----------------------------
 -- Records of sys_log
@@ -1328,6 +1330,59 @@ INSERT INTO `sys_log` VALUES ('217', '1', 'admin', '请求访问主页', '75', '
 INSERT INTO `sys_log` VALUES ('218', '1', 'admin', '请求访问主页', '39', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-02-03 14:24:27');
 INSERT INTO `sys_log` VALUES ('219', '1', 'admin', '请求访问主页', '10', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-02-03 14:26:22');
 INSERT INTO `sys_log` VALUES ('220', '1', 'admin', '请求访问主页', '28', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-02-03 14:29:15');
+INSERT INTO `sys_log` VALUES ('221', '-1', '获取用户信息为空', '登录', '6', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:11:20');
+INSERT INTO `sys_log` VALUES ('222', '-1', '获取用户信息为空', '登录', '6', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:11:24');
+INSERT INTO `sys_log` VALUES ('223', '-1', '获取用户信息为空', '登录', '5', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:11:26');
+INSERT INTO `sys_log` VALUES ('224', '-1', '获取用户信息为空', '登录', '6', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:11:30');
+INSERT INTO `sys_log` VALUES ('225', '-1', '获取用户信息为空', '登录', '5', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:12:17');
+INSERT INTO `sys_log` VALUES ('226', '-1', '获取用户信息为空', '登录', '2', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:12:18');
+INSERT INTO `sys_log` VALUES ('227', '-1', '获取用户信息为空', '登录', '3', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:12:18');
+INSERT INTO `sys_log` VALUES ('228', '-1', '获取用户信息为空', '登录', '3', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:12:19');
+INSERT INTO `sys_log` VALUES ('229', '1', 'admin', '登录', '6', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 11:13:53');
+INSERT INTO `sys_log` VALUES ('230', '1', 'admin', '请求访问主页', '19', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 11:13:53');
+INSERT INTO `sys_log` VALUES ('231', '1', 'admin', '登录', '80', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 12:56:39');
+INSERT INTO `sys_log` VALUES ('232', '1', 'admin', '请求访问主页', '164', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 12:56:40');
+INSERT INTO `sys_log` VALUES ('233', '1', 'admin', '请求访问主页', '68', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 12:58:32');
+INSERT INTO `sys_log` VALUES ('234', '1', 'admin', '请求访问主页', '138', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 12:58:35');
+INSERT INTO `sys_log` VALUES ('235', '1', 'admin', '请求访问主页', '30', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 12:59:12');
+INSERT INTO `sys_log` VALUES ('236', '1', 'admin', '请求访问主页', '18', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:22:09');
+INSERT INTO `sys_log` VALUES ('237', '1', 'admin', '请求访问主页', '16', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:24:16');
+INSERT INTO `sys_log` VALUES ('238', '1', 'admin', '请求访问主页', '29', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:32:00');
+INSERT INTO `sys_log` VALUES ('239', '1', 'admin', '请求访问主页', '46', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:36:16');
+INSERT INTO `sys_log` VALUES ('240', '1', 'admin', '请求访问主页', '25', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:39:59');
+INSERT INTO `sys_log` VALUES ('241', '1', 'admin', '请求访问主页', '40', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:44:33');
+INSERT INTO `sys_log` VALUES ('242', '1', 'admin', '请求访问主页', '17', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:44:43');
+INSERT INTO `sys_log` VALUES ('243', '1', 'admin', '请求访问主页', '14', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 13:44:56');
+INSERT INTO `sys_log` VALUES ('244', '1', 'admin', '登录', '54', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 14:58:03');
+INSERT INTO `sys_log` VALUES ('245', '1', 'admin', '请求访问主页', '88', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 14:58:04');
+INSERT INTO `sys_log` VALUES ('246', '1', 'admin', '请求访问主页', '34', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:03:34');
+INSERT INTO `sys_log` VALUES ('247', '1', 'admin', '登录', '45', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 15:13:12');
+INSERT INTO `sys_log` VALUES ('248', '1', 'admin', '请求访问主页', '98', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:13:13');
+INSERT INTO `sys_log` VALUES ('249', '1', 'admin', '请求访问主页', '80', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:15:45');
+INSERT INTO `sys_log` VALUES ('250', '1', 'admin', '登录', '45', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 15:17:51');
+INSERT INTO `sys_log` VALUES ('251', '1', 'admin', '请求访问主页', '89', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:17:52');
+INSERT INTO `sys_log` VALUES ('252', '1', 'admin', '登录', '44', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 15:21:23');
+INSERT INTO `sys_log` VALUES ('253', '1', 'admin', '请求访问主页', '109', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:21:23');
+INSERT INTO `sys_log` VALUES ('254', '1', 'admin', '登录', '10', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 15:37:36');
+INSERT INTO `sys_log` VALUES ('255', '1', 'admin', '请求访问主页', '34', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:37:36');
+INSERT INTO `sys_log` VALUES ('256', '1', 'admin', '添加菜单', '0', 'com.xai.system.controller.MenuController.add()', null, '127.0.0.1', '2018-04-11 15:38:32');
+INSERT INTO `sys_log` VALUES ('257', '1', 'admin', '保存菜单', '68', 'com.xai.system.controller.MenuController.save()', null, '127.0.0.1', '2018-04-11 15:40:17');
+INSERT INTO `sys_log` VALUES ('258', '1', 'admin', '编辑菜单', '18', 'com.xai.system.controller.MenuController.edit()', null, '127.0.0.1', '2018-04-11 15:40:24');
+INSERT INTO `sys_log` VALUES ('259', '1', 'admin', '删除菜单', '43', 'com.xai.system.controller.MenuController.remove()', null, '127.0.0.1', '2018-04-11 15:40:35');
+INSERT INTO `sys_log` VALUES ('260', '1', 'admin', '添加菜单', '11', 'com.xai.system.controller.MenuController.add()', null, '127.0.0.1', '2018-04-11 15:40:41');
+INSERT INTO `sys_log` VALUES ('261', '1', 'admin', '保存菜单', '55', 'com.xai.system.controller.MenuController.save()', null, '127.0.0.1', '2018-04-11 15:41:11');
+INSERT INTO `sys_log` VALUES ('262', '1', 'admin', '请求访问主页', '19', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:41:16');
+INSERT INTO `sys_log` VALUES ('263', '1', 'admin', '编辑菜单', '55', 'com.xai.system.controller.MenuController.edit()', null, '127.0.0.1', '2018-04-11 15:41:41');
+INSERT INTO `sys_log` VALUES ('264', '1', 'admin', '编辑菜单', '23', 'com.xai.system.controller.MenuController.edit()', null, '127.0.0.1', '2018-04-11 15:41:45');
+INSERT INTO `sys_log` VALUES ('265', '1', 'admin', '更新菜单', '92', 'com.xai.system.controller.MenuController.update()', null, '127.0.0.1', '2018-04-11 15:41:48');
+INSERT INTO `sys_log` VALUES ('266', '1', 'admin', '编辑菜单', '26', 'com.xai.system.controller.MenuController.edit()', null, '127.0.0.1', '2018-04-11 15:41:53');
+INSERT INTO `sys_log` VALUES ('267', '1', 'admin', '更新菜单', '54', 'com.xai.system.controller.MenuController.update()', null, '127.0.0.1', '2018-04-11 15:41:55');
+INSERT INTO `sys_log` VALUES ('268', '1', 'admin', '编辑角色', '15', 'com.xai.system.controller.RoleController.edit()', null, '127.0.0.1', '2018-04-11 15:42:07');
+INSERT INTO `sys_log` VALUES ('269', '1', 'admin', '更新角色', '149', 'com.xai.system.controller.RoleController.update()', null, '127.0.0.1', '2018-04-11 15:42:14');
+INSERT INTO `sys_log` VALUES ('270', '1', 'admin', '请求访问主页', '17', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:42:17');
+INSERT INTO `sys_log` VALUES ('271', '1', 'admin', '登录', '47', 'com.xai.system.controller.LoginController.ajaxLogin()', null, '127.0.0.1', '2018-04-11 15:43:51');
+INSERT INTO `sys_log` VALUES ('272', '1', 'admin', '请求访问主页', '95', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:43:51');
+INSERT INTO `sys_log` VALUES ('273', '1', 'admin', '请求访问主页', '62', 'com.xai.system.controller.LoginController.index()', null, '127.0.0.1', '2018-04-11 15:45:42');
 
 -- ----------------------------
 -- Table structure for `sys_menu`
@@ -1345,7 +1400,7 @@ CREATE TABLE `sys_menu` (
   `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
   `gmt_modified` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -1405,9 +1460,10 @@ INSERT INTO `sys_menu` VALUES ('91', '0', '系统监控', '', '', '0', 'fa fa-vi
 INSERT INTO `sys_menu` VALUES ('92', '91', '在线用户', 'sys/online', '', '1', 'fa fa-user', null, null, null);
 INSERT INTO `sys_menu` VALUES ('93', '0', '百度AI', '', '', '0', 'fa fa-tree', null, null, null);
 INSERT INTO `sys_menu` VALUES ('94', '93', '人脸识别', '/manage/facebd', 'baiduai:face:face', '1', 'fa fa-male', null, null, null);
-INSERT INTO `sys_menu` VALUES ('95', '93', '图像识别', '/manage/facebd/index', '', '1', 'fa fa-picture-o', null, null, null);
+INSERT INTO `sys_menu` VALUES ('95', '93', '图像识别', '/manage/icrbd', 'baiduai:imageclassify:imageclassify', '1', 'fa fa-picture-o', '1', null, null);
 INSERT INTO `sys_menu` VALUES ('97', '94', '删除', '/manage/facebd/remove', '', '2', '', null, null, null);
 INSERT INTO `sys_menu` VALUES ('98', '94', '批量删除', '/manage/facebd/batchRemove', '', '2', '', null, null, null);
+INSERT INTO `sys_menu` VALUES ('100', '93', '文字识别', '/manage/ocrbd', 'baiduai:ocr:ocr', '1', 'fa fa-file-word-o', '3', null, null);
 
 -- ----------------------------
 -- Table structure for `sys_role`
@@ -1442,7 +1498,7 @@ CREATE TABLE `sys_role_menu` (
   `role_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
   `menu_id` bigint(20) DEFAULT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2674 DEFAULT CHARSET=utf8 COMMENT='角色与菜单对应关系';
+) ENGINE=InnoDB AUTO_INCREMENT=2734 DEFAULT CHARSET=utf8 COMMENT='角色与菜单对应关系';
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -1618,66 +1674,66 @@ INSERT INTO `sys_role_menu` VALUES ('2343', '77', '84');
 INSERT INTO `sys_role_menu` VALUES ('2344', '77', '72');
 INSERT INTO `sys_role_menu` VALUES ('2345', '77', '-1');
 INSERT INTO `sys_role_menu` VALUES ('2346', '77', '77');
-INSERT INTO `sys_role_menu` VALUES ('2614', '1', '95');
-INSERT INTO `sys_role_menu` VALUES ('2615', '1', '92');
-INSERT INTO `sys_role_menu` VALUES ('2616', '1', '57');
-INSERT INTO `sys_role_menu` VALUES ('2617', '1', '30');
-INSERT INTO `sys_role_menu` VALUES ('2618', '1', '29');
-INSERT INTO `sys_role_menu` VALUES ('2619', '1', '28');
-INSERT INTO `sys_role_menu` VALUES ('2620', '1', '90');
-INSERT INTO `sys_role_menu` VALUES ('2621', '1', '89');
-INSERT INTO `sys_role_menu` VALUES ('2622', '1', '88');
-INSERT INTO `sys_role_menu` VALUES ('2623', '1', '87');
-INSERT INTO `sys_role_menu` VALUES ('2624', '1', '86');
-INSERT INTO `sys_role_menu` VALUES ('2625', '1', '72');
-INSERT INTO `sys_role_menu` VALUES ('2626', '1', '48');
-INSERT INTO `sys_role_menu` VALUES ('2627', '1', '68');
-INSERT INTO `sys_role_menu` VALUES ('2628', '1', '60');
-INSERT INTO `sys_role_menu` VALUES ('2629', '1', '59');
-INSERT INTO `sys_role_menu` VALUES ('2630', '1', '58');
-INSERT INTO `sys_role_menu` VALUES ('2631', '1', '51');
-INSERT INTO `sys_role_menu` VALUES ('2632', '1', '76');
-INSERT INTO `sys_role_menu` VALUES ('2633', '1', '75');
-INSERT INTO `sys_role_menu` VALUES ('2634', '1', '74');
-INSERT INTO `sys_role_menu` VALUES ('2635', '1', '62');
-INSERT INTO `sys_role_menu` VALUES ('2636', '1', '56');
-INSERT INTO `sys_role_menu` VALUES ('2637', '1', '55');
-INSERT INTO `sys_role_menu` VALUES ('2638', '1', '15');
-INSERT INTO `sys_role_menu` VALUES ('2639', '1', '26');
-INSERT INTO `sys_role_menu` VALUES ('2640', '1', '25');
-INSERT INTO `sys_role_menu` VALUES ('2641', '1', '24');
-INSERT INTO `sys_role_menu` VALUES ('2642', '1', '14');
-INSERT INTO `sys_role_menu` VALUES ('2643', '1', '13');
-INSERT INTO `sys_role_menu` VALUES ('2644', '1', '12');
-INSERT INTO `sys_role_menu` VALUES ('2645', '1', '61');
-INSERT INTO `sys_role_menu` VALUES ('2646', '1', '22');
-INSERT INTO `sys_role_menu` VALUES ('2647', '1', '21');
-INSERT INTO `sys_role_menu` VALUES ('2648', '1', '20');
-INSERT INTO `sys_role_menu` VALUES ('2649', '1', '83');
-INSERT INTO `sys_role_menu` VALUES ('2650', '1', '81');
-INSERT INTO `sys_role_menu` VALUES ('2651', '1', '80');
-INSERT INTO `sys_role_menu` VALUES ('2652', '1', '79');
-INSERT INTO `sys_role_menu` VALUES ('2653', '1', '71');
-INSERT INTO `sys_role_menu` VALUES ('2654', '1', '27');
-INSERT INTO `sys_role_menu` VALUES ('2655', '1', '91');
-INSERT INTO `sys_role_menu` VALUES ('2656', '1', '85');
-INSERT INTO `sys_role_menu` VALUES ('2657', '1', '84');
-INSERT INTO `sys_role_menu` VALUES ('2658', '1', '77');
-INSERT INTO `sys_role_menu` VALUES ('2659', '1', '50');
-INSERT INTO `sys_role_menu` VALUES ('2660', '1', '49');
-INSERT INTO `sys_role_menu` VALUES ('2661', '1', '73');
-INSERT INTO `sys_role_menu` VALUES ('2662', '1', '7');
-INSERT INTO `sys_role_menu` VALUES ('2663', '1', '6');
-INSERT INTO `sys_role_menu` VALUES ('2664', '1', '2');
-INSERT INTO `sys_role_menu` VALUES ('2665', '1', '3');
-INSERT INTO `sys_role_menu` VALUES ('2666', '1', '78');
-INSERT INTO `sys_role_menu` VALUES ('2667', '1', '1');
-INSERT INTO `sys_role_menu` VALUES ('2668', '1', '94');
-INSERT INTO `sys_role_menu` VALUES ('2669', '1', '98');
-INSERT INTO `sys_role_menu` VALUES ('2670', '1', '97');
-INSERT INTO `sys_role_menu` VALUES ('2671', '1', '96');
-INSERT INTO `sys_role_menu` VALUES ('2672', '1', '93');
-INSERT INTO `sys_role_menu` VALUES ('2673', '1', '-1');
+INSERT INTO `sys_role_menu` VALUES ('2674', '1', '95');
+INSERT INTO `sys_role_menu` VALUES ('2675', '1', '98');
+INSERT INTO `sys_role_menu` VALUES ('2676', '1', '97');
+INSERT INTO `sys_role_menu` VALUES ('2677', '1', '92');
+INSERT INTO `sys_role_menu` VALUES ('2678', '1', '57');
+INSERT INTO `sys_role_menu` VALUES ('2679', '1', '30');
+INSERT INTO `sys_role_menu` VALUES ('2680', '1', '29');
+INSERT INTO `sys_role_menu` VALUES ('2681', '1', '28');
+INSERT INTO `sys_role_menu` VALUES ('2682', '1', '90');
+INSERT INTO `sys_role_menu` VALUES ('2683', '1', '89');
+INSERT INTO `sys_role_menu` VALUES ('2684', '1', '88');
+INSERT INTO `sys_role_menu` VALUES ('2685', '1', '87');
+INSERT INTO `sys_role_menu` VALUES ('2686', '1', '86');
+INSERT INTO `sys_role_menu` VALUES ('2687', '1', '72');
+INSERT INTO `sys_role_menu` VALUES ('2688', '1', '48');
+INSERT INTO `sys_role_menu` VALUES ('2689', '1', '68');
+INSERT INTO `sys_role_menu` VALUES ('2690', '1', '60');
+INSERT INTO `sys_role_menu` VALUES ('2691', '1', '59');
+INSERT INTO `sys_role_menu` VALUES ('2692', '1', '58');
+INSERT INTO `sys_role_menu` VALUES ('2693', '1', '51');
+INSERT INTO `sys_role_menu` VALUES ('2694', '1', '76');
+INSERT INTO `sys_role_menu` VALUES ('2695', '1', '75');
+INSERT INTO `sys_role_menu` VALUES ('2696', '1', '74');
+INSERT INTO `sys_role_menu` VALUES ('2697', '1', '62');
+INSERT INTO `sys_role_menu` VALUES ('2698', '1', '56');
+INSERT INTO `sys_role_menu` VALUES ('2699', '1', '55');
+INSERT INTO `sys_role_menu` VALUES ('2700', '1', '15');
+INSERT INTO `sys_role_menu` VALUES ('2701', '1', '26');
+INSERT INTO `sys_role_menu` VALUES ('2702', '1', '25');
+INSERT INTO `sys_role_menu` VALUES ('2703', '1', '24');
+INSERT INTO `sys_role_menu` VALUES ('2704', '1', '14');
+INSERT INTO `sys_role_menu` VALUES ('2705', '1', '13');
+INSERT INTO `sys_role_menu` VALUES ('2706', '1', '12');
+INSERT INTO `sys_role_menu` VALUES ('2707', '1', '61');
+INSERT INTO `sys_role_menu` VALUES ('2708', '1', '22');
+INSERT INTO `sys_role_menu` VALUES ('2709', '1', '21');
+INSERT INTO `sys_role_menu` VALUES ('2710', '1', '20');
+INSERT INTO `sys_role_menu` VALUES ('2711', '1', '83');
+INSERT INTO `sys_role_menu` VALUES ('2712', '1', '81');
+INSERT INTO `sys_role_menu` VALUES ('2713', '1', '80');
+INSERT INTO `sys_role_menu` VALUES ('2714', '1', '79');
+INSERT INTO `sys_role_menu` VALUES ('2715', '1', '71');
+INSERT INTO `sys_role_menu` VALUES ('2716', '1', '94');
+INSERT INTO `sys_role_menu` VALUES ('2717', '1', '27');
+INSERT INTO `sys_role_menu` VALUES ('2718', '1', '91');
+INSERT INTO `sys_role_menu` VALUES ('2719', '1', '85');
+INSERT INTO `sys_role_menu` VALUES ('2720', '1', '84');
+INSERT INTO `sys_role_menu` VALUES ('2721', '1', '77');
+INSERT INTO `sys_role_menu` VALUES ('2722', '1', '50');
+INSERT INTO `sys_role_menu` VALUES ('2723', '1', '49');
+INSERT INTO `sys_role_menu` VALUES ('2724', '1', '73');
+INSERT INTO `sys_role_menu` VALUES ('2725', '1', '7');
+INSERT INTO `sys_role_menu` VALUES ('2726', '1', '6');
+INSERT INTO `sys_role_menu` VALUES ('2727', '1', '2');
+INSERT INTO `sys_role_menu` VALUES ('2728', '1', '3');
+INSERT INTO `sys_role_menu` VALUES ('2729', '1', '78');
+INSERT INTO `sys_role_menu` VALUES ('2730', '1', '1');
+INSERT INTO `sys_role_menu` VALUES ('2731', '1', '100');
+INSERT INTO `sys_role_menu` VALUES ('2732', '1', '93');
+INSERT INTO `sys_role_menu` VALUES ('2733', '1', '-1');
 
 -- ----------------------------
 -- Table structure for `sys_task`
