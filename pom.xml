@@ -23,6 +23,7 @@
 		<module>renren-fastplus</module>
 		<module>JavaQuarkBBS</module>
 		<module>x-ai</module>
+		<module>bootdo</module>
 	</modules>
 
 </project>
