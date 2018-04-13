@@ -24,6 +24,7 @@
 		<module>JavaQuarkBBS</module>
 		<module>x-ai</module>
 		<module>bootdo</module>
+		<module>ai</module>
 	</modules>
 
 </project>

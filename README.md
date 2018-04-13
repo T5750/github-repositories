@@ -138,3 +138,6 @@
 - [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
 - [MySQL 5.6](http://www.mysql.com/)
+
+## 16.ai
+[ai](https://github.com/T5750/github-repositories/tree/master/ai) 包含了百度AI 腾讯AI接口Java-API调用示例代码
