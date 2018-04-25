@@ -37,8 +37,8 @@ public class UserBizImpl implements UserBiz {
 	private RoleBiz roleBiz;
 
 	@Override
-	public List<UserVo> findAll()
-			throws InvocationTargetException, IllegalAccessException {
+	public List<UserVo> findAll() throws InvocationTargetException,
+			IllegalAccessException {
 		List<UserVo> userVoList = new ArrayList<UserVo>();
 		List userList = userDao.findAll();
 		Iterator iterator = userList.iterator();
@@ -103,6 +103,17 @@ public class UserBizImpl implements UserBiz {
 		user.setPassword(newPassword);
 		passwordHelper.encryptPassword(user);
 		userDao.update(user);
+	}
+
+	/**
+	 * 个人信息-更新密码
+	 */
+	@Override
+	public void updatePassword(String userId, String newPassword) {
+		User user = userDao.findById(userId);
+		user.setPassword(newPassword);
+		newPassword = passwordHelper.getEncryptPassword(user);
+		userDao.updatePassword(userId, newPassword);
 	}
 
 	@Override

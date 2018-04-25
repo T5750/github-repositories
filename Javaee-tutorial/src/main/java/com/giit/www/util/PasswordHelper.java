@@ -42,4 +42,14 @@ public class PasswordHelper {
 				hashIterations).toHex();
 		user.setPassword(newPassword);
 	}
+
+	/**
+	 * 获取新的加密密码
+	 */
+	public String getEncryptPassword(User user) {
+		String newPassword = new SimpleHash(algorithmName, user.getPassword(),
+				ByteSource.Util.bytes(user.getCredentialsSalt()),
+				hashIterations).toHex();
+		return newPassword;
+	}
 }

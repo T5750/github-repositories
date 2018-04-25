@@ -24,6 +24,8 @@ public interface UserBiz {
 
 	public void changePassword(String userId, String newPassword);
 
+	void updatePassword(String userId, String newPassword);
+
 	public User findByUsername(String username);
 
 	public Set<String> findRoles(String username);
