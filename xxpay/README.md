@@ -64,6 +64,12 @@ xxpay-server > xxpay-config > xxpay-service > xxpay-web > xxpay-gateway
 ```
 xxpay4dubbo-service > xxpay4dubbo-web
 ```
+## Results
+shop项目统一扫码测试地址：[http://localhost:8081/goods/openQrPay.html](http://localhost:8081/goods/openQrPay.html)
+![扫码](http://docs.xxpay.org/uploads/201708/attach_14dc9a0ba98f579e.png)
+
+mgr项目地址：[http://localhost:8092](http://localhost:8092)
+![mgr项目](http://docs.xxpay.org/uploads/201708/attach_14dc9a0765d9aeaa.png)
 
 ## Tips
 - Commits on Apr 15, 2018
@@ -73,4 +79,5 @@ xxpay4dubbo-service > xxpay4dubbo-web
 
 ## Links
 - [xxpay-master](https://github.com/jmdhappy/xxpay-master)
-- [接口文档](http://www.xxpay.org/dev/api.html)
+- [XxPay官网](http://www.xxpay.org)
+- [XxPay文档库](http://docs.xxpay.org)
