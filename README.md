@@ -141,3 +141,11 @@
 
 ## 16.ai
 [ai](https://github.com/T5750/github-repositories/tree/master/ai) 包含了百度AI 腾讯AI接口Java-API调用示例代码
+
+## 17.xxpay
+[xxpay](https://github.com/T5750/github-repositories/tree/master/xxpay) 聚合支付使用Java开发，包括spring-cloud、dubbo、spring-boot三个架构版本，已接入微信、支付宝等主流支付渠道，可直接用于生产环境。
+- [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
+- [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
+- [MySQL 5.6](http://www.mysql.com/)
+- [Spring Cloud Dalston.SR2](http://projects.spring.io/spring-cloud/)
+- [Dubbo 2.5.3](https://github.com/apache/incubator-dubbo)

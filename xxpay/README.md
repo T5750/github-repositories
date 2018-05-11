@@ -5,6 +5,8 @@
 - [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
 - [MySQL 5.6](http://www.mysql.com/)
+- [Spring Cloud Dalston.SR2](http://projects.spring.io/spring-cloud/)
+- [Dubbo 2.5.3](https://github.com/apache/incubator-dubbo)
 
 ## Simple Tutorial
 - `XxPay聚合支付` XxPay聚合支付使用Java开发，包括spring-cloud、dubbo、spring-boot三个架构版本，已接入微信、支付宝等主流支付渠道，可直接用于生产环境。
@@ -64,6 +66,7 @@ xxpay-server > xxpay-config > xxpay-service > xxpay-web > xxpay-gateway
 ```
 xxpay4dubbo-service > xxpay4dubbo-web
 ```
+
 ## Results
 shop项目统一扫码测试地址：[http://localhost:8081/goods/openQrPay.html](http://localhost:8081/goods/openQrPay.html)
 ![扫码](http://docs.xxpay.org/uploads/201708/attach_14dc9a0ba98f579e.png)
