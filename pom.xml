@@ -25,6 +25,7 @@
 		<module>x-ai</module>
 		<module>bootdo</module>
 		<module>ai</module>
+		<module>xxpay</module>
 	</modules>
 
 </project>
