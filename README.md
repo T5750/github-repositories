@@ -8,49 +8,30 @@
 
 ## 1.Javaee-tutorial
 [Javaee-tutorial](https://github.com/T5750/github-repositories/tree/master/Javaee-tutorial) 是个简单的教务系统网站，并且结合了图书订购功能
-- IoC容器: Spring 4.2.4.RELEASE
-- web框架: Spring MVC 4.2.4.RELEASE
-- orm框架: MyBatis 3.3.1
-- 安全框架: Shiro 1.2.4
-- 数据源: DBCP 1.4
-- 日志: SLF4J 1.7.14
-- Json: Gson 2.5
-- 前端框架: Bootstrap v3.3.6
+- [Spring Framework 4.2.4.RELEASE](http://projects.spring.io/spring-framework)
+- [MyBatis 3.3.1](http://www.mybatis.org/mybatis-3/)
+- [Shiro 1.2.4](http://shiro.apache.org/download.html)
 
 ## 2.SpringMVC-Mybatis-Shiro-redis-0.2
 [SpringMVC-Mybatis-Shiro-redis-0.2](https://github.com/T5750/github-repositories/tree/master/SpringMVC-Mybatis-Shiro-redis-0.2) 运用SSM + Shiro，包括个人中心、用户中心和权限管理
-- IoC容器: Spring 4.2.5.RELEASE
-- web框架: Spring MVC 4.2.5.RELEASE
-- orm框架: MyBatis 3.1.0
-- 安全框架: Shiro 1.2.5
-- 数据源: DBCP 1.4
-- 日志: SLF4J 1.7.16
-- 前端框架: Bootstrap 3.3.5
-- 模板引擎: FreeMarker 2.3.20
-- Redis 2.8.0
+- [Spring Framework 4.2.5.RELEASE](http://projects.spring.io/spring-framework)
+- [MyBatis 3.1.0](http://www.mybatis.org/mybatis-3/)
+- [Shiro 1.2.5](http://shiro.apache.org/download.html)
+- [Redis 2.8.0](https://redis.io)
 
 ## 3.smart
 [smart](https://github.com/T5750/github-repositories/tree/master/smart) 定位于用当下最流行的技术，为您构建一个易理解、高可用、高扩展性的应用基层，实现快速开发。内置Dubbo服务治理、单点登录权限系统(按钮级，权限修改实时生效)、支持分布式的定时任务服务及代码生成器、易用高兼容的boostrap前端Html模板。
-- JDK: 1.8（支持1.7+）
-- 数据库: Mysql
-- 项目构建工具: Maven 3.3.3
-- MVC框架: SpringMVC 4.2.1.RELEASE
-- 核心框架: Spring 4.2.1.RELEASE
-- ORM框架: MyBatis 3.3.0/Hibernate 4.2.7.Final
-- 分布式协调服务: Zookeeper 3.4.7
-- 分布式RPC服务: Dubbo 2.5.3
-- 分布式缓存服务: Redis 2.8.12
-- 分布式消息服务: ActiveMQ 5.13.3
-- NIO框架: Netty 4.0.23.Final
-- JSON工具: Fastjson 1.2.29
-- 定时任务: Quartz 2.2.1
-- 数据库连接池: Druid 1.0.15
-- 日志管理: SLF4J 1.7.21、Logback 1.1.7
-- 模板引擎: Freemarker 2.3.23
-- 单点登录: 极简基于Cookie实现
-- 代码生成工具: 基于GUI实现
-- 前端基础代码库: Jquery 2.1.1
-- 前端模板: Ace 1.3.3(Bootstrap) https://github.com/bopoda/ace
+- [Spring Framework 4.2.1.RELEASE](http://projects.spring.io/spring-framework)
+- [MyBatis 3.3.0](http://www.mybatis.org/mybatis-3/)
+- [Hibernate ORM 4.2.7.Final](http://hibernate.org/orm)
+- [ZooKeeper 3.4.7](https://zookeeper.apache.org/)
+- [Dubbo 2.5.3](https://github.com/alibaba/dubbo)
+- [Redis 2.8.12](https://redis.io)
+- [ActiveMQ 5.13.3](http://activemq.apache.org/)
+- [Netty 4.0.23.Final](http://netty.io/downloads.html)
+- [Quartz 2.2.1](http://www.quartz-scheduler.org/)
+- [Druid 1.0.15](https://github.com/alibaba/druid)
+- [Ace 1.3.3(Bootstrap)](https://github.com/bopoda/ace)
 
 ## 4.MyBatis-Spring-Boot
 [MyBatis-Spring-Boot](https://github.com/T5750/github-repositories/tree/master/MyBatis-Spring-Boot) 是Spring Boot 集成 MyBatis, 分页插件 PageHelper, 通用 Mapper
@@ -65,8 +46,6 @@
 - 数据: Mybatis
 - 数据库连接池: Hikari
 - 安全: Spring Serucity
-- 模板: Thymeleaf 3
-- 前端: Bootstrap  + Jquery
 - 爬虫: Jsoup
 - 容器: Undertow
 
@@ -75,7 +54,6 @@
 
 ## 7.any-chat
 [any-chat](https://github.com/T5750/github-repositories/tree/master/any-chat) 是Spring Boot + WebSocket 开发 WEB即时通信工具
-- [Spring Framework 4.3.8.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.3.RELEASE](https://projects.spring.io/spring-boot)
 - [Undertow](http://undertow.io/downloads.html)
 - [WebSocket](http://websocket.org)
@@ -120,32 +98,25 @@
 - Netty
 - hibernate-jpa
 - shiro
-- thymeleaf
 - Ehcache
 - swagger2
-- Bootstrap
 - Datatables，zTree
 - LayUI
 
 ## 14.x-ai
 [x-ai](https://github.com/T5750/github-repositories/tree/master/x-ai) 人工智能：人脸检测、图像识别、文字识别
-- [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
-- [MySQL 5.6](http://www.mysql.com/)
 
 ## 15.bootdo
 [bootdo](https://github.com/T5750/github-repositories/tree/master/bootdo) 是高效率，低封装，面向学习型，面向微服的开源Java EE开发框架。BootDo是在SpringBoot基础上搭建的一个Java基础开发平台，MyBatis为数据访问层，ApacheShiro为权限授权层，Ehcahe对常用数据进行缓存。
-- [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
-- [MySQL 5.6](http://www.mysql.com/)
 
 ## 16.ai
 [ai](https://github.com/T5750/github-repositories/tree/master/ai) 包含了百度AI 腾讯AI接口Java-API调用示例代码
+- [Spring Framework 4.2.0.RELEASE](http://projects.spring.io/spring-framework)
 
 ## 17.xxpay
 [xxpay](https://github.com/T5750/github-repositories/tree/master/xxpay) 聚合支付使用Java开发，包括spring-cloud、dubbo、spring-boot三个架构版本，已接入微信、支付宝等主流支付渠道，可直接用于生产环境。
-- [Spring Framework 4.3.10.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
-- [MySQL 5.6](http://www.mysql.com/)
 - [Spring Cloud Dalston.SR2](http://projects.spring.io/spring-cloud/)
 - [Dubbo 2.5.3](https://github.com/apache/incubator-dubbo)
