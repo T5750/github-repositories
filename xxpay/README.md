@@ -48,6 +48,7 @@ xxpay
 |xxpay-server | 2000 | 支付服务注册中心
 |xxpay-service | 3000 | 支付服务生产者
 |xxpay-web | 3010 | 支付服务消费者
+
 项目启动顺序：
 ```
 xxpay-server > xxpay-config > xxpay-service > xxpay-web > xxpay-gateway
@@ -58,6 +59,7 @@ xxpay-server > xxpay-config > xxpay-service > xxpay-web > xxpay-gateway
 |xxpay4dubbo-api |  | API接口定义
 |xxpay4dubbo-service | 20880 | 支付服务生产者
 |xxpay4dubbo-web | 3020 | 支付服务消费者
+
 项目启动顺序：
 ```
 xxpay4dubbo-service > xxpay4dubbo-web

@@ -18,6 +18,7 @@
 		<module>xxpay-mgr</module>
 		<module>xxpay-shop</module>
 		<module>xxpay4spring-boot</module>
+		<module>xxpay4spring-cloud</module>
 	</modules>
 
 	<properties>
