@@ -78,8 +78,9 @@ renren-security
 <br>
 
 ## Tips
-
+- Updated by [websites/git/renren-security-new](https://github.com/T5750/websites/tree/master/git/renren-security-new)
 - Commits on Oct 27, 2017
 
 ## Links
-- [renren-security-boot](https://github.com/renrenio/renren-security/tree/renren-security-boot)
+- [renren-security-boot](https://github.com/renrenio/renren-security-boot)
+- [renren-security](https://github.com/renrenio/renren-security)
