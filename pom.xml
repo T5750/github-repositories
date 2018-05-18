@@ -26,6 +26,7 @@
 		<module>bootdo</module>
 		<module>ai</module>
 		<module>xxpay</module>
+		<module>Guns</module>
 	</modules>
 
 </project>
