@@ -30,7 +30,6 @@
 - [ActiveMQ 5.13.3](http://activemq.apache.org/)
 - [Netty 4.0.23.Final](http://netty.io/downloads.html)
 - [Quartz 2.2.1](http://www.quartz-scheduler.org/)
-- [Druid 1.0.15](https://github.com/alibaba/druid)
 - [Ace 1.3.3(Bootstrap)](https://github.com/bopoda/ace)
 
 ## 4.MyBatis-Spring-Boot
@@ -80,7 +79,6 @@
 - [MyBatis 3.4.4](http://www.mybatis.org/mybatis-3/)
 - [Shiro 1.3.2](http://shiro.apache.org/download.html)
 - [Quartz 2.3.0](http://www.quartz-scheduler.org/)
-- [Druid 1.1.3](https://github.com/alibaba/druid)
 
 ## 12.renren-fastplus
 [renren-fastplus](https://github.com/T5750/github-repositories/tree/master/renren-fastplus) 是[renren-fast](https://github.com/T5750/github-repositories/tree/master/renren-fast)的企业版，针对企业的Java快速开发平台，引入部门管理、实现数据权限等功能。
@@ -93,7 +91,6 @@
 - [Netty 4.1.6.Final](http://netty.io/downloads.html)
 - [Spring Data JPA 1.5.6.RELEASE](http://projects.spring.io/spring-session/)
 - [Ehcache 2.5.0](http://www.ehcache.org/downloads/)
-- [Swagger2](https://swagger.io/)
 - [LayUI](http://www.layui.com/)
 
 ## 14.x-ai
@@ -113,3 +110,10 @@
 - [Spring Boot 1.5.6.RELEASE](https://projects.spring.io/spring-boot)
 - [Spring Cloud Dalston.SR2](http://projects.spring.io/spring-cloud/)
 - [Dubbo 2.5.3](https://github.com/apache/incubator-dubbo)
+
+## 18.Guns
+[Guns](https://github.com/T5750/github-repositories/tree/master/Guns) 基于SpringBoot,致力于做更简洁的后台管理系统,完美整合springmvc + shiro + mybatis-plus + beetl + flowable!Guns项目代码简洁,注释丰富,上手容易,同时Guns包含许多基础模块(用户管理,角色管理,部门管理,字典管理等10个模块),可以直接作为一个后台管理系统的脚手架!
+- [Spring Boot 1.5.9.RELEASE](https://projects.spring.io/spring-boot)
+- [MyBatis-Plus 2.1.8](https://github.com/baomidou/mybatis-plus)
+- [Shiro 1.4.0](http://shiro.apache.org/download.html)
+- [Ehcache 3.3.1](http://www.ehcache.org/downloads/)

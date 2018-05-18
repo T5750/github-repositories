@@ -4,7 +4,10 @@
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Spring Framework 4.3.13.RELEASE](http://projects.spring.io/spring-framework)
 - [Spring Boot 1.5.9.RELEASE](https://projects.spring.io/spring-boot)
+- [MyBatis-Plus 2.1.8](https://github.com/baomidou/mybatis-plus)
+- [Shiro 1.4.0](http://shiro.apache.org/download.html)
 - [MySQL 5.6](http://www.mysql.com/)
+- [Druid 1.1.6](https://github.com/alibaba/druid)
 - [Ehcache 3.3.1](http://www.ehcache.org/downloads/)
 - [Swagger2](https://swagger.io/)
 
@@ -30,6 +33,7 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 - Modified:
 	- `pom.xml`
 	- `application.yml`
+	- `logback-spring.xml`
 
 ## Links
 - [Guns](https://github.com/stylefeng/Guns)
