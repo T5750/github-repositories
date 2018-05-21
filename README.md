@@ -117,3 +117,4 @@
 - [MyBatis-Plus 2.1.8](https://github.com/baomidou/mybatis-plus)
 - [Shiro 1.4.0](http://shiro.apache.org/download.html)
 - [Ehcache 3.3.1](http://www.ehcache.org/downloads/)
+- [Flowable 6.2.0](https://www.flowable.org/downloads.html)

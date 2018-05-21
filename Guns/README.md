@@ -10,6 +10,7 @@
 - [Druid 1.1.6](https://github.com/alibaba/druid)
 - [Ehcache 3.3.1](http://www.ehcache.org/downloads/)
 - [Swagger2](https://swagger.io/)
+- [Flowable 6.2.0](https://www.flowable.org/downloads.html)
 
 ## Simple Tutorial
 ### 介绍
@@ -22,7 +23,12 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 ### 管理系统功能
 1.用户管理 2.角色管理 3.部门管理 4.菜单管理 5.字典管理 6.业务日志 7.登录日志 8.监控管理 9.通知管理 10.代码生成
 
+### guns-admin
+- [http://localhost:8080/](http://localhost:8080/)
 - 帐号：admin，密码：111111
+
+### guns-rest
+- [http://localhost/auth?userName=admin&password=admin](http://localhost/auth?userName=admin&password=admin)
 
 ## Results
 ![swagger](https://git.oschina.net/uploads/images/2017/0604/194616_36ed7fd6_551203.png)
