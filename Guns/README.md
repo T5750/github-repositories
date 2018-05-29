@@ -28,7 +28,27 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 - 帐号：admin，密码：111111
 
 ### guns-rest
-- [http://localhost/auth?userName=admin&password=admin](http://localhost/auth?userName=admin&password=admin)
+#### Step 1 
+[http://localhost/auth?userName=admin&password=admin](http://localhost/auth?userName=admin&password=admin)
+```
+{"randomKey": "5wnxh0","token": "eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiI1d254aDAiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTUyODE3OTkzNCwiaWF0IjoxNTI3NTc1MTM0fQ.lynv3oxpfIop2P4wsUj2E20BwAmjfHBpX7SaJ0aMU-qprPVL-5zE76U0GT0RG-_7HocOU43LNLNUgjO36u5jxw"}
+```
+
+#### Step 2
+`DecryptTest`
+```
+{"object":"eyJhZ2UiOjEyLCJuYW1lIjoiZmZmZiIsInRpcHMiOiJjb2RlIiwidXNlciI6InN0eWxlZmVuZyJ9","sign":"9f99c7c07fcc27053e62a61c5e7fa7fc"}
+```
+
+#### Step 3
+[http://localhost/hello](http://localhost/hello)
+- Postman
+- Authorization -> Bearer Token: ```eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiI1d254aDAiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTUyODE3OTkzNCwiaWF0IjoxNTI3NTc1MTM0fQ.lynv3oxpfIop2P4wsUj2E20BwAmjfHBpX7SaJ0aMU-qprPVL-5zE76U0GT0RG-_7HocOU43LNLNUgjO36u5jxw```
+- Body -> raw -> JSON(application/json)
+
+#### Step 4
+- Console: 签名校验成功!stylefeng
+- Postman: "请求成功!"
 
 ## Results
 ![swagger](https://git.oschina.net/uploads/images/2017/0604/194616_36ed7fd6_551203.png)
