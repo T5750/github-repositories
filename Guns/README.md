@@ -25,7 +25,7 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 
 ### guns-admin
 - [http://localhost:8080/](http://localhost:8080/)
-- 帐号：admin，密码：111111
+- 帐号：admin/test/boss/manager，密码：111111
 
 ### guns-rest
 #### Step 1 
@@ -62,4 +62,5 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 	- `logback-spring.xml`
 
 ## Links
-- [Guns](https://github.com/stylefeng/Guns)
+- [Guns Github](https://github.com/stylefeng/Guns)
+- [Guns Gitee](https://gitee.com/naan1993/guns)
