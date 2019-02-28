@@ -31,7 +31,6 @@ BootDo 提供了常用工具进行封装，包括日志工具、缓存工具、�
 9.	工作流引擎：实现业务工单流转、在线流程设计器。
 
 ## 技术选型
-
 1、后端
 * 核心框架：Spring Boot
 * 安全框架：Apache Shiro 
@@ -66,6 +65,8 @@ BootDo 提供了常用工具进行封装，包括日志工具、缓存工具、�
 	- ```resources/static/css/plugins```
 	- ```resources/public/diagram-viewer/js```
 - 帐号：admin，密码：111111
+
+![bootdo-index-min-min](https://www.wailian.work/images/2019/02/28/bootdo-index-min-min.png)
 
 ## Links
 - [bootdo](https://github.com/lcg0124/bootdo)

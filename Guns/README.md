@@ -51,7 +51,7 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 - Postman: "请求成功!"
 
 ## Results
-![swagger](https://git.oschina.net/uploads/images/2017/0604/194616_36ed7fd6_551203.png)
+![Guns-min-min](https://www.wailian.work/images/2019/02/28/Guns-min-min.png)
 ![security](https://git.oschina.net/uploads/images/2017/0526/103746_6b4129ed_551203.png)
 
 ## Tips

@@ -69,7 +69,7 @@ xxpay4dubbo-service > xxpay4dubbo-web
 
 ## Results
 shop项目统一扫码测试地址：[http://localhost:8081/goods/openQrPay.html](http://localhost:8081/goods/openQrPay.html)
-![扫码](http://docs.xxpay.org/uploads/201708/attach_14dc9a0ba98f579e.png)
+![xxpay-min-min](https://www.wailian.work/images/2019/02/28/xxpay-min-min.png)
 
 mgr项目地址：[http://localhost:8092](http://localhost:8092)
 ![mgr项目](http://docs.xxpay.org/uploads/201708/attach_14dc9a0765d9aeaa.png)

@@ -16,10 +16,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @SpringBootApplication
 @MapperScan(basePackages = "tk.mybatis.springboot.mapper")
-public class Application extends WebMvcConfigurerAdapter {
+public class MyBatisSpringBoot extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(MyBatisSpringBoot.class, args);
     }
 
     @RequestMapping("/")

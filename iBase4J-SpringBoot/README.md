@@ -6,7 +6,6 @@ iBase4J的SpringBoot版本
 [![JDK 1.8](https://img.shields.io/badge/JDK-1.8-green.svg "JDK 1.8")]()
 
 ## iBase4J项目简介
-
 - iBase4J是Java语言的分布式系统架构。 使用Spring整合开源框架。
 - 使用Maven对项目进行模块化管理，提高项目的易开发性、扩展性。
 - 系统包括4个子系统：系统管理Service、系统管理Web、业务Service、业务Web。
@@ -52,13 +51,10 @@ iBase4J的SpringBoot版本
     	 clean package -P product -f pom-sys-web-server.xml
 
 ## UI效果图
-
-![登录](http://git.oschina.net/iBase4J/iBase4J/raw/master/img/login.png "登录")
-![主页](http://git.oschina.net/iBase4J/iBase4J/raw/master/img/index.png "主页")
-![接口](http://git.oschina.net/iBase4J/iBase4J/raw/master/img/swagger.png "接口")
+![iBase4J-SpringBoot-min-min](https://www.wailian.work/images/2019/02/28/iBase4J-SpringBoot-min-min.png)
+![iBase4J-SpringBoot-swagger-min-min](https://www.wailian.work/images/2019/02/28/iBase4J-SpringBoot-swagger-min-min.png)
 
 ## Tips
-
 - Commits on Dec 21, 2017
 
 ## Links

@@ -13,7 +13,7 @@
 - 人脸检测功能需要修改自己应用的相关参数具体代码在```com\xai\baiduai\restapi\common\BDContants.java```中，修改3个参数，参数获取 [https://login.bce.baidu.com/](https://login.bce.baidu.com/) 创建人脸模块的应用，即可获取。
 
  **人脸检测网页截图:** 
-![人脸检测网页截图](https://gitee.com/uploads/images/2018/0203/143236_e011c6fd_131538.jpeg "页面截图.jpg")
+![x-ai-min-min](https://www.wailian.work/images/2019/02/28/x-ai-min-min.jpg)
  **人脸检测数据截图:** 
 ![人脸检测数据截图](https://gitee.com/uploads/images/2018/0203/143257_aa347c5a_131538.jpeg "管理页面.jpg")
 

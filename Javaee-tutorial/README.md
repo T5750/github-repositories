@@ -17,7 +17,7 @@
 3. 使用Intellij Idea导入项目,之后配置项目启动方式,使用刚才下载好的Tomcat
 4. 运行
 
-![image](http://img.my.csdn.net/uploads/201704/14/1492181839_6548.png)
+![Javaee-tutorial-admin-min](https://www.wailian.work/images/2019/02/28/Javaee-tutorial-admin-min.png)
 
 ## 使用简介
 权限介绍,运行网站初始时会存在四个权限角色:
@@ -37,17 +37,14 @@
 4. 课程信息
 5. 学生管理
 
-![image](http://img.my.csdn.net/uploads/201704/14/1492181356_1380.png)
+![Javaee-tutorial-login-min-min](https://www.wailian.work/images/2019/02/28/Javaee-tutorial-login-min-min.png)
 
 ### 2. 图书管理功能
 1. 教师上传图书
 2. 秘书审批图书
 3. 查看已审核图书
 
-![image](http://img.my.csdn.net/uploads/201704/14/1492181328_8251.png)
-
-## 数据库表结构
-![image](http://7xi78h.com1.z0.glb.clouddn.com/db.png)
+![Javaee-tutorial-teacher-min-min](https://www.wailian.work/images/2019/02/28/Javaee-tutorial-teacher-min-min.png)
 
 ## 原文传送门
 [Javaee-tutorial](https://github.com/C0de8ug/Javaee-tutorial)

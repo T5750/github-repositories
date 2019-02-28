@@ -18,7 +18,7 @@
 4. 部署项目，启动tomcat服务器
 5. 运行效果
 
-![result](http://img.my.csdn.net/uploads/201704/15/1492249636_8358.png)
+![SpringMVC-Mybatis-Shiro-redis-0.2-min-min](https://www.wailian.work/images/2019/02/28/SpringMVC-Mybatis-Shiro-redis-0.2-min-min.png)
 
 ### Accounts
 管理员帐号：admin

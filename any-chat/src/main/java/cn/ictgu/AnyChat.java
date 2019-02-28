@@ -9,10 +9,10 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
  */
 @SpringBootApplication
 @EnableWebSocket
-public class Application {
+public class AnyChat {
 
   public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
+    SpringApplication.run(AnyChat.class, args);
   }
 
 }
