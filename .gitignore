@@ -6,3 +6,8 @@ target
 .idea
 *.iml
 .idea*.zip
+*.log*
+
+alipay-sdk-java*.jar
+aliyun-java-sdk-*.jar
+hessian-4.0.51.jar
