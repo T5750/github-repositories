@@ -19,5 +19,5 @@
 ## Tips
 - Commits on 2018-04-08
 
-## Links
+## References
 - [人工智能](https://gitee.com/xshuai/ai)

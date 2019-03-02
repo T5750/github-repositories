@@ -33,5 +33,5 @@ mvn spring-boot:run
 ### Tips
 - Commits on Sep 1, 2017
 
-### 原文传送门
-[any-chat](https://github.com/ChinaSilence/any-chat)
+### References
+- [any-chat](https://github.com/ChinaSilence/any-chat)

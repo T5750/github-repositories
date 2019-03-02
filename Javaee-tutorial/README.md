@@ -46,11 +46,11 @@
 
 ![Javaee-tutorial-teacher-min-min](https://www.wailian.work/images/2019/02/28/Javaee-tutorial-teacher-min-min.png)
 
-## 原文传送门
-[Javaee-tutorial](https://github.com/C0de8ug/Javaee-tutorial)
-
-## 变更
+## Tips
 在原项目的基础上
 > 1. 由Java 8 改为 Java 6，LocalDate 改为 Date，DBCP2 2.1 改为 DBCP 1.4
 > 2. Tomcat 7.0.77
 > 3. 移除未引用的js和css等
+
+## References
+- [Javaee-tutorial](https://github.com/C0de8ug/Javaee-tutorial)

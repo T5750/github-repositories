@@ -52,7 +52,7 @@ pagehelper.params=count=countSql
 
 ![MyBatis-Spring-Boot-min](https://www.wailian.work/images/2019/02/28/MyBatis-Spring-Boot-min.png)
 
-### Links
-[MyBatis-Spring-Boot](https://github.com/abel533/MyBatis-Spring-Boot)
-[Mapper](https://github.com/abel533/Mapper)
-[Mybatis-PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)
+### References
+- [MyBatis-Spring-Boot](https://github.com/abel533/MyBatis-Spring-Boot)
+- [Mapper](https://github.com/abel533/Mapper)
+- [Mybatis-PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)

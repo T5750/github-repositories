@@ -104,5 +104,5 @@ renren-fast
     - userId: ```http://localhost:8080/renren-fast/app/userId```
     - notToken: ```http://localhost:8080/renren-fast/app/notToken```
 
-## Links
+## References
 - [renren-fast](https://gitee.com/babaio/renren-fast)

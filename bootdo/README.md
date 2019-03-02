@@ -68,5 +68,5 @@ BootDo 提供了常用工具进行封装，包括日志工具、缓存工具、�
 
 ![bootdo-index-min-min](https://www.wailian.work/images/2019/02/28/bootdo-index-min-min.png)
 
-## Links
+## References
 - [bootdo](https://github.com/lcg0124/bootdo)

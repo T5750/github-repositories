@@ -90,9 +90,9 @@ smart
 ![](http://img.blog.csdn.net/20170106172915803?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTQ2NjM1MDY2NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 ![](http://img.blog.csdn.net/20170106172926694?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYTQ2NjM1MDY2NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-## 原文传送门
-[Smart](https://github.com/a466350665/smart)
-
-## 变更
+## Tips
 在原项目的基础上
 > 1. 由JDK 1.8 改为 JDK 1.6，增加java.beans.Transient.java
+
+## References
+- [Smart](https://github.com/a466350665/smart)

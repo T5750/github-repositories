@@ -80,7 +80,7 @@ mgr项目地址：[http://localhost:8092](http://localhost:8092)
 	- `pom.xml`
 	- `application.properties`
 
-## Links
+## References
 - [xxpay-master](https://github.com/jmdhappy/xxpay-master)
 - [XxPay官网](http://www.xxpay.org)
 - [XxPay文档库](http://docs.xxpay.org)

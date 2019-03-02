@@ -57,7 +57,7 @@ iBase4J的SpringBoot版本
 ## Tips
 - Commits on Dec 21, 2017
 
-## Links
+## References
 - [iBase4J-SpringBoot](https://github.com/iBase4J/iBase4J-SpringBoot)
 - [iBase4J github](https://github.com/iBase4J/iBase4J)
 - [iBase4J gitee](https://gitee.com/iBase4J/iBase4J)

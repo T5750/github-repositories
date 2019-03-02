@@ -40,5 +40,5 @@ Spring Boot 结合网络爬虫开发的完整视频网站，演示地址：http:
 - Commits on Oct 19, 2017
 - Commits on Jun 28, 2017
 
-### 原文传送门
-[any-video](https://github.com/ChinaSilence/any-video)
+### References
+- [any-video](https://github.com/ChinaSilence/any-video)

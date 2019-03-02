@@ -25,9 +25,9 @@
 密码：sojson
 ps:定时任务的sql会把密码改变为sojson.com
 
-### 原文传送门
-[SpringMVC-Mybatis-Shiro-redis-0.2](https://github.com/baichengzhou/SpringMVC-Mybatis-Shiro-redis-0.2)
-
-### 变更
+### Tips
 在原项目的基础上
 > 1. 由JDK 1.7 改为 JDK 1.6，将shiro-freemarker-tags-0.1.jar反编译至com\jagregory\shiro\freemarker中
+
+### References
+- [SpringMVC-Mybatis-Shiro-redis-0.2](https://github.com/baichengzhou/SpringMVC-Mybatis-Shiro-redis-0.2)

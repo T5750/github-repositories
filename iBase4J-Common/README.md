@@ -10,5 +10,5 @@ iBase4J核心jar包
 
 - Commits on Dec 26, 2017
 
-### Links
-[iBase4J-Common](https://github.com/iBase4J/iBase4J-Common)
+### References
+- [iBase4J-Common](https://github.com/iBase4J/iBase4J-Common)

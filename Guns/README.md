@@ -61,6 +61,6 @@ Guns v3.1新增集成工作流引擎flowable6.2.0!
 	- `application.yml`
 	- `logback-spring.xml`
 
-## Links
+## References
 - [Guns Github](https://github.com/stylefeng/Guns)
 - [Guns Gitee](https://gitee.com/naan1993/guns)

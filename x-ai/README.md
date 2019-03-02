@@ -29,6 +29,6 @@
 	- 帐号：admin，密码：123456
 	- Menus, Permissions
 
-## Links
+## References
 - [x-ai](https://gitee.com/xshuai/x-ai)
 - [x-ai项目说明文档](https://x-ai.mydoc.io/)

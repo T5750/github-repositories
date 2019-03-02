@@ -43,5 +43,5 @@ Eclipse or IntelliJ IDEA中启动, 找到```com.zzg.mybatis.generator.MainUI```�
 - Commits on Jun 17, 2017
 - [mybatis-generator-gui/src/main/lib/](https://github.com/astarring/mybatis-generator-gui/tree/master/src/main/lib)
 
-### 原文传送门
-[mybatis-generator-gui](https://github.com/astarring/mybatis-generator-gui)
+### References
+- [mybatis-generator-gui](https://github.com/astarring/mybatis-generator-gui)
